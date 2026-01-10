@@ -2,5 +2,126 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Practice Simulator – Crypto For Seniors</
+  <title>Practice Simulator – Crypto For Seniors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: #0b0b0b;
+      color: #e5e5e5;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .topbar {
+      padding: 20px;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mode {
+      color: #6aff6a;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+    .panel {
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+    h1, h2 {
+      letter-spacing: 0.08em;
+    }
+    p {
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    .button {
+      padding: 12px 18px;
+      border: 1px solid #666;
+      background: transparent;
+      color: #e5e5e5;
+      border-radius: 6px;
+      cursor: not-allowed;
+    }
+    .locked {
+      opacity: 0.5;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 40px;
+      color: #aaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div><strong>CFS</strong> Practice Simulator</div>
+    <div class="mode">🟢 PRACTICE MODE</div>
+  </div>
+
+  <div class="container">
+
+    <h1>Practice Simulator</h1>
+
+    <div class="panel">
+      <h2>Market View</h2>
+      <p>
+        This area will display real market prices and simple charts.
+        Prices are real, but no real money is used.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2>Practice Wallet</h2>
+      <p>
+        Simulated balance: <strong>Practice Funds</strong><br>
+        This is not real money.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2>Practice Actions</h2>
+      <p>
+        Actions here are simulated and safe.
+      </p>
+      <button class="button">Buy (Practice)</button>
+      <button class="button">Sell (Practice)</button>
+    </div>
+
+    <div class="panel">
+      <h2>🤖 AI Helper</h2>
+      <p>
+        This assistant explains what you see in plain language.
+      </p>
+      <p>
+        It can explain charts, buttons, and terms — but it will never
+        tell you what to buy or sell.
+      </p>
+      <p>
+        You are always in control. Learning comes first.
+      </p>
+    </div>
+
+    <div class="panel locked">
+      <h2>🔒 Realtime Mode (Locked)</h2>
+      <p>
+        Realtime Mode uses real wallets and real funds.
+        It is locked by default and requires deliberate action to enable.
+      </p>
+    </div>
+
+    <a class="back" href="../../">
+      ← Back to Crypto For Seniors
+    </a>
+
+  </div>
+</body>
+</html>
 
