@@ -11,86 +11,101 @@
       color: #e5e5e5;
       font-family: Arial, Helvetica, sans-serif;
     }
+
     .topbar {
-      padding: 16px 20px;
-      border-bottom: 1px solid #333;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 18px 24px;
+      border-bottom: 1px solid #333;
+    }
+
+    .mode {
+      color: #4da6ff;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+    }
+
+    .back {
+      color: #aaa;
+      text-decoration: none;
       font-size: 0.9rem;
     }
-    .badge {
-      color: #7aa2ff;
-      font-weight: bold;
-      letter-spacing: 0.12em;
+
+    .back:hover {
+      text-decoration: underline;
     }
+
     .container {
-      max-width: 1000px;
+      max-width: 900px;
       margin: auto;
-      padding: 30px 20px;
-    }
-    h1 {
+      padding: 50px 20px;
       text-align: center;
-      letter-spacing: 0.1em;
     }
+
     .panel {
       border: 1px solid #333;
       border-radius: 8px;
-      padding: 24px;
+      padding: 28px;
       margin-top: 30px;
-    }
-    p {
       line-height: 1.6;
-      opacity: 0.9;
+      opacity: 0.95;
     }
-    ul {
-      margin: 10px 0 0 18px;
-    }
-    li {
-      margin: 8px 0;
-    }
-    a.back {
-      display: inline-block;
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #aaa;
-      text-decoration: none;
-    }
-    a.back:hover {
-      text-decoration: underline;
+
+    h2 {
+      margin-top: 40px;
+      letter-spacing: 0.06em;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Top Bar -->
   <div class="topbar">
-    <div class="badge" id="aiBadge">AI ASSISTED HELP</div>
-    <div>
-      Language:
-      <select id="langSelect" onchange="setLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="fr">Français</option>
-        <option value="es">Español</option>
-        <option value="hr">Hrvatski</option>
-        <option value="zh-cn">中文 (简体)</option>
-        <option value="zh-tw">中文 (繁體)</option>
-      </select>
-    </div>
+    <div class="mode">AI ASSISTED HELP</div>
+    <a class="back" href="../">← Back to Crypto For Seniors</a>
   </div>
 
   <div class="container">
-
-    <h1 id="aiTitle">AI Assisted Help</h1>
+    <h1>AI Assisted Help</h1>
 
     <div class="panel">
-      <p id="aiIntro">
-        This AI is designed to help explain cryptocurrency concepts in simple,
-        plain language. It is educational only.
-      </p>
+      This project uses AI as an <strong>educational assistant only</strong>.
+      <br><br>
+      AI is designed to explain cryptocurrency concepts in
+      clear, plain language and help reduce confusion for beginners.
     </div>
 
+    <h2>What AI Does</h2>
     <div class="panel">
-      <p id="aiCanTitle"><strong>What AI can do:</strong></p>
-      <
+      AI can:
+      <br><br>
+      • Explain terminology and concepts  
+      • Describe how processes work  
+      • Help translate or simplify information  
+      • Provide context after actions occur
+    </div>
+
+    <h2>What AI Does NOT Do</h2>
+    <div class="panel">
+      AI will never:
+      <br><br>
+      • Make trading decisions  
+      • Move funds or connect to wallets  
+      • Predict prices or outcomes  
+      • Provide financial advice  
+      • Override user choice
+    </div>
+
+    <h2>Transparency & Safety</h2>
+    <div class="panel">
+      AI features are optional and informational.
+      <br><br>
+      Users remain in full control at all times.
+      Education always comes before risk.
+    </div>
+  </div>
+
+</body>
+</html>
