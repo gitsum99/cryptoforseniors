@@ -90,46 +90,46 @@
   </div>
 
   <!-- Language Script -->
-  <script>
-    const translations = {
-      en: {
-        title: "Crypto For Seniors",
-        tagline: "Simple explanations. Real experiments. No hype. No pressure."
-      },
-      fr: {
-        title: "Crypto pour les aînés",
-        tagline: "Explications simples. Expériences réelles. Sans hype. Sans pression."
-      },
-      es: {
-        title: "Cripto para Personas Mayores",
-        tagline: "Explicaciones simples. Experimentos reales. Sin hype. Sin presión."
-      },
-      hr: {
-        title: "Kripto za Starije",
-        tagline: "Jednostavna objašnjenja. Stvarni primjeri. Bez pritiska."
-      },
-      "zh-cn": {
-        title: "老年人加密货币",
-        tagline: "简单解释。真实示例。没有炒作。没有压力。"
-      },
-      "zh-tw": {
-        title: "長者加密貨幣",
-        tagline: "簡單說明。真實實驗。沒有炒作。沒有壓力。"
-      }
-    };
-
-    function setLanguage(lang) {
-      localStorage.setItem("cfs-lang", lang);
-      document.getElementById("siteTitle").innerText = translations[lang].title;
-      document.getElementById("siteTagline").innerText = translations[lang].tagline;
+<script>
+  const translations = {
+    en: {
+      title: "Crypto For Seniors",
+      tagline: "Simple explanations. Real experiments.<br>No hype. No pressure."
+    },
+    fr: {
+      title: "Crypto pour les aînés",
+      tagline: "Explications simples. Expériences réelles.<br>Sans hype. Sans pression."
+    },
+    es: {
+      title: "Cripto para Personas Mayores",
+      tagline: "Explicaciones simples. Experimentos reales.<br>Sin hype. Sin presión."
+    },
+    hr: {
+      title: "Kripto za Starije",
+      tagline: "Jednostavna objašnjenja. Stvarni primjeri.<br>Bez pritiska."
+    },
+    "zh-cn": {
+      title: "老年人加密货币",
+      tagline: "简单解释。真实示例。<br>没有炒作。没有压力。"
+    },
+    "zh-tw": {
+      title: "長者加密貨幣",
+      tagline: "簡單說明。真實實驗。<br>沒有炒作。沒有壓力。"
     }
+  };
 
-    (function initLang() {
-      const lang = localStorage.getItem("cfs-lang") || "en";
-      document.getElementById("langSelect").value = lang;
-      setLanguage(lang);
-    })();
-  </script>
+  function setLanguage(lang) {
+    localStorage.setItem("cfs-lang", lang);
+    document.getElementById("siteTitle").innerText = translations[lang].title;
+    document.getElementById("siteTagline").innerHTML = translations[lang].tagline;
+  }
 
+  (function initLang() {
+    const lang = localStorage.getItem("cfs-lang") || "en";
+    const select = document.getElementById("langSelect");
+    if (select) select.value = lang;
+    setLanguage(lang);
+  })();
+</script>
 </body>
 </html>
