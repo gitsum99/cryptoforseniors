@@ -10,30 +10,48 @@
       background: #0b0b0b;
       color: #e5e5e5;
       font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
+    }
+    .topbar {
+      padding: 16px 20px;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    .badge {
+      color: #7aa2ff;
+      font-weight: bold;
+      letter-spacing: 0.12em;
     }
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 30px 20px;
     }
     h1 {
-      font-size: 2.5rem;
+      text-align: center;
       letter-spacing: 0.1em;
     }
-    h2 {
-      margin-top: 40px;
-      letter-spacing: 0.08em;
+    .panel {
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 24px;
+      margin-top: 30px;
     }
     p {
-      max-width: 720px;
-      margin: 20px auto;
-      opacity: 0.9;
       line-height: 1.6;
+      opacity: 0.9;
+    }
+    ul {
+      margin: 10px 0 0 18px;
+    }
+    li {
+      margin: 8px 0;
     }
     a.back {
       display: inline-block;
-      margin-top: 60px;
+      margin-top: 20px;
       font-size: 0.9rem;
       color: #aaa;
       text-decoration: none;
@@ -43,45 +61,36 @@
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>AI Assisted Help</h1>
 
-    <p>
-      Crypto For Seniors is being built with AI-assisted tools designed to
-      explain cryptocurrency concepts in clear, plain language.
-    </p>
-
-    <h2>What AI Does</h2>
-    <p>
-      AI tools help explain terms, concepts, and processes.
-      They assist with learning, translation, and understanding —
-      especially for beginners.
-    </p>
-
-    <h2>What AI Does Not Do</h2>
-    <p>
-      AI does not make trading decisions.
-      AI does not provide financial advice.
-      AI does not predict prices or outcomes.
-    </p>
-
-    <h2>Why AI Is Used</h2>
-    <p>
-      AI allows explanations to be clearer, more accessible, and adaptable
-      to different learning styles and languages.
-      It is used as a support tool, not a replacement for personal judgment.
-    </p>
-
-    <h2>Transparency & Safety</h2>
-    <p>
-      AI features are optional, educational, and designed with safety in mind.
-      Users remain in full control of their decisions at all times.
-    </p>
-
-    <a class="back" href="../">
-      ← Back to Crypto For Seniors
-    </a>
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="badge" id="aiBadge">AI ASSISTED HELP</div>
+    <div>
+      Language:
+      <select id="langSelect" onchange="setLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="hr">Hrvatski</option>
+        <option value="zh-cn">中文 (简体)</option>
+        <option value="zh-tw">中文 (繁體)</option>
+      </select>
+    </div>
   </div>
-</body>
-</html>
+
+  <div class="container">
+
+    <h1 id="aiTitle">AI Assisted Help</h1>
+
+    <div class="panel">
+      <p id="aiIntro">
+        This AI is designed to help explain cryptocurrency concepts in simple,
+        plain language. It is educational only.
+      </p>
+    </div>
+
+    <div class="panel">
+      <p id="aiCanTitle"><strong>What AI can do:</strong></p>
+      <
