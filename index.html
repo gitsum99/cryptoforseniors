@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Crypto For Seniors</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
@@ -65,15 +66,20 @@
       font-size: 0.8rem;
       opacity: 0.6;
     }
+
+    .lang {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 
 <body>
-<body>
 
   <!-- Language Selector -->
-  <div style="text-align:right; padding:10px 20px; font-size:0.9rem;">
-    Language:
+  <div class="lang">
     <select id="langSelect" onchange="setLanguage(this.value)">
       <option value="en">English</option>
       <option value="fr">Français</option>
@@ -88,13 +94,9 @@
 
   <div class="container">
 
-  <div class="container">
-
     <h1 id="siteTitle">Crypto For Seniors</h1>
 
-
     <div class="tagline" id="siteTagline">
-
       Simple explanations. Real experiments.<br>
       No hype. No pressure.
     </div>
@@ -107,17 +109,13 @@
     </div>
 
     <div class="info" id="siteInfo">
-
-     <strong>Project Roadmap</strong>
-<br><br>
-• Learn safely using Practice Mode  
-• Understand risks and security fundamentals  
-• Use AI for explanations — never decisions  
-• Explore experimental ideas clearly labeled as such  
-<br><br>
-This project grows slowly and deliberately.
-Nothing is rushed. Nothing is hidden.
-
+      <strong>Project Roadmap</strong><br><br>
+      • Learn safely using Practice Mode<br>
+      • Understand risks and security fundamentals<br>
+      • Use AI for explanations — never decisions<br>
+      • Explore experimental ideas clearly labeled as such<br><br>
+      This project grows slowly and deliberately.<br>
+      Nothing is rushed. Nothing is hidden.
     </div>
 
     <div class="footer">
@@ -125,17 +123,65 @@ Nothing is rushed. Nothing is hidden.
     </div>
 
   </div>
-<script>
-const translations = {
-  en: {
-    title: "Crypto For Seniors",
-    tagline: "Simple explanations. Real experiments.<br>No hype. No pressure.",
-    info: "<strong>Project Roadmap</strong><br><br>• Learn safely using Practice Mode<br>• Understand risks and security fundamentals<br>• Use AI for explanations — never decisions<br>• Explore experimental ideas clearly labeled as such<br><br>This project grows slowly and deliberately. Nothing is rushed. Nothing is hidden."
-  },
-  fr: {
-    title: "Crypto pour les aînés",
-    tagline: "Explications simples. Expériences réelles.<br>Sans hype. Sans pression.",
-    info: "<strong>Feuille de route du projet</strong><br><br>• Apprendre en toute sécurité avec le mode pratique<br>• Comprendre les risques et la sécurité<br>• Utiliser l’IA pour expliquer — jamais pour décider<br>• Explorer des idées expérimentales clairement identifiées<br><br>Ce projet évolue lentement et volontairement
- 
+
+  <!-- Language Script -->
+  <script>
+    const translations = {
+      en: {
+        title: "Crypto For Seniors",
+        tagline: "Simple explanations. Real experiments.<br>No hype. No pressure.",
+        info: "<strong>Project Roadmap</strong><br><br>• Learn safely using Practice Mode<br>• Understand risks and security fundamentals<br>• Use AI for explanations — never decisions<br>• Explore experimental ideas clearly labeled as such<br><br>This project grows slowly and deliberately.<br>Nothing is rushed. Nothing is hidden."
+      },
+      fr: {
+        title: "Crypto pour les aînés",
+        tagline: "Explications simples. Expériences réelles.<br>Sans hype. Sans pression.",
+        info: "<strong>Feuille de route</strong><br><br>• Apprendre en sécurité avec le mode pratique<br>• Comprendre les risques et la sécurité<br>• Utiliser l’IA pour expliquer — jamais pour décider<br>• Explorer des idées expérimentales clairement indiquées<br><br>Ce projet évolue lentement et volontairement."
+      },
+      es: {
+        title: "Cripto para Personas Mayores",
+        tagline: "Explicaciones simples. Experimentos reales.<br>Sin hype. Sin presión.",
+        info: "<strong>Hoja de ruta</strong><br><br>• Aprender de forma segura en modo práctica<br>• Comprender riesgos y seguridad<br>• Usar IA para explicar — nunca para decidir<br>• Explorar ideas experimentales claramente marcadas<br><br>Este proyecto avanza lentamente y con intención."
+      },
+      hr: {
+        title: "Kripto za Starije",
+        tagline: "Jednostavna objašnjenja. Stvarni primjeri.<br>Bez pritiska.",
+        info: "<strong>Plan projekta</strong><br><br>• Sigurno učenje u načinu vježbe<br>• Razumijevanje rizika i sigurnosti<br>• AI za objašnjenja — nikad za odluke<br>• Eksperimentalne ideje jasno označene<br><br>Projekt raste polako i promišljeno."
+      },
+      ja: {
+        title: "高齢者のための暗号資産",
+        tagline: "わかりやすい説明。実践的な体験。<br>誇張なし。プレッシャーなし。",
+        info: "<strong>プロジェクト計画</strong><br><br>• 練習モードで安全に学習<br>• リスクとセキュリティを理解<br>• AIは説明のみ、判断はしない<br>• 実験的な内容は明確に表示<br><br>このプロジェクトは慎重に成長します。"
+      },
+      tl: {
+        title: "Crypto para sa mga Nakatatanda",
+        tagline: "Simpleng paliwanag. Tunay na pagsubok.<br>Walang hype. Walang pressure.",
+        info: "<strong>Plano ng Proyekto</strong><br><br>• Ligtas na pag-aaral sa Practice Mode<br>• Pag-unawa sa panganib at seguridad<br>• AI para sa paliwanag lamang<br>• Malinaw na eksperimento<br><br>Dahan-dahang umuunlad ang proyektong ito."
+      },
+      "zh-cn": {
+        title: "老年人加密货币",
+        tagline: "简单解释。真实示例。<br>没有炒作。没有压力。",
+        info: "<strong>项目路线图</strong><br><br>• 在练习模式中安全学习<br>• 理解风险和安全性<br>• AI 仅用于解释，不做决定<br>• 实验内容明确标注<br><br>该项目稳步、谨慎地发展。"
+      },
+      "zh-tw": {
+        title: "長者加密貨幣",
+        tagline: "簡單說明。真實實驗。<br>沒有炒作。沒有壓力。",
+        info: "<strong>專案路線圖</strong><br><br>• 在練習模式中安全學習<br>• 理解風險與安全<br>• AI 僅用於說明<br>• 清楚標示實驗內容<br><br>此專案穩健且有計畫地成長。"
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem("cfs-lang", lang);
+      document.getElementById("siteTitle").innerText = translations[lang].title;
+      document.getElementById("siteTagline").innerHTML = translations[lang].tagline;
+      document.getElementById("siteInfo").innerHTML = translations[lang].info;
+    }
+
+    (function initLanguage() {
+      const lang = localStorage.getItem("cfs-lang") || "en";
+      document.getElementById("langSelect").value = lang;
+      setLanguage(lang);
+    })();
+  </script>
+
 </body>
 </html>
