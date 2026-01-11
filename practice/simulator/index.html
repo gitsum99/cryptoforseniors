@@ -11,53 +11,51 @@
       color: #e5e5e5;
       font-family: Arial, Helvetica, sans-serif;
     }
+
     .topbar {
-      padding: 16px 20px;
-      border-bottom: 1px solid #333;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.9rem;
+      padding: 18px 24px;
+      border-bottom: 1px solid #333;
     }
+
     .mode {
       color: #6aff6a;
       font-weight: bold;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
     }
+
     .container {
-      max-width: 1000px;
+      max-width: 900px;
       margin: auto;
-      padding: 30px 20px;
+      padding: 40px 20px;
     }
+
     h1 {
-      text-align: center;
       letter-spacing: 0.1em;
     }
-    .panel {
-      border: 1px solid #333;
-      border-radius: 8px;
-      padding: 24px;
-      margin-top: 30px;
-    }
+
     p {
       line-height: 1.6;
       opacity: 0.9;
     }
-    .sim-box {
-      margin-top: 20px;
-      padding: 20px;
-      border: 1px dashed #555;
+
+    .panel {
+      border: 1px solid #333;
       border-radius: 8px;
-      text-align: center;
-      opacity: 0.85;
+      padding: 25px;
+      margin-top: 30px;
     }
+
     a.back {
       display: inline-block;
-      margin-top: 15px;
+      margin-top: 50px;
       font-size: 0.9rem;
       color: #aaa;
       text-decoration: none;
     }
+
     a.back:hover {
       text-decoration: underline;
     }
@@ -68,81 +66,53 @@
 
   <!-- Top Bar -->
   <div class="topbar">
-    <div class="mode" id="modeLabel">PRACTICE MODE</div>
-
-    <div>
-      Language:
-      <select id="langSelect" onchange="setLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="fr">Français</option>
-        <option value="es">Español</option>
-        <option value="hr">Hrvatski</option>
-        <option value="zh-cn">中文 (简体)</option>
-        <option value="zh-tw">中文 (繁體)</option>
-      </select>
+    <div class="mode">PRACTICE MODE</div>
+    <div style="font-size:0.85rem; opacity:0.7;">
+      Simulated • No Real Funds
     </div>
   </div>
 
   <div class="container">
 
-    <h1 id="simTitle">Practice Simulator</h1>
+    <h1>Practice Simulator</h1>
+
+    <p>
+      Practice Mode lets you learn crypto using simulated funds.
+      No real money is used. Mistakes are safe and unlimited.
+    </p>
 
     <div class="panel">
-      <p id="simIntro">
-        This simulator allows you to explore how crypto works using simulated funds only.
-        No real money is involved.
+      <h2>What You Can Do Here</h2>
+      <p>
+        This simulator is designed to help you understand how crypto systems
+        work without any financial risk.
       </p>
-
-      <p id="simRules">
-        Prices and timing may reflect real markets, but all actions are safe.
-        Mistakes are unlimited and carry no financial risk.
+      <p>
+        Prices, timing, and examples may reflect real markets, but all actions
+        are simulated.
       </p>
-
-      <div class="sim-box" id="simPlaceholder">
-        Simulator interface will appear here in a future update.
-      </div>
     </div>
 
     <div class="panel">
-      <p id="simAI">
-        AI can explain what you are seeing and why things behave the way they do.
-        AI never trades, never predicts prices, and never uses real funds.
+      <h2>What You Cannot Do Here</h2>
+      <p>
+        This simulator cannot connect to real wallets, move real funds,
+        or place real trades.
+      </p>
+      <p>
+        There is no upgrade to live mode from this page.
       </p>
     </div>
 
-    <!-- Navigation -->
-    <div style="margin-top:40px; text-align:center;">
-      <a class="back" href="../">
-        ← Back to Practice
-      </a>
-      <br><br>
-      <a class="back" href="../../">
-        ← Back to Crypto For Seniors
-      </a>
-    </div>
+    <a class="back" href="../">
+      ← Back to Practice Overview
+    </a>
+    <br>
+    <a class="back" href="../../">
+      ← Back to Crypto For Seniors
+    </a>
 
   </div>
 
-  <!-- Language Script -->
-  <script>
-    const translations = {
-      en: {
-        mode: "PRACTICE MODE",
-        title: "Practice Simulator",
-        intro:
-          "This simulator allows you to explore how crypto works using simulated funds only. No real money is involved.",
-        rules:
-          "Prices and timing may reflect real markets, but all actions are safe. Mistakes are unlimited and carry no financial risk.",
-        ai:
-          "AI can explain what you are seeing and why things behave the way they do. AI never trades, never predicts prices, and never uses real funds."
-      },
-      fr: {
-        mode: "MODE PRATIQUE",
-        title: "Simulateur de pratique",
-        intro:
-          "Ce simulateur vous permet d’explorer le fonctionnement des cryptos avec des fonds simulés uniquement.",
-        rules:
-          "Les prix peuvent refléter les marchés réels, mais toutes les actions sont sans risque.",
-        ai:
-          "L’IA explique ce que vous voyez et pourquoi. Elle ne trade jamais et n’utilise pas d’argent réel."
-      },
+</body>
+</html>
