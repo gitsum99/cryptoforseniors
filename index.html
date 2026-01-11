@@ -69,12 +69,32 @@
 </head>
 
 <body>
+<body>
+
+  <!-- Language Selector -->
+  <div style="text-align:right; padding:10px 20px; font-size:0.9rem;">
+    Language:
+    <select id="langSelect" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="hr">Hrvatski</option>
+      <option value="ja">日本語</option>
+      <option value="tl">Filipino</option>
+      <option value="zh-cn">中文 (简体)</option>
+      <option value="zh-tw">中文 (繁體)</option>
+    </select>
+  </div>
 
   <div class="container">
 
-    <h1>Crypto For Seniors</h1>
+  <div class="container">
 
-    <div class="tagline">
+    <h1 id="siteTitle">Crypto For Seniors</h1>
+
+
+    <div class="tagline" id="siteTagline">
+
       Simple explanations. Real experiments.<br>
       No hype. No pressure.
     </div>
@@ -86,7 +106,8 @@
       <a class="button" href="troil/">Experimental Project: TROIL</a>
     </div>
 
-    <div class="info">
+    <div class="info" id="siteInfo">
+
      <strong>Project Roadmap</strong>
 <br><br>
 • Learn safely using Practice Mode  
@@ -104,6 +125,17 @@ Nothing is rushed. Nothing is hidden.
     </div>
 
   </div>
+<script>
+const translations = {
+  en: {
+    title: "Crypto For Seniors",
+    tagline: "Simple explanations. Real experiments.<br>No hype. No pressure.",
+    info: "<strong>Project Roadmap</strong><br><br>• Learn safely using Practice Mode<br>• Understand risks and security fundamentals<br>• Use AI for explanations — never decisions<br>• Explore experimental ideas clearly labeled as such<br><br>This project grows slowly and deliberately. Nothing is rushed. Nothing is hidden."
+  },
+  fr: {
+    title: "Crypto pour les aînés",
+    tagline: "Explications simples. Expériences réelles.<br>Sans hype. Sans pression.",
+    info: "<strong>Feuille de route du projet</strong><br><br>• Apprendre en toute sécurité avec le mode pratique<br>• Comprendre les risques et la sécurité<br>• Utiliser l’IA pour expliquer — jamais pour décider<br>• Explorer des idées expérimentales clairement identifiées<br><br>Ce projet évolue lentement et volontairement
 
 </body>
 </html>
