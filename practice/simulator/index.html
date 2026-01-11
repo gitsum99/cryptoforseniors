@@ -12,116 +12,88 @@
       font-family: Arial, Helvetica, sans-serif;
     }
     .topbar {
-      padding: 20px;
+      padding: 16px 20px;
       border-bottom: 1px solid #333;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 0.9rem;
     }
     .mode {
       color: #6aff6a;
       font-weight: bold;
+      letter-spacing: 0.08em;
     }
     .container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: auto;
       padding: 30px 20px;
+    }
+    h1 {
+      text-align: center;
+      letter-spacing: 0.1em;
     }
     .panel {
       border: 1px solid #333;
       border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 25px;
-    }
-    h1, h2 {
-      letter-spacing: 0.08em;
+      padding: 24px;
+      margin-top: 30px;
     }
     p {
-      opacity: 0.9;
       line-height: 1.6;
+      opacity: 0.9;
     }
-    .button {
-      padding: 12px 18px;
-      border: 1px solid #666;
-      background: transparent;
-      color: #e5e5e5;
-      border-radius: 6px;
-      cursor: not-allowed;
+    .sim-box {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px dashed #555;
+      border-radius: 8px;
+      text-align: center;
+      opacity: 0.85;
     }
-    .locked {
-      opacity: 0.5;
-    }
-    .back {
-      display: inline-block;
+    a.back {
+      display: block;
       margin-top: 40px;
+      text-align: center;
+      font-size: 0.9rem;
       color: #aaa;
       text-decoration: none;
     }
+    a.back:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
+
 <body>
 
+  <!-- Top Bar -->
   <div class="topbar">
-    <div><strong>CFS</strong> Practice Simulator</div>
-    <div class="mode">🟢 PRACTICE MODE</div>
+    <div class="mode" id="modeLabel">PRACTICE MODE</div>
+
+    <div>
+      Language:
+      <select id="langSelect" onchange="setLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="hr">Hrvatski</option>
+        <option value="zh-cn">中文 (简体)</option>
+        <option value="zh-tw">中文 (繁體)</option>
+      </select>
+    </div>
   </div>
 
   <div class="container">
 
-    <h1>Practice Simulator</h1>
+    <h1 id="simTitle">Practice Simulator</h1>
 
     <div class="panel">
-      <h2>Market View</h2>
-      <p>
-        This area will display real market prices and simple charts.
-        Prices are real, but no real money is used.
+      <p id="simIntro">
+        This simulator allows you to explore how crypto trading works using
+        simulated funds only. No real money is involved.
       </p>
-    </div>
 
-    <div class="panel">
-      <h2>Practice Wallet</h2>
-      <p>
-        Simulated balance: <strong>Practice Funds</strong><br>
-        This is not real money.
-      </p>
-    </div>
-
-    <div class="panel">
-      <h2>Practice Actions</h2>
-      <p>
-        Actions here are simulated and safe.
-      </p>
-      <button class="button">Buy (Practice)</button>
-      <button class="button">Sell (Practice)</button>
-    </div>
-
-    <div class="panel">
-      <h2>🤖 AI Helper</h2>
-      <p>
-        This assistant explains what you see in plain language.
-      </p>
-      <p>
-        It can explain charts, buttons, and terms — but it will never
-        tell you what to buy or sell.
-      </p>
-      <p>
-        You are always in control. Learning comes first.
-      </p>
-    </div>
-
-    <div class="panel locked">
-      <h2>🔒 Realtime Mode (Locked)</h2>
-      <p>
-        Realtime Mode uses real wallets and real funds.
-        It is locked by default and requires deliberate action to enable.
-      </p>
-    </div>
-
-    <a class="back" href="../../">
-      ← Back to Crypto For Seniors
-    </a>
-
-  </div>
-</body>
-</html>
-
+      <p id="simRules">
+        Prices and timing may reflect real markets, but all actions are safe.
+        Mistakes
