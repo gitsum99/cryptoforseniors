@@ -33,4 +33,98 @@
       padding: 25px;
       margin-top: 30px;
     }
-    a
+    a.back {
+      display: inline-block;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-decoration: none;
+    }
+    a.back:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Language Selector -->
+  <div style="text-align:right; padding:10px 20px; font-size:0.9rem;">
+    Language:
+    <select id="langSelect" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="hr">Hrvatski</option>
+      <option value="zh-cn">中文 (简体)</option>
+      <option value="zh-tw">中文 (繁體)</option>
+    </select>
+  </div>
+
+  <div class="container">
+
+    <h1 id="practiceTitle">Practice Mode</h1>
+
+    <div class="panel">
+      <p id="practiceText">
+        Practice Mode lets you learn crypto using simulated funds.
+        No real money is used. Mistakes are safe and unlimited.
+      </p>
+    </div>
+
+    <a class="back" href="../">
+      ← Back to Crypto For Seniors
+    </a>
+
+  </div>
+
+  <!-- Language Script -->
+  <script>
+    const translations = {
+      en: {
+        title: "Practice Mode",
+        text:
+          "Practice Mode lets you learn crypto using simulated funds. No real money is used. Mistakes are safe and unlimited."
+      },
+      fr: {
+        title: "Mode Pratique",
+        text:
+          "Le mode pratique vous permet d’apprendre la crypto avec des fonds simulés. Aucun argent réel n’est utilisé."
+      },
+      es: {
+        title: "Modo de Práctica",
+        text:
+          "El modo de práctica te permite aprender cripto usando fondos simulados. No se usa dinero real."
+      },
+      hr: {
+        title: "Način Vježbanja",
+        text:
+          "Način vježbanja omogućuje učenje kripta pomoću simuliranih sredstava. Nema stvarnog novca."
+      },
+      "zh-cn": {
+        title: "练习模式",
+        text:
+          "练习模式允许您使用模拟资金学习加密货币。不使用真实资金。"
+      },
+      "zh-tw": {
+        title: "練習模式",
+        text:
+          "練習模式讓您使用模擬資金學習加密貨幣。不使用真實資金。"
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem("cfs-lang", lang);
+      document.getElementById("practiceTitle").innerText = translations[lang].title;
+      document.getElementById("practiceText").innerText = translations[lang].text;
+    }
+
+    (function initLang() {
+      const lang = localStorage.getItem("cfs-lang") || "en";
+      document.getElementById("langSelect").value = lang;
+      setLanguage(lang);
+    })();
+  </script>
+
+</body>
+</html>
