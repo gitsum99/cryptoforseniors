@@ -24,94 +24,71 @@
       color: #6aff6a;
       font-weight: bold;
       letter-spacing: 0.08em;
+      font-size: 0.95rem;
+    }
+
+    .back {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-left: 20px;
+    }
+
+    .back:hover {
+      text-decoration: underline;
     }
 
     .container {
       max-width: 900px;
       margin: auto;
-      padding: 40px 20px;
-    }
-
-    h1 {
-      letter-spacing: 0.1em;
-    }
-
-    p {
-      line-height: 1.6;
-      opacity: 0.9;
+      padding: 50px 20px;
+      text-align: center;
     }
 
     .panel {
       border: 1px solid #333;
       border-radius: 8px;
-      padding: 25px;
+      padding: 30px;
       margin-top: 30px;
+      line-height: 1.6;
+      opacity: 0.95;
     }
 
-    a.back {
-      display: inline-block;
-      margin-top: 50px;
+    .note {
+      margin-top: 25px;
       font-size: 0.9rem;
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    a.back:hover {
-      text-decoration: underline;
+      opacity: 0.75;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Top Bar -->
   <div class="topbar">
     <div class="mode">PRACTICE MODE</div>
-    <div style="font-size:0.85rem; opacity:0.7;">
-      Simulated • No Real Funds
+    <div>
+      <a class="back" href="../">← Back to Practice</a>
+      <a class="back" href="../../">← Back to Crypto For Seniors</a>
     </div>
   </div>
 
   <div class="container">
-
     <h1>Practice Simulator</h1>
 
-    <p>
-      Practice Mode lets you learn crypto using simulated funds.
-      No real money is used. Mistakes are safe and unlimited.
-    </p>
-
     <div class="panel">
-      <h2>What You Can Do Here</h2>
-      <p>
-        This simulator is designed to help you understand how crypto systems
-        work without any financial risk.
-      </p>
-      <p>
-        Prices, timing, and examples may reflect real markets, but all actions
-        are simulated.
-      </p>
+      This simulator is a <strong>learning environment only</strong>.
+      <br><br>
+      All balances, actions, and outcomes are simulated.
+      No real funds, wallets, or transactions are involved.
+      <br><br>
+      The purpose of this simulator is to help you understand
+      how crypto concepts work without any financial risk.
     </div>
 
-    <div class="panel">
-      <h2>What You Cannot Do Here</h2>
-      <p>
-        This simulator cannot connect to real wallets, move real funds,
-        or place real trades.
-      </p>
-      <p>
-        There is no upgrade to live mode from this page.
-      </p>
+    <div class="note">
+      Interactive features may be added later.
+      Nothing on this page can move real money.
     </div>
-
-    <a class="back" href="../">
-      ← Back to Practice Overview
-    </a>
-    <br>
-    <a class="back" href="../../">
-      ← Back to Crypto For Seniors
-    </a>
-
   </div>
 
 </body>
