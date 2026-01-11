@@ -52,9 +52,8 @@
       opacity: 0.85;
     }
     a.back {
-      display: block;
-      margin-top: 40px;
-      text-align: center;
+      display: inline-block;
+      margin-top: 15px;
       font-size: 0.9rem;
       color: #aaa;
       text-decoration: none;
@@ -106,4 +105,44 @@
 
     <div class="panel">
       <p id="simAI">
-        AI can explain what you
+        AI can explain what you are seeing and why things behave the way they do.
+        AI never trades, never predicts prices, and never uses real funds.
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <div style="margin-top:40px; text-align:center;">
+      <a class="back" href="../">
+        ← Back to Practice
+      </a>
+      <br><br>
+      <a class="back" href="../../">
+        ← Back to Crypto For Seniors
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Language Script -->
+  <script>
+    const translations = {
+      en: {
+        mode: "PRACTICE MODE",
+        title: "Practice Simulator",
+        intro:
+          "This simulator allows you to explore how crypto works using simulated funds only. No real money is involved.",
+        rules:
+          "Prices and timing may reflect real markets, but all actions are safe. Mistakes are unlimited and carry no financial risk.",
+        ai:
+          "AI can explain what you are seeing and why things behave the way they do. AI never trades, never predicts prices, and never uses real funds."
+      },
+      fr: {
+        mode: "MODE PRATIQUE",
+        title: "Simulateur de pratique",
+        intro:
+          "Ce simulateur vous permet d’explorer le fonctionnement des cryptos avec des fonds simulés uniquement.",
+        rules:
+          "Les prix peuvent refléter les marchés réels, mais toutes les actions sont sans risque.",
+        ai:
+          "L’IA explique ce que vous voyez et pourquoi. Elle ne trade jamais et n’utilise pas d’argent réel."
+      },
