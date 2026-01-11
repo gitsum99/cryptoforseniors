@@ -91,37 +91,92 @@
 
   <!-- Language Script -->
 <script>
+ <script>
   const translations = {
     en: {
       title: "Crypto For Seniors",
-      tagline: "Simple explanations. Real experiments.<br>No hype. No pressure."
+      tagline: "Simple explanations. Real experiments.<br>No hype. No pressure.",
+      buttons: {
+        practice: "Practice First (Recommended)",
+        security: "Security First",
+        ai: "AI Assisted Help",
+        troil: "Experimental Project: TROIL"
+      }
     },
     fr: {
       title: "Crypto pour les aînés",
-      tagline: "Explications simples. Expériences réelles.<br>Sans hype. Sans pression."
+      tagline: "Explications simples. Expériences réelles.<br>Sans hype. Sans pression.",
+      buttons: {
+        practice: "Pratique d’abord (recommandé)",
+        security: "Sécurité d’abord",
+        ai: "Aide assistée par IA",
+        troil: "Projet expérimental : TROIL"
+      }
     },
     es: {
       title: "Cripto para Personas Mayores",
-      tagline: "Explicaciones simples. Experimentos reales.<br>Sin hype. Sin presión."
+      tagline: "Explicaciones simples. Experimentos reales.<br>Sin hype. Sin presión.",
+      buttons: {
+        practice: "Práctica primero (recomendado)",
+        security: "Seguridad primero",
+        ai: "Ayuda asistida por IA",
+        troil: "Proyecto experimental: TROIL"
+      }
     },
     hr: {
       title: "Kripto za Starije",
-      tagline: "Jednostavna objašnjenja. Stvarni primjeri.<br>Bez pritiska."
+      tagline: "Jednostavna objašnjenja. Stvarni primjeri.<br>Bez pritiska.",
+      buttons: {
+        practice: "Vježbanje prvo (preporučeno)",
+        security: "Sigurnost na prvom mjestu",
+        ai: "AI pomoć",
+        troil: "Eksperimentalni projekt: TROIL"
+      }
     },
     "zh-cn": {
       title: "老年人加密货币",
-      tagline: "简单解释。真实示例。<br>没有炒作。没有压力。"
+      tagline: "简单解释。真实示例。<br>没有炒作。没有压力。",
+      buttons: {
+        practice: "先练习（推荐）",
+        security: "安全第一",
+        ai: "AI 辅助帮助",
+        troil: "实验项目：TROIL"
+      }
     },
     "zh-tw": {
       title: "長者加密貨幣",
-      tagline: "簡單說明。真實實驗。<br>沒有炒作。沒有壓力。"
+      tagline: "簡單說明。真實實驗。<br>沒有炒作。沒有壓力。",
+      buttons: {
+        practice: "先練習（建議）",
+        security: "安全第一",
+        ai: "AI 輔助說明",
+        troil: "實驗專案：TROIL"
+      }
     }
   };
 
-  function setLanguage(lang) {
-    localStorage.setItem("cfs-lang", lang);
-    document.getElementById("siteTitle").innerText = translations[lang].title;
-    document.getElementById("siteTagline").innerHTML = translations[lang].tagline;
+ function setLanguage(lang) {
+  localStorage.setItem("cfs-lang", lang);
+
+  document.getElementById("siteTitle").innerText =
+    translations[lang].title;
+
+  document.getElementById("siteTagline").innerHTML =
+    translations[lang].tagline;
+
+  document.getElementById("btnPractice").innerText =
+    translations[lang].buttons.practice;
+
+  document.getElementById("btnSecurity").innerText =
+    translations[lang].buttons.security;
+
+  document.getElementById("btnAI").innerText =
+    translations[lang].buttons.ai;
+
+  document.getElementById("btnTroil").innerText =
+    translations[lang].buttons.troil;
+}
+
   }
 
   (function initLang() {
