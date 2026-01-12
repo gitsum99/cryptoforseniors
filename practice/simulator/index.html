@@ -1,185 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Flash Loan Practice Simulator – Crypto For Seniors</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>Flash Loan Practice Simulator – Crypto For Seniors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      background: #0b0b0b;
-      color: #e6e6e6;
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px 60px;
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #333;
-      font-size: 0.9rem;
-    }
-
-    select {
-      background: #111;
-      color: #e6e6e6;
-      border: 1px solid #444;
-      padding: 6px;
-      border-radius: 4px;
-    }
-
-    h1 {
-      color: #4da3ff;
-      margin-top: 30px;
-    }
-
-    .banner {
-      background: #1e1e1e;
-      border: 2px solid #ffb84d;
-      padding: 14px;
-      margin: 30px auto;
-      max-width: 720px;
-      font-weight: bold;
-    }
-
-    p {
-      max-width: 720px;
-      margin: 18px auto;
-      line-height: 1.6;
-    }
-
-    input {
-      padding: 12px;
-      font-size: 1.1rem;
-      width: 220px;
-      text-align: center;
-      border-radius: 6px;
-      border: none;
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 14px 28px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      background: #4da3ff;
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .result {
-      margin-top: 40px;
-      padding: 20px;
-      border: 1px solid #333;
-      background: #141414;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-      display: none;
-    }
-
-    .nav {
-      margin-top: 50px;
-    }
-
-    .nav a {
-      color: #4da3ff;
-      font-weight: bold;
-      text-decoration: none;
-    }
-  </style>
+<style>
+body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif;text-align:center}
+.container{max-width:900px;margin:auto;padding:30px 20px}
+.topbar{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:15px}
+select{background:#111;color:#fff;border:1px solid #444;padding:6px;border-radius:4px}
+h1{color:#4da3ff;margin-top:30px}
+.banner{border:2px solid #ffb84d;background:#1e1e1e;padding:14px;margin:25px auto;font-weight:bold}
+p{max-width:720px;margin:18px auto;line-height:1.6}
+input{padding:12px;font-size:1.1rem;width:220px;text-align:center;border-radius:6px;border:none}
+button{margin-top:20px;padding:14px 28px;font-size:1.1rem;font-weight:bold;background:#4da3ff;color:#000;border:none;border-radius:6px;cursor:pointer}
+.result{display:none;margin-top:35px;padding:20px;border:1px solid #333;background:#141414;max-width:720px;margin-left:auto;margin-right:auto}
+a{color:#4da3ff;text-decoration:none;font-weight:bold}
+</style>
 </head>
 
 <body>
 <div class="container">
 
-  <div class="topbar">
-    <a href="../" id="backTop" style="color:#aaa;text-decoration:none;"></a>
-    <select id="langSelect"></select>
-  </div>
+<div class="topbar">
+  <a id="backTop" href="../"></a>
+  <select id="langSelect"></select>
+</div>
 
-  <h1 id="title"></h1>
+<h1 id="title"></h1>
+<div id="banner" class="banner"></div>
 
-  <div class="banner" id="banner"></div>
+<p id="intro"></p>
+<p id="safety"></p>
+<p id="prompt"></p>
 
-  <p id="intro"></p>
-  <p id="safety"></p>
-  <p id="prompt"></p>
+<input id="loanAmount" type="number" placeholder="10000"><br>
+<button id="simulateBtn">Simulate</button>
 
-  <input id="loanAmount" type="number" placeholder="10000" />
-  <br />
-  <button onclick="runSimulation()" id="simulateBtn"></button>
+<div id="resultBox" class="result"></div>
 
-  <div id="resultBox" class="result"></div>
-
-  <div class="nav">
-    <a href="../" id="backBottom"></a>
-  </div>
+<p style="margin-top:40px"><a id="backBottom" href="../"></a></p>
 
 </div>
 
 <script>
-const TEXT = {
-  en:{n:"English",title:"Flash Loan Practice Simulator",banner:"PRACTICE ONLY — Fake funds, real prices, no wallets, no transactions",intro:"This simulator demonstrates how flash loans work using simulated balances and real market prices.",safety:"Nothing here can access your wallet or move funds.",prompt:"Enter a simulated loan amount (USDC):",simulate:"Simulate",back:"← Back to Practice Overview",loading:"Loading real market price…",invalid:"Please enter a valid simulated loan amount.",fail:"Unable to fetch market data.",result:"Simulation Result",market:"Market price",loan:"Simulated loan",cost:"Estimated costs",gain:"Estimated gain",profit:"Result: Profit",loss:"Result: Loss",explain:"This shows why fees, spreads, and timing matter."},
-  fr:{n:"Français",title:"Simulateur de Prêt Flash",banner:"MODE PRATIQUE — Fonds simulés, prix réels",intro:"Ce simulateur explique le fonctionnement des prêts flash.",safety:"Aucun accès au portefeuille.",prompt:"Entrez un montant simulé (USDC) :",simulate:"Simuler",back:"← Retour au mode pratique",loading:"Chargement du prix…",invalid:"Montant invalide.",fail:"Impossible de charger les données.",result:"Résultat",market:"Prix du marché",loan:"Prêt simulé",cost:"Coûts estimés",gain:"Gain estimé",profit:"Résultat : Profit",loss:"Résultat : Perte",explain:"Les frais influencent le résultat."},
-  es:{n:"Español",title:"Simulador de Préstamo Flash",banner:"MODO PRÁCTICA — Fondos simulados",intro:"Este simulador muestra cómo funcionan los préstamos flash.",safety:"No hay acceso a billeteras.",prompt:"Ingrese un monto simulado (USDC):",simulate:"Simular",back:"← Volver al modo práctica",loading:"Cargando precio…",invalid:"Monto inválido.",fail:"Error al obtener datos.",result:"Resultado",market:"Precio de mercado",loan:"Préstamo simulado",cost:"Costos estimados",gain:"Ganancia estimada",profit:"Resultado: Ganancia",loss:"Resultado: Pérdida",explain:"Las comisiones importan."},
-  hr:{n:"Hrvatski",title:"Simulator Flash Zajma",banner:"NAČIN VJEŽBE — Simulirana sredstva",intro:"Simulator objašnjava flash zajmove.",safety:"Bez pristupa novčaniku.",prompt:"Unesite simulirani iznos (USDC):",simulate:"Simuliraj",back:"← Povratak",loading:"Učitavanje cijene…",invalid:"Nevažeći iznos.",fail:"Greška u dohvaćanju.",result:"Rezultat",market:"Tržišna cijena",loan:"Simulirani zajam",cost:"Troškovi",gain:"Dobit",profit:"Rezultat: Dobit",loss:"Rezultat: Gubitak",explain:"Naknade utječu na ishod."},
-  ja:{n:"日本語",title:"フラッシュローン練習シミュレーター",banner:"練習専用 — 模擬資金",intro:"フラッシュローンの仕組みを学びます。",safety:"ウォレットにはアクセスしません。",prompt:"模擬金額を入力（USDC）：",simulate:"シミュレーション",back:"← 戻る",loading:"価格取得中…",invalid:"無効な金額です。",fail:"データ取得失敗。",result:"結果",market:"市場価格",loan:"模擬ローン",cost:"コスト",gain:"利益",profit:"結果：利益",loss:"結果：損失",explain:"手数料が重要です。"},
-  tl:{n:"Filipino",title:"Practice Flash Loan Simulator",banner:"PRACTICE MODE — Simulated funds",intro:"Ipinapakita kung paano gumagana ang flash loans.",safety:"Walang access sa wallet.",prompt:"Ilagay ang simulated na halaga (USDC):",simulate:"Simulate",back:"← Bumalik",loading:"Kinukuha ang presyo…",invalid:"Hindi wastong halaga.",fail:"Hindi makuha ang data.",result:"Resulta",market:"Presyo",loan:"Simulated loan",cost:"Gastos",gain:"Kita",profit:"Resulta: Kita",loss:"Resulta: Lugi",explain:"Mahalaga ang bayarin."},
-  "zh-cn":{n:"中文 (简体)",title:"闪电贷练习模拟器",banner:"练习模式 — 模拟资金",intro:"本模拟器用于学习闪电贷原理。",safety:"不会访问钱包。",prompt:"输入模拟金额（USDC）：",simulate:"模拟",back:"← 返回",loading:"加载价格…",invalid:"金额无效。",fail:"无法获取数据。",result:"结果",market:"市场价格",loan:"模拟贷款",cost:"成本",gain:"收益",profit:"结果：盈利",loss:"结果：亏损",explain:"手续费很重要。"},
-  "zh-tw":{n:"中文 (繁體)",title:"閃電貸練習模擬器",banner:"練習模式 — 模擬資金",intro:"此模擬器用於學習閃電貸。",safety:"不會存取錢包。",prompt:"輸入模擬金額（USDC）：",simulate:"模擬",back:"← 返回",loading:"載入價格…",invalid:"金額無效。",fail:"無法取得資料。",result:"結果",market:"市場價格",loan:"模擬貸款",cost:"成本",gain:"收益",profit:"結果：盈利",loss:"結果：虧損",explain:"手續費很重要。"}
-};
-
-const select=document.getElementById("langSelect");
-Object.keys(TEXT).forEach(k=>{
-  const o=document.createElement("option");
-  o.value=k;o.textContent=TEXT[k].n;select.appendChild(o);
-});
-
-function applyLang(lang){
-  const t=TEXT[lang]||TEXT.en;
-  localStorage.setItem("cfs-lang",lang);
-  title.innerText=t.title;
-  banner.innerText=t.banner;
-  intro.innerText=t.intro;
-  safety.innerText=t.safety;
-  prompt.innerText=t.prompt;
-  simulateBtn.innerText=t.simulate;
-  backTop.innerText=t.back;
-  backBottom.innerText=t.back;
-}
-
-select.onchange=()=>applyLang(select.value);
-
-const startLang=localStorage.getItem("cfs-lang")||"en";
-select.value=startLang;
-applyLang(startLang);
-
-async function runSimulation(){
-  const loan=parseFloat(loanAmount.value);
-  if(isNaN(loan)||loan<=0){alert(TEXT[select.value].invalid);return;}
-  resultBox.style.display="block";
-  resultBox.innerText=TEXT[select.value].loading;
-  try{
-    const r=await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
-    const p=(await r.json()).ethereum.usd;
-    const cost=loan*0.003,gain=loan*0.0025,net=gain-cost;
-    const t=TEXT[select.value];
-    resultBox.innerHTML=`<h3>${t.result}</h3>
-    <p><b>${t.market}:</b> ETH ≈ $${p}</p>
-    <p><b>${t.loan}:</b> $${loan.toLocaleString()}</p>
-    <p><b>${t.cost}:</b> $${cost.toFixed(2)}</p>
-    <p><b>${t.gain}:</b> $${gain.toFixed(2)}</p>
-    <p style="color:${net>0?'#7CFC98':'#ff7c7c'};"><b>${net>0?t.profit:t.loss}:</b> $${Math.abs(net).toFixed(2)}</p>
-    <p>${t.explain}</p>`;
+const TEXT={
+en:{n:"English",title:"Flash Loan Practice Simulator",banner:"PRACTICE ONLY — Fake funds, real prices, no wallets, no transactions",intro:"This simulator demonstrates how flash loans work using simulated balances.",safety:"Nothing here can access your wallet or move funds.",prompt:"Enter a simulated loan amount (USDC):",simulate:"Simulate",back:"← Back to Practice Overview",loading:"Loading price…",invalid:"Enter a valid amount.",fail:"Market data unavailable.",result:"Simulation Result",market:"Market price",loan:"Simulated loan",cost:"Estimated costs",gain:"Estimated gain",profit:"Result: Profit",loss:"Result: Loss",explain:"Fees and spreads decide outcomes."},
+fr:{n:"Français",title:"Simulateur de Prêt Flash",banner:"MODE PRATIQUE — Fonds simulés",intro:"Ce simulateur explique les prêts flash.",safety:"Aucun accès au portefeuille.",prompt:"Entrez un montant simulé (USDC):",simulate:"Simuler",back:"← Retour",loading:"Chargement…",invalid:"Montant invalide.",fail:"Données indisponibles.",result:"Résultat",market:"Prix",loan:"Prêt simulé",cost:"Coûts",gain:"Gain",profit:"Résultat : Profit",loss:"Résultat : Perte",explain:"Les frais sont déterminants."},
+es:{n:"Español",title:"Simulador de Préstamo Flash",banner:"MODO PRÁCTICA — Fondos simulados",intro:"Aprenda cómo funcionan los préstamos flash.",safety:"Sin acceso a billeteras.",prompt:"Ingrese monto simulado (USDC):",simulate:"Simular",back:"← Volver",loading:"Cargando…",invalid:"Monto inválido.",fail:"Error de datos.",result:"Resultado",market:"Precio",loan:"Préstamo",cost:"Costos",gain:"Ganancia",profit:"Resultado: Ganancia",loss:"Resultado: Pérdida",explain:"Las comisiones importan."},
+hr:{n:"Hrvatski",title:"Flash Zajam Simulator",banner:"NAČIN VJEŽBE — Simulirana sredstva",intro:"Učenje flash zajmova.",safety:"Bez pristupa novčaniku.",prompt:"Unesite iznos (USDC):",simulate:"Simuliraj",back:"← Povratak",loading:"Učitavanje…",invalid:"Neispravan iznos.",fail:"Podaci nedostupni.",result:"Rezultat",market:"Cijena",loan:"Zajam",cost:"Trošak",gain:"Dobit",profit:"Rezultat: Dobit",loss:"Rezultat: Gubitak",explain:"Naknade su ključne."},
+ja:{n:"日本語",title:"フラッシュローン練習",banner:"練習専用 — 模擬資金",
