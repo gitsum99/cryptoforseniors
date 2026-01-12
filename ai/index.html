@@ -4,108 +4,101 @@
   <meta charset="UTF-8">
   <title>AI Assisted Help – Crypto For Seniors</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
       background: #0b0b0b;
       color: #e5e5e5;
       font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 24px;
-      border-bottom: 1px solid #333;
-    }
-
-    .mode {
-      color: #4da6ff;
-      font-weight: bold;
-      letter-spacing: 0.08em;
-      font-size: 0.95rem;
-    }
-
-    .back {
-      color: #aaa;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-
-    .back:hover {
-      text-decoration: underline;
+      text-align: center;
     }
 
     .container {
       max-width: 900px;
       margin: auto;
-      padding: 50px 20px;
-      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      letter-spacing: 0.1em;
     }
 
     .panel {
       border: 1px solid #333;
       border-radius: 8px;
-      padding: 28px;
+      padding: 25px;
       margin-top: 30px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
       line-height: 1.6;
-      opacity: 0.95;
+      opacity: 0.9;
     }
 
-    h2 {
-      margin-top: 40px;
-      letter-spacing: 0.06em;
+    .ai-banner {
+      margin: 30px auto;
+      padding: 14px;
+      max-width: 600px;
+      border: 2px solid #4da6ff;
+      color: #4da6ff;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    a.back:hover {
+      text-decoration: underline;
+    }
+
+    .lang {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="topbar">
-    <div class="mode">AI ASSISTED HELP</div>
-    <a class="back" href="../">← Back to Crypto For Seniors</a>
+  <!-- Language Selector -->
+  <div class="lang">
+    <select id="langSelect" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="hr">Hrvatski</option>
+      <option value="ja">日本語</option>
+      <option value="tl">Filipino</option>
+      <option value="zh-cn">中文 (简体)</option>
+      <option value="zh-tw">中文 (繁體)</option>
+    </select>
   </div>
 
   <div class="container">
-    <h1>AI Assisted Help</h1>
 
-    <div class="panel">
-      This project uses AI as an <strong>educational assistant only</strong>.
-      <br><br>
-      AI is designed to explain cryptocurrency concepts in
-      clear, plain language and help reduce confusion for beginners.
+    <h1 id="pageTitle">AI Assisted Help</h1>
+
+    <div class="ai-banner">
+      AI EXPLAINS — AI NEVER DECIDES
     </div>
 
-    <h2>What AI Does</h2>
-    <div class="panel">
-      AI can:
-      <br><br>
-      • Explain terminology and concepts  
-      • Describe how processes work  
-      • Help translate or simplify information  
-      • Provide context after actions occur
+    <div class="panel" id="pageDesc">
+      Crypto For Seniors uses AI-assisted tools to explain cryptocurrency
+      concepts in clear, plain language. AI is used for learning and
+      understanding — never for trading decisions.
     </div>
 
-    <h2>What AI Does NOT Do</h2>
-    <div class="panel">
-      AI will never:
-      <br><br>
-      • Make trading decisions  
-      • Move funds or connect to wallets  
-      • Predict prices or outcomes  
-      • Provide financial advice  
-      • Override user choice
-    </div>
-
-    <h2>Transparency & Safety</h2>
-    <div class="panel">
-      AI features are optional and informational.
-      <br><br>
-      Users remain in full control at all times.
-      Education always comes before risk.
-    </div>
-  </div>
-
-</body>
-</html>
+    <div class="panel" id="pageList">
+      <strong>What AI Can Do</strong><br><br>
+      • Explain terms and concepts<br>
+      • Explain risks in
