@@ -1,99 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Crypto For Seniors</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Crypto For Seniors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body{
-  margin:0;
-  background:#0b0b0b;
-  color:#e6e6e6;
-  font-family:Arial,Helvetica,sans-serif;
-  text-align:center
-}
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:30px 20px
-}
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #333;
-  padding-bottom:12px
-}
-select{
-  background:#111;
-  color:#fff;
-  border:1px solid #444;
-  padding:6px;
-  border-radius:4px
-}
-h1{
-  color:#4da3ff;
-  margin-top:40px
-}
-p{
-  max-width:720px;
-  margin:20px auto;
-  line-height:1.6
-}
-a.button{
-  display:block;
-  margin:12px auto;
-  padding:14px 28px;
-  background:#4da3ff;
-  color:#000;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:bold;
-  max-width:420px
-}
-.notice{
-  font-size:0.9rem;
-  color:#aaa;
-  margin-top:30px
-}
-</style>
+  <style>
+    body {
+      margin: 0;
+      background: #0b0b0b;
+      color: #e5e5e5;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .nav a {
+      display: block;
+      padding: 16px;
+      background: #1f6fff;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      border-radius: 6px;
+    }
+
+    .nav a:hover {
+      background: #3a7dff;
+    }
+
+    .lang-select {
+      margin-bottom: 30px;
+    }
+
+    select {
+      padding: 6px;
+      font-size: 1rem;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
 
-<div class="topbar">
-  <span></span>
-  <select id="lang"></select>
-</div>
+<main>
+  <div class="lang-select">
+    <label for="lang">Language:</label>
+    <select id="lang">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+    </select>
+  </div>
 
-<h1 id="title"></h1>
-<p id="desc"></p>
+  <h1 data-i18n="title">Crypto For Seniors</h1>
 
-<a class="button" id="btnPractice" href="/cryptoforseniors/practice/"></a>
-<a class="button" id="btnSecurity" href="/cryptoforseniors/security/"></a>
-<a class="button" id="btnAI" href="/cryptoforseniors/ai/"></a>
-<a class="button" id="btnLaunchpad" href="/cryptoforseniors/launchpad/"></a>
-<a class="button" id="btnTroil" href="/cryptoforseniors/troil/"></a>
+  <nav class="nav">
+    <a href="./practice/" data-i18n="practice">Practice First</a>
+    <a href="./security/" data-i18n="security">Security First</a>
+    <a href="./ai/" data-i18n="ai">AI Assisted Help</a>
+    <a href="./launchpad/" data-i18n="launchpad">Meme Coins & NFTs (Education)</a>
+    <a href="./troil/" data-i18n="troil">Experimental: TROIL</a>
+  </nav>
 
-<p class="notice" id="footerNote"></p>
-
-</div>
+  <footer>
+    <p data-i18n="footer">
+      Education only. No financial advice. No wallets. No live trading.
+    </p>
+  </footer>
+</main>
 
 <script>
-const TEXT={
-en:{
-  n:"English",
-  title:"Crypto For Seniors",
-  desc:"Learn crypto safely. Practice first. No hype. No pressure.",
-  practice:"Practice First",
-  security:"Security First",
-  ai:"AI Assisted Help",
-  launchpad:"Meme Coins & NFTs (Education)",
-  troil:"Experimental Project: TROIL",
-  note:"Education only. No financial advice. Practice before risk."
-},
-fr:{
-  n:"Français",
-  title:"Crypto Po
+/* ===== CFS Multilingual System (LOCKED) ===== */
+
+const translations = {
+  en: {
+    title: "Crypto For Seniors",
+    practice: "Practice First",
+    security: "Security First",
+    ai: "AI Assisted Help",
+    launchpad: "Meme Coins & NFTs (Education)",
+    troil: "Experimental: TROIL",
+    footer: "Education only. No financial advice. No wallets. No live trading."
+  },
+  fr: {
+    title: "Crypto pour les aînés",
+    practice: "Pratiquer d'abord",
+    security: "Sécurité avant tout",
+    ai: "Aide assistée par l’IA",
+    launchpad: "Meme coins et NFT (éducation)",
+    troil: "Expérimental : TROIL",
+    footer: "Éducation uniquement. Aucun conseil financier."
+  },
+  es: {
+    title: "Cripto para personas mayores",
+    practice: "Practicar primero",
+    security: "Seguridad primero",
+    ai: "Ayuda asistida por IA",
+    launchpad: "Meme coins y NFT (educación)",
+    troil: "Experimental: TROIL",
+    footer: "Solo educación. Sin asesoramiento financiero."
+  }
+};
+
+const langSelect = document.getElementById("lang");
+const defaultLang = localStorage.getItem("cfs-lang") || "en";
+langSelect.value = defaultLang;
+
+function applyLang(lang) {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttrib
