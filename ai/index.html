@@ -23,7 +23,6 @@
     h1 {
       font-size: 2.6rem;
       letter-spacing: 0.1em;
-      margin-bottom: 20px;
     }
 
     h2 {
@@ -34,8 +33,8 @@
     p {
       max-width: 720px;
       margin: 20px auto;
-      line-height: 1.6;
       opacity: 0.9;
+      line-height: 1.6;
     }
 
     .panel {
@@ -47,7 +46,7 @@
 
     a.back {
       display: inline-block;
-      margin-top: 60px;
+      margin-top: 50px;
       font-size: 0.9rem;
       color: #aaa;
       text-decoration: none;
@@ -56,175 +55,57 @@
     a.back:hover {
       text-decoration: underline;
     }
-
-    .lang {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 0.9rem;
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- Language Selector -->
-  <div class="lang">
-    <select id="langSelect" onchange="setLanguage(this.value)">
-      <option value="en">English</option>
-      <option value="fr">Français</option>
-      <option value="es">Español</option>
-      <option value="hr">Hrvatski</option>
-      <option value="ja">日本語</option>
-      <option value="tl">Filipino</option>
-      <option value="zh-cn">中文 (简体)</option>
-      <option value="zh-tw">中文 (繁體)</option>
-    </select>
-  </div>
+<!-- Global Header -->
+<div style="
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+  border-bottom:1px solid #333;
+  font-size:0.9rem;
+">
 
-  <div class="container">
+  <a href="../" style="color:#aaa; text-decoration:none;">
+    ← Back to Crypto For Seniors
+  </a>
 
-    <h1 id="title">AI Assisted Help</h1>
+  <select id="langSelect" onchange="setLanguage(this.value)">
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="es">Español</option>
+    <option value="hr">Hrvatski</option>
+    <option value="ja">日本語</option>
+    <option value="tl">Filipino</option>
+    <option value="zh-cn">中文 (简体)</option>
+    <option value="zh-tw">中文 (繁體)</option>
+  </select>
 
-    <p id="intro">
-      Crypto For Seniors uses AI as an educational assistant —
-      never as a decision maker.
+</div>
+
+<div class="container">
+
+  <h1 id="pageTitle">AI Assisted Help</h1>
+
+  <div class="panel">
+    <p id="introText">
+      Crypto For Seniors uses AI-assisted tools to help explain cryptocurrency
+      concepts in clear, plain language.
     </p>
-
-    <div class="panel">
-      <h2 id="whatTitle">What AI Does</h2>
-      <p id="whatText">
-        AI helps explain crypto terms, concepts, and processes in clear,
-        simple language. It supports learning, accessibility, and translation.
-      </p>
-    </div>
-
-    <div class="panel">
-      <h2 id="notTitle">What AI Does NOT Do</h2>
-      <p id="notText">
-        AI does not trade, predict prices, provide financial advice,
-        or execute transactions. All decisions remain with the user.
-      </p>
-    </div>
-
-    <div class="panel">
-      <h2 id="whyTitle">Why AI Is Used</h2>
-      <p id="whyText">
-        AI allows explanations to adapt to different learning styles and
-        languages while keeping education clear, calm, and transparent.
-      </p>
-    </div>
-
-    <a class="back" href="../">
-      ← Back to Crypto For Seniors
-    </a>
-
   </div>
 
-  <!-- Language Script -->
-  <script>
-    const translations = {
-      en: {
-        title: "AI Assisted Help",
-        intro: "Crypto For Seniors uses AI as an educational assistant — never as a decision maker.",
-        whatTitle: "What AI Does",
-        whatText: "AI helps explain crypto terms, concepts, and processes in clear, simple language. It supports learning, accessibility, and translation.",
-        notTitle: "What AI Does NOT Do",
-        notText: "AI does not trade, predict prices, provide financial advice, or execute transactions. All decisions remain with the user.",
-        whyTitle: "Why AI Is Used",
-        whyText: "AI allows explanations to adapt to different learning styles and languages while keeping education clear, calm, and transparent."
-      },
-      fr: {
-        title: "Aide Assistée par IA",
-        intro: "Crypto For Seniors utilise l’IA comme assistant éducatif — jamais pour prendre des décisions.",
-        whatTitle: "Ce que fait l’IA",
-        whatText: "L’IA aide à expliquer les concepts crypto en langage clair. Elle soutient l’apprentissage, l’accessibilité et la traduction.",
-        notTitle: "Ce que l’IA ne fait pas",
-        notText: "L’IA ne trade pas, ne prédit pas les prix et ne donne aucun conseil financier.",
-        whyTitle: "Pourquoi utiliser l’IA",
-        whyText: "L’IA rend l’apprentissage plus accessible tout en restant clair et transparent."
-      },
-      es: {
-        title: "Ayuda Asistida por IA",
-        intro: "Crypto For Seniors usa IA como apoyo educativo — nunca para tomar decisiones.",
-        whatTitle: "Qué hace la IA",
-        whatText: "La IA explica conceptos de criptomonedas de forma clara y sencilla.",
-        notTitle: "Qué NO hace la IA",
-        notText: "La IA no comercia, no predice precios ni da consejos financieros.",
-        whyTitle: "Por qué se usa IA",
-        whyText: "La IA mejora la comprensión y accesibilidad para todos."
-      },
-      hr: {
-        title: "AI Pomoć",
-        intro: "Crypto For Seniors koristi AI kao edukativnu pomoć — nikada za donošenje odluka.",
-        whatTitle: "Što AI radi",
-        whatText: "AI objašnjava kripto pojmove jednostavnim jezikom.",
-        notTitle: "Što AI ne radi",
-        notText: "AI ne trguje, ne predviđa cijene i ne daje financijske savjete.",
-        whyTitle: "Zašto koristiti AI",
-        whyText: "AI pomaže u učenju i razumijevanju."
-      },
-      ja: {
-        title: "AIサポート",
-        intro: "Crypto For SeniorsではAIを学習補助として使用します。",
-        whatTitle: "AIがすること",
-        whatText: "AIは暗号資産の概念をわかりやすく説明します。",
-        notTitle: "AIがしないこと",
-        notText: "AIは取引や予測、助言を行いません。",
-        whyTitle: "AIを使う理由",
-        whyText: "学習をより理解しやすくするためです。"
-      },
-      tl: {
-        title: "AI Tulong",
-        intro: "Ginagamit ang AI bilang gabay sa pag-aaral — hindi sa pagdedesisyon.",
-        whatTitle: "Ginagawa ng AI",
-        whatText: "Tumutulong ang AI sa pagpapaliwanag ng crypto sa simpleng paraan.",
-        notTitle: "Hindi ginagawa ng AI",
-        notText: "Hindi nagte-trade o nagbibigay ng payo ang AI.",
-        whyTitle: "Bakit AI",
-        whyText: "Pinapadali ng AI ang pag-unawa."
-      },
-      "zh-cn": {
-        title: "AI 辅助帮助",
-        intro: "Crypto For Seniors 将 AI 用作学习辅助工具。",
-        whatTitle: "AI 的作用",
-        whatText: "AI 以简单清晰的语言解释加密货币概念。",
-        notTitle: "AI 不做什么",
-        notText: "AI 不交易、不预测、不提供财务建议。",
-        whyTitle: "为什么使用 AI",
-        whyText: "让学习更加容易和安全。"
-      },
-      "zh-tw": {
-        title: "AI 輔助說明",
-        intro: "Crypto For Seniors 將 AI 作為學習輔助工具。",
-        whatTitle: "AI 的功能",
-        whatText: "AI 以簡單語言解釋加密貨幣概念。",
-        notTitle: "AI 不會做的事",
-        notText: "AI 不進行交易、不預測價格、不提供投資建議。",
-        whyTitle: "為何使用 AI",
-        whyText: "提升理解與學習體驗。"
-      }
-    };
+  <div class="panel">
+    <h2 id="whatTitle">What AI Does</h2>
+    <p id="whatText">
+      AI helps explain terms, concepts, and processes.
+      It supports learning, translation, and understanding — especially for beginners.
+    </p>
+  </div>
 
-    function setLanguage(lang) {
-      localStorage.setItem("cfs-lang", lang);
-      const t = translations[lang];
-      document.getElementById("title").innerText = t.title;
-      document.getElementById("intro").innerText = t.intro;
-      document.getElementById("whatTitle").innerText = t.whatTitle;
-      document.getElementById("whatText").innerText = t.whatText;
-      document.getElementById("notTitle").innerText = t.notTitle;
-      document.getElementById("notText").innerText = t.notText;
-      document.getElementById("whyTitle").innerText = t.whyTitle;
-      document.getElementById("whyText").innerText = t.whyText;
-    }
-
-    (function initLang() {
-      const lang = localStorage.getItem("cfs-lang") || "en";
-      document.getElementById("langSelect").value = lang;
-      setLanguage(lang);
-    })();
-  </script>
-
-</body>
-</html>
+  <div class="panel">
+    <h2 id="notTitle">What AI Does NOT Do</h2>
+    <p id
