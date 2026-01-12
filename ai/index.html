@@ -1,111 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AI Assisted Help – Crypto For Seniors</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      background: #0b0b0b;
-      color: #e5e5e5;
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    h1 {
-      font-size: 2.6rem;
-      letter-spacing: 0.1em;
-    }
-
-    h2 {
-      margin-top: 40px;
-      letter-spacing: 0.08em;
-    }
-
-    p {
-      max-width: 720px;
-      margin: 20px auto;
-      opacity: 0.9;
-      line-height: 1.6;
-    }
-
-    .panel {
-      border: 1px solid #333;
-      border-radius: 8px;
-      padding: 25px;
-      margin-top: 30px;
-    }
-
-    a.back {
-      display: inline-block;
-      margin-top: 50px;
-      font-size: 0.9rem;
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    a.back:hover {
-      text-decoration: underline;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>AI Assisted Help</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial;text-align:center}
+.container{max-width:900px;margin:auto;padding:30px 20px}
+.topbar{display:flex;justify-content:space-between;border-bottom:1px solid #333;padding-bottom:15px}
+select{background:#111;color:#fff;border:1px solid #444;padding:6px}
+h1{color:#4da3ff;margin-top:40px}
+p{max-width:720px;margin:18px auto;line-height:1.6}
+</style>
 </head>
 
 <body>
-
-<!-- Global Header -->
-<div style="
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 20px;
-  border-bottom:1px solid #333;
-  font-size:0.9rem;
-">
-
-  <a href="../" style="color:#aaa; text-decoration:none;">
-    ← Back to Crypto For Seniors
-  </a>
-
-  <select id="langSelect" onchange="setLanguage(this.value)">
-    <option value="en">English</option>
-    <option value="fr">Français</option>
-    <option value="es">Español</option>
-    <option value="hr">Hrvatski</option>
-    <option value="ja">日本語</option>
-    <option value="tl">Filipino</option>
-    <option value="zh-cn">中文 (简体)</option>
-    <option value="zh-tw">中文 (繁體)</option>
-  </select>
-
+<div class="container">
+<div class="topbar">
+  <a href="../" style="color:#aaa;text-decoration:none">← Home</a>
+  <select id="lang"></select>
 </div>
 
-<div class="container">
+<h1 id="title"></h1>
+<p id="p1"></p>
+<p id="p2"></p>
+<p id="p3"></p>
+</div>
 
-  <h1 id="pageTitle">AI Assisted Help</h1>
+<script>
+const T={
+en:{n:"English",t:"AI Assisted Help",p1:"AI explains concepts.",p2:"AI explains risks.",p3:"AI never trades or decides."},
+fr:{n:"Français",t:"Aide IA",p1:"L’IA explique.",p2:"L’IA informe des risques.",p3:"L’IA ne décide jamais."},
+es:{n:"Español",t:"Ayuda con IA",p1:"La IA explica.",p2:"La IA muestra riesgos.",p3:"La IA no opera."},
+hr:{n:"Hrvatski",t:"AI Pomoć",p1:"AI objašnjava.",p2:"AI prikazuje rizike.",p3:"AI ne trguje."},
+ja:{n:"日本語",t:"AIサポート",p1:"AIは説明します。",p2:"AIはリスクを示します。",p3:"AIは取引しません。"},
+tl:{n:"Filipino",t:"AI Tulong",p1:"Nagpapaliwanag ang AI.",p2:"Ipinapakita ang panganib.",p3:"Hindi nagte-trade ang AI."},
+"zh-cn":{n:"中文(简体)",t:"AI 帮助",p1:"AI 负责解释。",p2:"AI 说明风险。",p3:"AI 不交易。"},
+"zh-tw":{n:"中文(繁體)",t:"AI 幫助",p1:"AI 負責說明。",p2:"AI 說明風險。",p3:"AI 不交易。"}
+};
 
-  <div class="panel">
-    <p id="introText">
-      Crypto For Seniors uses AI-assisted tools to help explain cryptocurrency
-      concepts in clear, plain language.
-    </p>
-  </div>
+const sel=document.getElementById("lang");
+Object.keys(T).forEach(k=>{const o=document.createElement("option");o.value=k;o.textContent=T[k].n;sel.appendChild(o);});
 
-  <div class="panel">
-    <h2 id="whatTitle">What AI Does</h2>
-    <p id="whatText">
-      AI helps explain terms, concepts, and processes.
-      It supports learning, translation, and understanding — especially for beginners.
-    </p>
-  </div>
+function apply(l){
+  const t=T[l]||T.en;
+  localStorage.setItem("cfs-lang",l);
+  title.textContent=t.t;
+  p1.textContent=t.p1;
+  p2.textContent=t.p2;
+  p3.textContent=t.p3;
+}
 
-  <div class="panel">
-    <h2 id="notTitle">What AI Does NOT Do</h2>
-    <p id
+sel.onchange=()=>apply(sel.value);
+const start=localStorage.getItem("cfs-lang")||"en";
+sel.value=start;apply(start);
+</script>
+</body>
+</html>
