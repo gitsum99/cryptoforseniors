@@ -33,30 +33,31 @@ a{color:#4da3ff;text-decoration:none;font-weight:bold}
 <h1 id="title"></h1>
 <div class="banner" id="banner"></div>
 
-<!-- MEME COIN EDUCATION -->
+<!-- MEME COIN SUMMARY -->
 <div class="section">
   <h2 id="memeTitle"></h2>
-
-  <h3 id="memeStep1Title"></h3>
-  <p id="memeStep1Text"></p>
-
-  <h3 id="memeStep2Title"></h3>
-  <p id="memeStep2Text"></p>
-
-  <h3 id="memeStep3Title"></h3>
-  <p id="memeStep3Text"></p>
-
-  <h3 id="memeStep4Title"></h3>
-  <p id="memeStep4Text"></p>
-
-  <p class="notice" id="memeWarn"></p>
+  <p id="memeSummary"></p>
 </div>
 
-<!-- NFT SUMMARY (UNCHANGED / BRIEF) -->
+<!-- NFT EDUCATION -->
 <div class="section">
   <h2 id="nftTitle"></h2>
-  <p id="nftP1"></p>
-  <p id="nftP2"></p>
+
+  <h3 id="nftStep1Title"></h3>
+  <p id="nftStep1Text"></p>
+
+  <h3 id="nftStep2Title"></h3>
+  <p id="nftStep2Text"></p>
+
+  <h3 id="nftStep3Title"></h3>
+  <p id="nftStep3Text"></p>
+
+  <h3 id="nftStep4Title"></h3>
+  <p id="nftStep4Text"></p>
+
+  <h3 id="nftStep5Title"></h3>
+  <p id="nftStep5Text"></p>
+
   <p class="notice" id="nftWarn"></p>
 </div>
 
@@ -79,24 +80,24 @@ en:{
   banner:"EDUCATIONAL ONLY — No live launches, no wallets, no financial advice",
   back:"← Back to Crypto For Seniors",
 
-  memeTitle:"Meme Coins — How They Are Created (Conceptual)",
-  memeStep1Title:"Step 1 — Idea & Narrative",
-  memeStep1Text:"Most meme coins begin with a simple idea, joke, or community narrative. The idea alone does not create value.",
-  memeStep2Title:"Step 2 — Token Supply Design",
-  memeStep2Text:"Creators choose a total supply. Large supplies do not mean cheap coins. Supply affects perception, not success.",
-  memeStep3Title:"Step 3 — Liquidity & Market Entry",
-  memeStep3Text:"Liquidity allows trading. Poor liquidity causes extreme price swings and losses for buyers.",
-  memeStep4Title:"Step 4 — Trust & Distribution",
-  memeStep4Text:"Hidden developer wallets, unlocked supply, and poor transparency are common causes of failure.",
-  memeWarn:"Most meme coins fail. Learning structure matters more than copying others.",
+  memeTitle:"Meme Coins — Recap",
+  memeSummary:"Meme coins rely on narrative, timing, and trust. Code alone does not create value.",
 
-  nftTitle:"NFTs — High-Level Overview",
-  nftP1:"NFTs are digital records pointing to metadata and media. Ownership does not guarantee resale value.",
-  nftP2:"Storage, royalties, and marketplace rules matter more than artwork alone.",
-  nftWarn:"Most NFTs never sell.",
+  nftTitle:"NFTs — How They Work (Conceptual)",
+  nftStep1Title:"Step 1 — Digital Media",
+  nftStep1Text:"NFTs usually reference images, audio, or video. The media itself is often stored off-chain.",
+  nftStep2Title:"Step 2 — Metadata",
+  nftStep2Text:"Metadata describes the NFT (name, traits, links). If metadata is mutable, the NFT can change.",
+  nftStep3Title:"Step 3 — Storage",
+  nftStep3Text:"Files may be stored on IPFS, Arweave, or centralized servers. Storage choice affects permanence.",
+  nftStep4Title:"Step 4 — Royalties",
+  nftStep4Text:"Royalties are optional and not guaranteed. Marketplaces can ignore or bypass them.",
+  nftStep5Title:"Step 5 — Marketplaces",
+  nftStep5Text:"Marketplaces control visibility, fees, and rules. An NFT without buyers has no market value.",
+  nftWarn:"Most NFTs never sell. Understanding structure matters more than artwork.",
 
   futureTitle:"Practice Tools (Coming Later)",
-  futureText:"Practice-only simulators for token supply, liquidity impact, and distribution risk will be added later."
+  futureText:"Practice-only NFT metadata and royalty simulators will be added in a future phase."
 },
 fr:{
   n:"Français",
@@ -104,24 +105,24 @@ fr:{
   banner:"ÉDUCATIF UNIQUEMENT — Aucun lancement réel",
   back:"← Retour",
 
-  memeTitle:"Meme Coins — Création (Concepts)",
-  memeStep1Title:"Étape 1 — Idée",
-  memeStep1Text:"Une idée ou communauté ne garantit pas le succès.",
-  memeStep2Title:"Étape 2 — Offre",
-  memeStep2Text:"L’offre influence la perception, pas la valeur.",
-  memeStep3Title:"Étape 3 — Liquidité",
-  memeStep3Text:"Une faible liquidité augmente le risque.",
-  memeStep4Title:"Étape 4 — Confiance",
-  memeStep4Text:"La transparence est essentielle.",
-  memeWarn:"La majorité échoue.",
+  memeTitle:"Meme Coins — Récapitulatif",
+  memeSummary:"Le succès dépend du récit et de la confiance.",
 
-  nftTitle:"NFTs — Aperçu",
-  nftP1:"Les NFTs sont des enregistrements numériques.",
-  nftP2:"La valeur n’est jamais garantie.",
-  nftWarn:"Peu se vendent.",
+  nftTitle:"NFTs — Fonctionnement",
+  nftStep1Title:"Étape 1 — Média",
+  nftStep1Text:"Les fichiers sont souvent stockés hors chaîne.",
+  nftStep2Title:"Étape 2 — Métadonnées",
+  nftStep2Text:"Les métadonnées peuvent être modifiables.",
+  nftStep3Title:"Étape 3 — Stockage",
+  nftStep3Text:"IPFS ou stockage centralisé.",
+  nftStep4Title:"Étape 4 — Redevances",
+  nftStep4Text:"Les redevances ne sont pas garanties.",
+  nftStep5Title:"Étape 5 — Marchés",
+  nftStep5Text:"Les marchés contrôlent la visibilité.",
+  nftWarn:"La majorité des NFTs ne se vendent pas.",
 
   futureTitle:"Outils futurs",
-  futureText:"Des simulateurs éducatifs arriveront plus tard."
+  futureText:"Des simulateurs arriveront plus tard."
 }
 };
 
@@ -143,19 +144,19 @@ function applyLang(l){
   $("backBottom").textContent=t.back;
 
   $("memeTitle").textContent=t.memeTitle;
-  $("memeStep1Title").textContent=t.memeStep1Title;
-  $("memeStep1Text").textContent=t.memeStep1Text;
-  $("memeStep2Title").textContent=t.memeStep2Title;
-  $("memeStep2Text").textContent=t.memeStep2Text;
-  $("memeStep3Title").textContent=t.memeStep3Title;
-  $("memeStep3Text").textContent=t.memeStep3Text;
-  $("memeStep4Title").textContent=t.memeStep4Title;
-  $("memeStep4Text").textContent=t.memeStep4Text;
-  $("memeWarn").textContent=t.memeWarn;
+  $("memeSummary").textContent=t.memeSummary;
 
   $("nftTitle").textContent=t.nftTitle;
-  $("nftP1").textContent=t.nftP1;
-  $("nftP2").textContent=t.nftP2;
+  $("nftStep1Title").textContent=t.nftStep1Title;
+  $("nftStep1Text").textContent=t.nftStep1Text;
+  $("nftStep2Title").textContent=t.nftStep2Title;
+  $("nftStep2Text").textContent=t.nftStep2Text;
+  $("nftStep3Title").textContent=t.nftStep3Title;
+  $("nftStep3Text").textContent=t.nftStep3Text;
+  $("nftStep4Title").textContent=t.nftStep4Title;
+  $("nftStep4Text").textContent=t.nftStep4Text;
+  $("nftStep5Title").textContent=t.nftStep5Title;
+  $("nftStep5Text").textContent=t.nftStep5Text;
   $("nftWarn").textContent=t.nftWarn;
 
   $("futureTitle").textContent=t.futureTitle;
