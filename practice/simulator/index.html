@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Practice Mode – Crypto For Seniors</title>
+  <title>Flash Loan Practice Simulator – Crypto For Seniors</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -27,7 +27,7 @@
 
     .banner {
       background: #1e1e1e;
-      border: 2px solid #4da3ff;
+      border: 2px solid #ffb84d;
       color: #ffffff;
       padding: 15px;
       margin: 30px auto;
@@ -38,30 +38,45 @@
     p {
       font-size: 1.05rem;
       line-height: 1.6;
-      max-width: 700px;
+      max-width: 720px;
       margin: 20px auto;
     }
 
-    .button {
-      display: inline-block;
-      margin: 30px auto;
-      padding: 15px 30px;
+    input {
+      padding: 12px;
       font-size: 1.1rem;
-      font-weight: bold;
-      color: #000;
-      background: #4da3ff;
+      width: 220px;
+      text-align: center;
       border-radius: 6px;
-      text-decoration: none;
+      border: none;
+      margin-top: 10px;
     }
 
-    .button:hover {
+    button {
+      margin-top: 20px;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background: #4da3ff;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
       background: #6bb6ff;
     }
 
-    .note {
-      font-size: 0.95rem;
-      color: #b0b0b0;
-      margin-top: 30px;
+    .result {
+      margin-top: 40px;
+      padding: 20px;
+      border: 1px solid #333;
+      background: #141414;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      display: none;
     }
 
     .nav {
@@ -78,39 +93,97 @@
 
 <body>
   <div class="container">
-    <h1>Practice Mode</h1>
+    <h1>Flash Loan Practice Simulator</h1>
 
     <div class="banner">
-      PRACTICE ONLY — No real money, no wallets, no transactions
+      PRACTICE ONLY — Fake funds, real prices, no wallets, no transactions
     </div>
 
     <p>
-      Practice Mode is designed to help you learn crypto concepts safely.
-      Nothing on this page — or the simulator — can move real funds.
+      This simulator demonstrates how flash loans work using
+      <strong>simulated balances</strong> and
+      <strong>real market prices (read-only)</strong>.
     </p>
 
     <p>
-      You will see <strong>real market prices</strong>, but all balances,
-      loans, and results are <strong>simulated</strong>.
+      Nothing here can access your wallet, move funds, or place trades.
     </p>
 
     <p>
-      This is the recommended starting point before exploring anything else
-      in Crypto For Seniors.
+      Enter a simulated loan amount (USDC):
     </p>
 
-    <a class="button" href="./simulator/">
-      ▶ Launch Practice Simulator
-    </a>
+    <input id="loanAmount" type="number" placeholder="e.g. 10000" />
 
-    <div class="note">
-      The simulator runs on the next page.<br />
-      If nothing happens, make sure the address ends with <code>/practice/simulator/</code>
-    </div>
+    <br />
+
+    <button onclick="runSimulation()">Simulate</button>
+
+    <div id="resultBox" class="result"></div>
 
     <div class="nav">
-      <a href="../">← Back to Home</a>
+      <a href="../">← Back to Practice Overview</a>
     </div>
   </div>
+
+  <script>
+    async function runSimulation() {
+      const input = document.getElementById("loanAmount");
+      const resultBox = document.getElementById("resultBox");
+      const loan = parseFloat(input.value);
+
+      if (isNaN(loan) || loan <= 0) {
+        alert("Please enter a valid simulated loan amount.");
+        return;
+      }
+
+      resultBox.style.display = "block";
+      resultBox.innerHTML = "Loading real market price…";
+
+      try {
+        const response = await fetch(
+          "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
+        );
+
+        const data = await response.json();
+        const price = data.ethereum.usd;
+
+        // Simulated assumptions
+        const spreadLoss = loan * 0.002;     // 0.2%
+        const feeCost = loan * 0.001;        // 0.1%
+        const totalCost = spreadLoss + feeCost;
+
+        const simulatedGain = loan * 0.0025; // optimistic gain
+        const netResult = simulatedGain - totalCost;
+
+        let html = `
+          <h3>Simulation Result</h3>
+          <p><strong>Market price used:</strong> ETH ≈ $${price}</p>
+          <p><strong>Simulated loan:</strong> $${loan.toLocaleString()}</p>
+          <p><strong>Estimated costs:</strong> $${totalCost.toFixed(2)}</p>
+          <p><strong>Estimated gain:</strong> $${simulatedGain.toFixed(2)}</p>
+        `;
+
+        if (netResult > 0) {
+          html += `<p style="color:#7CFC98;"><strong>Result:</strong> Profit of $${netResult.toFixed(2)}</p>`;
+        } else {
+          html += `<p style="color:#ff7c7c;"><strong>Result:</strong> Loss of $${Math.abs(netResult).toFixed(2)}</p>`;
+        }
+
+        html += `
+          <p>
+            This outcome shows why fees, spreads, and timing
+            matter in flash-loan strategies.
+          </p>
+        `;
+
+        resultBox.innerHTML = html;
+
+      } catch (error) {
+        resultBox.innerHTML =
+          "Unable to fetch market data. Please try again later.";
+      }
+    }
+  </script>
 </body>
 </html>
