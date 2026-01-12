@@ -21,28 +21,20 @@
     }
 
     h1 {
-      font-size: 2.6rem;
-      letter-spacing: 0.1em;
+      font-size: 2.4rem;
+      letter-spacing: 0.08em;
     }
 
     p {
       max-width: 720px;
       margin: 20px auto;
-      opacity: 0.9;
       line-height: 1.6;
-    }
-
-    .panel {
-      border: 1px solid #333;
-      border-radius: 8px;
-      padding: 25px;
-      margin-top: 30px;
     }
 
     .practice-banner {
       margin: 30px auto;
       padding: 14px;
-      max-width: 600px;
+      max-width: 620px;
       border: 2px solid #4cff4c;
       color: #4cff4c;
       border-radius: 8px;
@@ -51,9 +43,9 @@
 
     .launch {
       display: inline-block;
-      margin-top: 30px;
-      padding: 16px 32px;
-      font-size: 1.1rem;
+      margin-top: 40px;
+      padding: 18px 36px;
+      font-size: 1.15rem;
       font-weight: bold;
       background: #4da3ff;
       color: #000;
@@ -65,100 +57,41 @@
       background: #6bb6ff;
     }
 
-    a.back {
-      display: inline-block;
+    .back {
+      display: block;
       margin-top: 50px;
       font-size: 0.9rem;
       color: #aaa;
       text-decoration: none;
-    }
-
-    a.back:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
 
-<!-- Header -->
-<div style="
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 20px;
-  border-bottom:1px solid #333;
-  font-size:0.9rem;
-">
-
-  <a href="../" style="color:#aaa;text-decoration:none;">
-    ← Back to Crypto For Seniors
-  </a>
-
-  <select id="langSelect" onchange="setLanguage(this.value)">
-    <option value="en">English</option>
-    <option value="fr">Français</option>
-    <option value="es">Español</option>
-    <option value="hr">Hrvatski</option>
-    <option value="ja">日本語</option>
-    <option value="tl">Filipino</option>
-    <option value="zh-cn">中文 (简体)</option>
-    <option value="zh-tw">中文 (繁體)</option>
-  </select>
-
-</div>
-
 <div class="container">
 
-  <h1 id="pageTitle">Practice Mode</h1>
+  <h1>Practice Mode</h1>
 
   <div class="practice-banner">
-    PRACTICE MODE — No real money is used
+    PRACTICE ONLY — No real money, no wallets, no transactions
   </div>
 
-  <div class="panel">
-    <p id="pageDesc">
-      Practice Mode lets you learn crypto using simulated funds.
-      No real money is used. Mistakes are safe and unlimited.
-    </p>
-  </div>
+  <p>
+    Practice Mode lets you safely learn crypto concepts using simulated funds.
+    Mistakes are safe. Nothing here can move real money.
+  </p>
 
-  <!-- ✅ THIS IS THE MISSING CONNECTION -->
-  <a class="launch" href="/cryptoforseniors/practice/simulator/">
+  <!-- HARD LINK — THIS IS THE CONNECTION -->
+  <a class="launch" href="https://gitsum99.github.io/cryptoforseniors/practice/simulator/">
     ▶ Launch Practice Simulator
   </a>
 
-  <a class="back" id="backLink" href="../">
+  <a class="back" href="https://gitsum99.github.io/cryptoforseniors/">
     ← Back to Crypto For Seniors
   </a>
 
 </div>
-
-<script>
-const translations = {
-  en:{title:"Practice Mode",desc:"Practice Mode lets you learn crypto using simulated funds. No real money is used. Mistakes are safe and unlimited.",back:"← Back to Crypto For Seniors"},
-  fr:{title:"Mode Pratique",desc:"Le mode pratique vous permet d’apprendre avec des fonds simulés. Aucun argent réel n’est utilisé.",back:"← Retour à Crypto For Seniors"},
-  es:{title:"Modo de Práctica",desc:"El modo de práctica permite aprender usando fondos simulados. No se utiliza dinero real.",back:"← Volver a Crypto For Seniors"},
-  hr:{title:"Način Vježbe",desc:"Način vježbe omogućuje učenje pomoću simuliranih sredstava. Ne koristi se pravi novac.",back:"← Povratak na Crypto For Seniors"},
-  ja:{title:"練習モード",desc:"練習モードでは模擬資金を使用して学習します。実際のお金は使用されません。",back:"← Crypto For Seniors に戻る"},
-  tl:{title:"Practice Mode",desc:"Pinapayagan ka ng practice mode na matuto gamit ang simulated na pondo. Walang totoong pera.",back:"← Bumalik sa Crypto For Seniors"},
-  "zh-cn":{title:"练习模式",desc:"练习模式允许您使用模拟资金学习加密货币。不使用真实资金。",back:"← 返回 Crypto For Seniors"},
-  "zh-tw":{title:"練習模式",desc:"練習模式讓您使用模擬資金學習加密貨幣。不使用真實資金。",back:"← 返回 Crypto For Seniors"}
-};
-
-function setLanguage(lang){
-  localStorage.setItem("cfs-lang",lang);
-  pageTitle.innerText=translations[lang].title;
-  pageDesc.innerText=translations[lang].desc;
-  backLink.innerText=translations[lang].back;
-}
-
-(function(){
-  const lang=localStorage.getItem("cfs-lang")||"en";
-  langSelect.value=lang;
-  setLanguage(lang);
-})();
-</script>
 
 </body>
 </html>
