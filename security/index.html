@@ -23,16 +23,19 @@
     h1 {
       font-size: 2.6rem;
       letter-spacing: 0.1em;
+      margin-bottom: 20px;
     }
 
-    .security-banner {
-      margin: 30px auto;
-      padding: 14px;
-      max-width: 600px;
-      border: 2px solid #ffd166;
-      color: #ffd166;
-      border-radius: 8px;
-      font-weight: bold;
+    h2 {
+      margin-top: 40px;
+      letter-spacing: 0.08em;
+    }
+
+    p {
+      max-width: 720px;
+      margin: 20px auto;
+      line-height: 1.6;
+      opacity: 0.9;
     }
 
     .panel {
@@ -40,16 +43,11 @@
       border-radius: 8px;
       padding: 25px;
       margin-top: 30px;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
-      opacity: 0.9;
     }
 
     a.back {
       display: inline-block;
-      margin-top: 50px;
+      margin-top: 60px;
       font-size: 0.9rem;
       color: #aaa;
       text-decoration: none;
@@ -86,28 +84,52 @@
 
   <div class="container">
 
-    <h1 id="pageTitle">Security First</h1>
+    <h1 id="title">Security First</h1>
 
-    <div class="security-banner">
-      SECURITY BEFORE SPEED — SAFETY BEFORE PROFIT
+    <p id="intro">
+      Security is the foundation of Crypto For Seniors.
+      Nothing else matters if safety is not understood first.
+    </p>
+
+    <div class="panel">
+      <h2 id="principleTitle">Core Principles</h2>
+      <p id="principleText">
+        • Education before action<br>
+        • No forced upgrades or hidden switches<br>
+        • Practice before real funds<br>
+        • Clear warnings and clear labels
+      </p>
     </div>
 
-    <div class="panel" id="pageDesc">
-      Crypto For Seniors is designed with security as the highest priority.
-      No feature, experiment, or tool is allowed to bypass clarity, consent,
-      or user control.
+    <div class="panel">
+      <h2 id="userTitle">User Control</h2>
+      <p id="userText">
+        Users remain in control at all times.
+        There are no automatic transactions, no background activity,
+        and no surprise permissions.
+      </p>
     </div>
 
-    <div class="panel" id="pageList">
-      <strong>Our Security Principles</strong><br><br>
-      • Practice Mode is the default — always<br>
-      • Realtime mode is optional and clearly labeled<br>
-      • No hidden transactions or automatic actions<br>
-      • Clear warnings before any risk is taken<br>
-      • Education always comes before execution
+    <div class="panel">
+      <h2 id="riskTitle">Understanding Risk</h2>
+      <p id="riskText">
+        Crypto involves real risk.
+        This project focuses on understanding risk —
+        not avoiding discussion or hiding consequences.
+      </p>
     </div>
 
-    <a class="back" id="backLink" href="../">
+    <div class="panel">
+      <h2 id="philosophyTitle">Security Philosophy</h2>
+      <p id="philosophyText">
+        If something cannot be explained clearly,
+        it should not be used.
+        If something feels rushed,
+        it should be paused.
+      </p>
+    </div>
+
+    <a class="back" href="../">
       ← Back to Crypto For Seniors
     </a>
 
@@ -118,63 +140,118 @@
     const translations = {
       en: {
         title: "Security First",
-        desc: "Crypto For Seniors is designed with security as the highest priority. No feature, experiment, or tool is allowed to bypass clarity, consent, or user control.",
-        list: "<strong>Our Security Principles</strong><br><br>• Practice Mode is the default — always<br>• Realtime mode is optional and clearly labeled<br>• No hidden transactions or automatic actions<br>• Clear warnings before any risk is taken<br>• Education always comes before execution",
-        back: "← Back to Crypto For Seniors"
+        intro: "Security is the foundation of Crypto For Seniors. Nothing else matters if safety is not understood first.",
+        principleTitle: "Core Principles",
+        principleText: "• Education before action<br>• No forced upgrades or hidden switches<br>• Practice before real funds<br>• Clear warnings and clear labels",
+        userTitle: "User Control",
+        userText: "Users remain in control at all times. There are no automatic transactions or surprise permissions.",
+        riskTitle: "Understanding Risk",
+        riskText: "Crypto involves real risk. This project focuses on understanding risk — not hiding it.",
+        philosophyTitle: "Security Philosophy",
+        philosophyText: "If something cannot be explained clearly, it should not be used. If something feels rushed, pause."
       },
       fr: {
-        title: "La Sécurité Avant Tout",
-        desc: "Crypto For Seniors est conçu avec la sécurité comme priorité absolue.",
-        list: "<strong>Principes de sécurité</strong><br><br>• Mode pratique par défaut<br>• Mode réel optionnel et clair<br>• Aucune action cachée<br>• Avertissements clairs<br>• L’éducation avant l’exécution",
-        back: "← Retour à Crypto For Seniors"
+        title: "Sécurité d'abord",
+        intro: "La sécurité est la base de Crypto For Seniors.",
+        principleTitle: "Principes fondamentaux",
+        principleText: "• L’éducation avant l’action<br>• Aucun changement forcé<br>• Pratique avant fonds réels",
+        userTitle: "Contrôle utilisateur",
+        userText: "L’utilisateur garde le contrôle total à tout moment.",
+        riskTitle: "Comprendre le risque",
+        riskText: "La crypto comporte des risques réels.",
+        philosophyTitle: "Philosophie de sécurité",
+        philosophyText: "Si ce n’est pas clair, ne l’utilisez pas."
       },
       es: {
         title: "Seguridad Primero",
-        desc: "Crypto For Seniors prioriza la seguridad por encima de todo.",
-        list: "<strong>Principios de seguridad</strong><br><br>• Modo práctica por defecto<br>• Modo real opcional<br>• Sin acciones ocultas<br>• Advertencias claras<br>• Educación antes de ejecutar",
-        back: "← Volver a Crypto For Seniors"
+        intro: "La seguridad es la base de Crypto For Seniors.",
+        principleTitle: "Principios básicos",
+        principleText: "• Educación antes de actuar<br>• Sin cambios forzados<br>• Práctica antes de fondos reales",
+        userTitle: "Control del usuario",
+        userText: "El usuario mantiene el control en todo momento.",
+        riskTitle: "Comprender el riesgo",
+        riskText: "La criptomoneda implica riesgos reales.",
+        philosophyTitle: "Filosofía de seguridad",
+        philosophyText: "Si no se puede explicar claramente, no debe usarse."
       },
       hr: {
-        title: "Sigurnost Prije Svega",
-        desc: "Crypto For Seniors stavlja sigurnost na prvo mjesto.",
-        list: "<strong>Sigurnosna načela</strong><br><br>• Način vježbe zadani<br>• Stvarni način opcionalan<br>• Nema skrivenih radnji<br>• Jasna upozorenja<br>• Obrazovanje prije akcije",
-        back: "← Povratak na Crypto For Seniors"
+        title: "Sigurnost na prvom mjestu",
+        intro: "Sigurnost je temelj Crypto For Seniors.",
+        principleTitle: "Osnovna načela",
+        principleText: "• Edukacija prije djelovanja<br>• Bez prisilnih promjena<br>• Vježba prije stvarnih sredstava",
+        userTitle: "Kontrola korisnika",
+        userText: "Korisnik ima potpunu kontrolu.",
+        riskTitle: "Razumijevanje rizika",
+        riskText: "Kriptovalute nose stvarne rizike.",
+        philosophyTitle: "Sigurnosna filozofija",
+        philosophyText: "Ako nije jasno, nemojte koristiti."
       },
       ja: {
-        title: "セキュリティ最優先",
-        desc: "Crypto For Seniors は安全性を最優先に設計されています。",
-        list: "<strong>セキュリティ原則</strong><br><br>• 練習モードが常に既定<br>• 実運用は任意<br>• 隠れた操作なし<br>• 明確な警告<br>• 実行前に教育",
-        back: "← Crypto For Seniors に戻る"
+        title: "セキュリティ第一",
+        intro: "セキュリティはCrypto For Seniorsの基盤です。",
+        principleTitle: "基本原則",
+        principleText: "• 行動の前に学習<br>• 強制なし<br>• 実践してから実資金",
+        userTitle: "ユーザー管理",
+        userText: "常にユーザーが管理します。",
+        riskTitle: "リスクの理解",
+        riskText: "暗号資産にはリスクがあります。",
+        philosophyTitle: "セキュリティ哲学",
+        philosophyText: "理解できないものは使わない。"
       },
       tl: {
         title: "Unahin ang Seguridad",
-        desc: "Ang Crypto For Seniors ay inuuna ang kaligtasan ng gumagamit.",
-        list: "<strong>Mga Prinsipyo ng Seguridad</strong><br><br>• Practice mode bilang default<br>• Live mode ay opsyonal<br>• Walang lihim na aksyon<br>• Malinaw na babala<br>• Edukasyon muna",
-        back: "← Bumalik sa Crypto For Seniors"
+        intro: "Ang seguridad ang pundasyon ng Crypto For Seniors.",
+        principleTitle: "Pangunahing Prinsipyo",
+        principleText: "• Pag-aaral bago aksyon<br>• Walang pilitan<br>• Practice muna",
+        userTitle: "Kontrol ng Gumagamit",
+        userText: "Ikaw ang may kontrol sa lahat ng oras.",
+        riskTitle: "Pag-unawa sa Panganib",
+        riskText: "May tunay na panganib ang crypto.",
+        philosophyTitle: "Pilosopiya ng Seguridad",
+        philosophyText: "Kung hindi malinaw, huwag gamitin."
       },
       "zh-cn": {
-        title: "安全优先",
-        desc: "Crypto For Seniors 以安全为最高优先级。",
-        list: "<strong>安全原则</strong><br><br>• 练习模式为默认<br>• 实时模式可选<br>• 无隐藏操作<br>• 清晰警告<br>• 先教育后执行",
-        back: "← 返回 Crypto For Seniors"
+        title: "安全第一",
+        intro: "安全是 Crypto For Seniors 的基础。",
+        principleTitle: "核心原则",
+        principleText: "• 先学习再行动<br>• 无强制操作<br>• 先练习再使用真实资金",
+        userTitle: "用户控制",
+        userText: "用户始终保持完全控制。",
+        riskTitle: "理解风险",
+        riskText: "加密货币存在真实风险。",
+        philosophyTitle: "安全理念",
+        philosophyText: "无法清楚解释的内容不应使用。"
       },
       "zh-tw": {
         title: "安全優先",
-        desc: "Crypto For Seniors 以安全為最高優先。",
-        list: "<strong>安全原則</strong><br><br>• 練習模式為預設<br>• 即時模式為選擇性<br>• 無隱藏操作<br>• 清楚警告<br>• 先教育再執行",
-        back: "← 返回 Crypto For Seniors"
+        intro: "安全是 Crypto For Seniors 的基礎。",
+        principleTitle: "核心原則",
+        principleText: "• 先學習再行動<br>• 無強制操作<br>• 先練習再用真實資金",
+        userTitle: "使用者控制",
+        userText: "使用者始終掌握控制權。",
+        riskTitle: "風險理解",
+        riskText: "加密貨幣存在真實風險。",
+        philosophyTitle: "安全理念",
+        philosophyText: "無法清楚解釋的事物不應使用。"
       }
     };
 
     function setLanguage(lang) {
       localStorage.setItem("cfs-lang", lang);
-      document.getElementById("pageTitle").innerText = translations[lang].title;
-      document.getElementById("pageDesc").innerText = translations[lang].desc;
-      document.getElementById("pageList").innerHTML = translations[lang].list;
-      document.getElementById("backLink").innerText = translations[lang].back;
+      const t = translations[lang];
+      document.getElementById("title").innerText = t.title;
+      document.getElementById("intro").innerText = t.intro;
+      document.getElementById("principleTitle").innerText = t.principleTitle;
+      document.getElementById("principleText").innerHTML = t.principleText;
+      document.getElementById("userTitle").innerText = t.userTitle;
+      document.getElementById("userText").innerText = t.userText;
+      document.getElementById("riskTitle").innerText = t.riskTitle;
+      document.getElementById("riskText").innerText = t.riskText;
+      document.getElementById("philosophyTitle").innerText = t.philosophyTitle;
+      document.getElementById("philosophyText").innerText = t.philosophyText;
     }
 
-    (function initLanguage() {
+    (function initLang() {
       const lang = localStorage.getItem("cfs-lang") || "en";
       document.getElementById("langSelect").value = lang;
       setLanguage(lang);
