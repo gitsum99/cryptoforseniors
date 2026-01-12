@@ -49,6 +49,22 @@
       font-weight: bold;
     }
 
+    .launch {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 16px 32px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background: #4da3ff;
+      color: #000;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .launch:hover {
+      background: #6bb6ff;
+    }
+
     a.back {
       display: inline-block;
       margin-top: 50px;
@@ -60,14 +76,12 @@
     a.back:hover {
       text-decoration: underline;
     }
-
-   
-    }
   </style>
 </head>
 
 <body>
-  <!-- Global Header -->
+
+<!-- Header -->
 <div style="
   display:flex;
   justify-content:space-between;
@@ -77,10 +91,7 @@
   font-size:0.9rem;
 ">
 
-  <a href="../" style="
-    color:#aaa;
-    text-decoration:none;
-  ">
+  <a href="../" style="color:#aaa;text-decoration:none;">
     ← Back to Crypto For Seniors
   </a>
 
@@ -97,87 +108,57 @@
 
 </div>
 
+<div class="container">
 
- 
-  <div class="container">
+  <h1 id="pageTitle">Practice Mode</h1>
 
-    <h1 id="pageTitle">Practice Mode</h1>
-
-    <div class="practice-banner">
-      PRACTICE MODE — No real money is used
-    </div>
-
-    <div class="panel">
-      <p id="pageDesc">
-        Practice Mode lets you learn crypto using simulated funds.
-        No real money is used. Mistakes are safe and unlimited.
-      </p>
-    </div>
-
-    <a class="back" id="backLink" href="../">
-      ← Back to Crypto For Seniors
-    </a>
-
+  <div class="practice-banner">
+    PRACTICE MODE — No real money is used
   </div>
 
-  <!-- Language Script -->
-  <script>
-    const translations = {
-      en: {
-        title: "Practice Mode",
-        desc: "Practice Mode lets you learn crypto using simulated funds. No real money is used. Mistakes are safe and unlimited.",
-        back: "← Back to Crypto For Seniors"
-      },
-      fr: {
-        title: "Mode Pratique",
-        desc: "Le mode pratique vous permet d’apprendre avec des fonds simulés. Aucun argent réel n’est utilisé.",
-        back: "← Retour à Crypto For Seniors"
-      },
-      es: {
-        title: "Modo de Práctica",
-        desc: "El modo de práctica permite aprender usando fondos simulados. No se utiliza dinero real.",
-        back: "← Volver a Crypto For Seniors"
-      },
-      hr: {
-        title: "Način Vježbe",
-        desc: "Način vježbe omogućuje učenje pomoću simuliranih sredstava. Ne koristi se pravi novac.",
-        back: "← Povratak na Crypto For Seniors"
-      },
-      ja: {
-        title: "練習モード",
-        desc: "練習モードでは模擬資金を使用して学習します。実際のお金は使用されません。",
-        back: "← Crypto For Seniors に戻る"
-      },
-      tl: {
-        title: "Practice Mode",
-        desc: "Pinapayagan ka ng practice mode na matuto gamit ang simulated na pondo. Walang totoong pera.",
-        back: "← Bumalik sa Crypto For Seniors"
-      },
-      "zh-cn": {
-        title: "练习模式",
-        desc: "练习模式允许您使用模拟资金学习加密货币。不使用真实资金。",
-        back: "← 返回 Crypto For Seniors"
-      },
-      "zh-tw": {
-        title: "練習模式",
-        desc: "練習模式讓您使用模擬資金學習加密貨幣。不使用真實資金。",
-        back: "← 返回 Crypto For Seniors"
-      }
-    };
+  <div class="panel">
+    <p id="pageDesc">
+      Practice Mode lets you learn crypto using simulated funds.
+      No real money is used. Mistakes are safe and unlimited.
+    </p>
+  </div>
 
-    function setLanguage(lang) {
-      localStorage.setItem("cfs-lang", lang);
-      document.getElementById("pageTitle").innerText = translations[lang].title;
-      document.getElementById("pageDesc").innerText = translations[lang].desc;
-      document.getElementById("backLink").innerText = translations[lang].back;
-    }
+  <!-- ✅ THIS IS THE MISSING CONNECTION -->
+  <a class="launch" href="/cryptoforseniors/practice/simulator/">
+    ▶ Launch Practice Simulator
+  </a>
 
-    (function initLanguage() {
-      const lang = localStorage.getItem("cfs-lang") || "en";
-      document.getElementById("langSelect").value = lang;
-      setLanguage(lang);
-    })();
-  </script>
+  <a class="back" id="backLink" href="../">
+    ← Back to Crypto For Seniors
+  </a>
+
+</div>
+
+<script>
+const translations = {
+  en:{title:"Practice Mode",desc:"Practice Mode lets you learn crypto using simulated funds. No real money is used. Mistakes are safe and unlimited.",back:"← Back to Crypto For Seniors"},
+  fr:{title:"Mode Pratique",desc:"Le mode pratique vous permet d’apprendre avec des fonds simulés. Aucun argent réel n’est utilisé.",back:"← Retour à Crypto For Seniors"},
+  es:{title:"Modo de Práctica",desc:"El modo de práctica permite aprender usando fondos simulados. No se utiliza dinero real.",back:"← Volver a Crypto For Seniors"},
+  hr:{title:"Način Vježbe",desc:"Način vježbe omogućuje učenje pomoću simuliranih sredstava. Ne koristi se pravi novac.",back:"← Povratak na Crypto For Seniors"},
+  ja:{title:"練習モード",desc:"練習モードでは模擬資金を使用して学習します。実際のお金は使用されません。",back:"← Crypto For Seniors に戻る"},
+  tl:{title:"Practice Mode",desc:"Pinapayagan ka ng practice mode na matuto gamit ang simulated na pondo. Walang totoong pera.",back:"← Bumalik sa Crypto For Seniors"},
+  "zh-cn":{title:"练习模式",desc:"练习模式允许您使用模拟资金学习加密货币。不使用真实资金。",back:"← 返回 Crypto For Seniors"},
+  "zh-tw":{title:"練習模式",desc:"練習模式讓您使用模擬資金學習加密貨幣。不使用真實資金。",back:"← 返回 Crypto For Seniors"}
+};
+
+function setLanguage(lang){
+  localStorage.setItem("cfs-lang",lang);
+  pageTitle.innerText=translations[lang].title;
+  pageDesc.innerText=translations[lang].desc;
+  backLink.innerText=translations[lang].back;
+}
+
+(function(){
+  const lang=localStorage.getItem("cfs-lang")||"en";
+  langSelect.value=lang;
+  setLanguage(lang);
+})();
+</script>
 
 </body>
 </html>
