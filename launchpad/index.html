@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CFS Launchpad — Meme Coins & NFTs (Education Only)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  background:#0b0b0b;
+  color:#e6e6e6;
+  font-family:Arial,Helvetica,sans-serif;
+  text-align:center
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px
+}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #333;
+  padding-bottom:12px
+}
+select{
+  background:#111;
+  color:#fff;
+  border:1px solid #444;
+  padding:6px;
+  border-radius:4px
+}
+h1{
+  color:#4da3ff;
+  margin-top:30px
+}
+.banner{
+  border:2px solid #ffb84d;
+  background:#1e1e1e;
+  padding:14px;
+  margin:25px auto;
+  max-width:760px;
+  font-weight:bold
+}
+.section{
+  border:1px solid #333;
+  border-radius:8px;
+  padding:22px;
+  margin:30px auto;
+  max-width:760px
+}
+.section h2{
+  color:#4da3ff;
+  margin-top:0
+}
+p{
+  line-height:1.6;
+  margin:14px auto;
+  max-width:720px
+}
+.notice{
+  color:#ffb84d;
+  font-weight:bold
+}
+.disabled{
+  opacity:0.5;
+  border:1px dashed #555;
+  padding:14px;
+  margin-top:16px
+}
+a{
+  color:#4da3ff;
+  text-decoration:none;
+  font-weight:bold
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="topbar">
+  <a href="../" style="color:#aaa;text-decoration:none" id="backTop"></a>
+  <select id="lang"></select>
+</div>
+
+<h1 id="title"></h1>
+
+<div class="banner" id="banner"></div>
+
+<div class="section">
+  <h2 id="memeTitle"></h2>
+  <p id="memeP1"></p>
+  <p id="memeP2"></p>
+  <p class="notice" id="memeWarn"></p>
+</div>
+
+<div class="section">
+  <h2 id="nftTitle"></h2>
+  <p id="nftP1"></p>
+  <p id="nftP2"></p>
+  <p class="notice" id="nftWarn"></p>
+</div>
+
+<div class="section disabled">
+  <h2 id="futureTitle"></h2>
+  <p id="futureText"></p>
+</div>
+
+<p style="margin-top:40px">
+  <a href="../" id="backBottom"></a>
+</p>
+
+</div>
+
+<script>
+const TEXT={
+en:{
+  n:"English",
+  title:"CFS Launchpad — Meme Coins & NFTs",
+  banner:"EDUCATIONAL ONLY — No live launches, no wallets, no financial advice",
+  back:"← Back to Crypto For Seniors",
+
+  memeTitle:"Meme Coins — How They Are Created",
+  memeP1:"Meme coins are simple tokens created around ideas, jokes, or communities. Most have no utility.",
+  memeP2:"Launching a meme coin requires understanding supply, liquidity, fees, and trust — not just code.",
+  memeWarn:"Most meme coins fail. Education comes before risk.",
+
+  nftTitle:"NFTs — What They Really Are",
+  nftP1:"NFTs are unique digital records that point to media and metadata. Ownership does not guarantee value.",
+  nftP2:"Storage, royalties, and marketplaces matter more than artwork alone.",
+  nftWarn:"Most NFTs never sell. Learn the structure before creating.",
+
+  futureTitle:"Practice Tools (Coming Later)",
+  futureText:"Practice-only simulators for token supply, liquidity, and NFT royalties will be added in a future phase."
+},
+fr:{
+  n:"Français",
+  title:"CFS Launchpad — Meme Coins et NFTs",
+  banner:"ÉDUCATIF UNIQUEMENT — Aucun lancement réel",
+  back:"← Retour à Crypto For Seniors",
+
+  memeTitle:"Meme Coins — Création",
+  memeP1:"Les meme coins sont des jetons simples basés sur des idées ou communautés.",
+  memeP2:"La compréhension du marché est essentielle.",
+  memeWarn:"La plupart échouent. Apprenez avant de risquer.",
+
+  nftTitle:"NFTs — Compréhension",
+  nftP1:"Les NFTs représentent des enregistrements numériques uniques.",
+  nftP2:"La valeur n’est jamais garantie.",
+  nftWarn:"La majorité ne se vend jamais.",
+
+  futureTitle:"Outils pratiques (bientôt)",
+  futureText:"Des simulateurs éducatifs seront ajoutés plus tard."
+},
+es:{
+  n:"Español",
+  title:"CFS Launchpad — Meme Coins y NFTs",
+  banner:"SOLO EDUCACIÓN — Sin lanzamientos reales",
+  back:"← Volver a Crypto For Seniors",
+
+  memeTitle:"Meme Coins — Creación",
+  memeP1:"Los meme coins son tokens simples basados en ideas o comunidades.",
+  memeP2:"La estructura es más importante que el código.",
+  memeWarn:"La mayoría fracasa.",
+
+  nftTitle:"NFTs — Conceptos",
+  nftP1:"Los NFTs son registros digitales únicos.",
+  nftP2:"La propiedad no garantiza valor.",
+  nftWarn:"Pocos NFTs se venden.",
+
+  futureTitle:"Herramientas futuras",
+  futureText:"Simuladores educativos llegarán después."
+},
+hr:{
+  n:"Hrvatski",
+  title:"CFS Launchpad — Meme Coini i NFT",
+  banner:"EDUKACIJA — Bez pravih lansiranja",
+  back:"← Povratak",
+
+  memeTitle:"Meme Coini",
+  memeP1:"Meme coini su jednostavni tokeni.",
+  memeP2:"Struktura je važna.",
+  memeWarn:"Većina ne uspije.",
+
+  nftTitle:"NFT",
+  nftP1:"NFT su digitalni zapisi.",
+  nftP2:"Vrijednost nije zajamčena.",
+  nftWarn:"Većina se ne prodaje.",
+
+  futureTitle:"Budući alati",
+  futureText:"Simulacije dolaze kasnije."
+},
+ja:{
+  n:"日本語",
+  title:"CFS ローンチパッド — ミームコインとNFT",
+  banner:"教育目的のみ — 実際の発行なし",
+  back:"← 戻る",
+
+  memeTitle:"ミームコイン",
+  memeP1:"ミームコインは簡単なトークンです。",
+  memeP2:"構造理解が重要です。",
+  memeWarn:"ほとんどは失敗します。",
+
+  nftTitle:"NFT",
+  nftP1:"NFTはデジタル記録です。",
+  nftP2:"価値は保証されません。",
+  nftWarn:"多くは売れません。",
+
+  futureTitle:"将来のツール",
+  futureText:"練習用ツールは後日追加。"
+},
+tl:{
+  n:"Filipino",
+  title:"CFS Launchpad — Meme Coins at NFTs",
+  banner:"EDUKASYON LAMANG — Walang live launch",
+  back:"← Bumalik",
+
+  memeTitle:"Meme Coins",
+  memeP1:"Ang meme coins ay simpleng tokens.",
+  memeP2:"Mahalaga ang istruktura.",
+  memeWarn:"Karamihan ay nabibigo.",
+
+  nftTitle:"NFTs",
+  nftP1:"Ang NFTs ay digital records.",
+  nftP2:"Walang garantiyang halaga.",
+  nftWarn:"Bihirang mabenta.",
+
+  futureTitle:"Mga Tool sa Hinaharap",
+  futureText:"Darating ang simulators."
+},
+"zh-cn":{
+  n:"中文(简体)",
+  title:"CFS 启动台 — Meme币与NFT",
+  banner:"仅供教育 — 无真实发行",
+  back:"← 返回",
+
+  memeTitle:"Meme币",
+  memeP1:"Meme币是简单代币。",
+  memeP2:"结构比代码重要。",
+  memeWarn:"大多数会失败。",
+
+  nftTitle:"NFT",
+  nftP1:"NFT是数字记录。",
+  nftP2:"价值不保证。",
+  nftWarn:"大多数卖不出。",
+
+  futureTitle:"未来工具",
+  futureText:"稍后提供模拟器。"
+},
+"zh-tw":{
+  n:"中文(繁體)",
+  title:"CFS 啟動台 — Meme幣與NFT",
+  banner:"僅供教育 — 無真實發行",
+  back:"← 返回",
+
+  memeTitle:"Meme幣",
+  memeP1:"Meme幣是簡單代幣。",
+  memeP2:"結構很重要。",
+  memeWarn:"多數會失敗。",
+
+  nftTitle:"NFT",
+  nftP1:"NFT是數位紀錄。",
+  nftP2:"價值不保證。",
+  nftWarn:"多數不會出售。",
+
+  futureTitle:"未來工具",
+  futureText:"稍後加入模擬器。"
+}
+};
+
+const $=id=>document.getElementById(id);
+const sel=$("lang");
+
+Object.keys(TEXT).forEach(k=>{
+  const o=document.createElement("option");
+  o.value=k;o.textContent=TEXT[k].n;
+  sel.appendChild(o);
+});
+
+function applyLang(l){
+  const t=TEXT[l]||TEXT.en;
+  localStorage.setItem("cfs-lang",l);
+  $("title").textContent=t.title;
+  $("banner").textContent=t.banner;
+  $("backTop").textContent=t.back;
+  $("backBottom").textContent=t.back;
+  $("memeTitle").textContent=t.memeTitle;
+  $("memeP1").textContent=t.memeP1;
+  $("memeP2").textContent=t.memeP2;
+  $("memeWarn").textContent=t.memeWarn;
+  $("nftTitle").textContent=t.nftTitle;
+  $("nftP1").textContent=t.nftP1;
+  $("nftP2").textContent=t.nftP2;
+  $("nftWarn").textContent=t.nftWarn;
+  $("futureTitle").textContent=t.futureTitle;
+  $("futureText").textContent=t.futureText;
+}
+
+sel.onchange=()=>applyLang(sel.value);
+const start=localStorage.getItem("cfs-lang")||"en";
+sel.value=start;
+applyLang(start);
+</script>
+
+</body>
+</html>
