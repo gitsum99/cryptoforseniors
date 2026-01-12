@@ -4,92 +4,186 @@
   <meta charset="UTF-8">
   <title>Practice Simulator – Crypto For Seniors</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
       background: #0b0b0b;
       color: #e5e5e5;
       font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 24px;
-      border-bottom: 1px solid #333;
-    }
-
-    .mode {
-      color: #6aff6a;
-      font-weight: bold;
-      letter-spacing: 0.08em;
-      font-size: 0.95rem;
-    }
-
-    .back {
-      color: #aaa;
-      text-decoration: none;
-      font-size: 0.9rem;
-      margin-left: 20px;
-    }
-
-    .back:hover {
-      text-decoration: underline;
+      text-align: center;
     }
 
     .container {
       max-width: 900px;
       margin: auto;
-      padding: 50px 20px;
-      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      letter-spacing: 0.1em;
+    }
+
+    .practice-banner {
+      margin: 30px auto;
+      padding: 14px;
+      max-width: 600px;
+      border: 2px solid #4cff4c;
+      color: #4cff4c;
+      border-radius: 8px;
+      font-weight: bold;
     }
 
     .panel {
       border: 1px solid #333;
       border-radius: 8px;
-      padding: 30px;
+      padding: 25px;
       margin-top: 30px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
       line-height: 1.6;
-      opacity: 0.95;
+      opacity: 0.9;
     }
 
-    .note {
-      margin-top: 25px;
+    .placeholder {
+      margin-top: 40px;
+      padding: 25px;
+      border: 1px dashed #555;
+      border-radius: 8px;
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-top: 50px;
       font-size: 0.9rem;
-      opacity: 0.75;
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    a.back:hover {
+      text-decoration: underline;
+    }
+
+    .lang {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="topbar">
-    <div class="mode">PRACTICE MODE</div>
-    <div>
-      <a class="back" href="../">← Back to Practice</a>
-      <a class="back" href="../../">← Back to Crypto For Seniors</a>
-    </div>
+  <!-- Language Selector -->
+  <div class="lang">
+    <select id="langSelect" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="hr">Hrvatski</option>
+      <option value="ja">日本語</option>
+      <option value="tl">Filipino</option>
+      <option value="zh-cn">中文 (简体)</option>
+      <option value="zh-tw">中文 (繁體)</option>
+    </select>
   </div>
 
   <div class="container">
-    <h1>Practice Simulator</h1>
 
-    <div class="panel">
-      This simulator is a <strong>learning environment only</strong>.
-      <br><br>
-      All balances, actions, and outcomes are simulated.
-      No real funds, wallets, or transactions are involved.
-      <br><br>
-      The purpose of this simulator is to help you understand
-      how crypto concepts work without any financial risk.
+    <h1 id="pageTitle">Practice Simulator</h1>
+
+    <div class="practice-banner">
+      PRACTICE ONLY — No real funds • No real wallets • No risk
     </div>
 
-    <div class="note">
-      Interactive features may be added later.
-      Nothing on this page can move real money.
+    <div class="panel" id="pageDesc">
+      This Practice Simulator is a safe environment designed to help you
+      understand how crypto actions work — without using real money.
     </div>
+
+    <div class="placeholder" id="pagePlaceholder">
+      🔧 Simulator controls will appear here in a future update.<br><br>
+      This space is intentionally simple to avoid confusion and risk.
+    </div>
+
+    <a class="back" id="backLink" href="../">
+      ← Back to Practice Mode
+    </a>
+
   </div>
+
+  <!-- Language Script -->
+  <script>
+    const translations = {
+      en: {
+        title: "Practice Simulator",
+        desc: "This Practice Simulator is a safe environment designed to help you understand how crypto actions work — without using real money.",
+        placeholder: "🔧 Simulator controls will appear here in a future update.<br><br>This space is intentionally simple to avoid confusion and risk.",
+        back: "← Back to Practice Mode"
+      },
+      fr: {
+        title: "Simulateur de Pratique",
+        desc: "Ce simulateur permet d’apprendre sans utiliser d’argent réel.",
+        placeholder: "🔧 Les contrôles du simulateur seront ajoutés plus tard.",
+        back: "← Retour au mode pratique"
+      },
+      es: {
+        title: "Simulador de Práctica",
+        desc: "Este simulador permite aprender sin usar dinero real.",
+        placeholder: "🔧 Los controles aparecerán en una actualización futura.",
+        back: "← Volver al modo práctica"
+      },
+      hr: {
+        title: "Simulator Vježbe",
+        desc: "Ovaj simulator omogućuje učenje bez stvarnog novca.",
+        placeholder: "🔧 Kontrole će biti dodane kasnije.",
+        back: "← Povratak na način vježbe"
+      },
+      ja: {
+        title: "練習シミュレーター",
+        desc: "このシミュレーターは実際のお金を使わずに学習できます。",
+        placeholder: "🔧 将来ここに操作が追加されます。",
+        back: "← 練習モードに戻る"
+      },
+      tl: {
+        title: "Practice Simulator",
+        desc: "Ligtas na simulator para matuto nang walang totoong pera.",
+        placeholder: "🔧 Ilalagay dito ang mga kontrol sa susunod na update.",
+        back: "← Bumalik sa Practice Mode"
+      },
+      "zh-cn": {
+        title: "练习模拟器",
+        desc: "此模拟器可在不使用真实资金的情况下进行学习。",
+        placeholder: "🔧 控件将在未来更新中添加。",
+        back: "← 返回练习模式"
+      },
+      "zh-tw": {
+        title: "練習模擬器",
+        desc: "此模擬器可在不使用真實資金的情況下學習。",
+        placeholder: "🔧 控制項將在未來更新中加入。",
+        back: "← 返回練習模式"
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem("cfs-lang", lang);
+      document.getElementById("pageTitle").innerText = translations[lang].title;
+      document.getElementById("pageDesc").innerText = translations[lang].desc;
+      document.getElementById("pagePlaceholder").innerHTML = translations[lang].placeholder;
+      document.getElementById("backLink").innerText = translations[lang].back;
+    }
+
+    (function initLanguage() {
+      const lang = localStorage.getItem("cfs-lang") || "en";
+      document.getElementById("langSelect").value = lang;
+      setLanguage(lang);
+    })();
+  </script>
 
 </body>
 </html>
