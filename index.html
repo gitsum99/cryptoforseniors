@@ -4,14 +4,59 @@
 <meta charset="UTF-8">
 <title>Crypto For Seniors</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif;text-align:center}
-.container{max-width:900px;margin:auto;padding:30px 20px}
-.topbar{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:15px}
-select{background:#111;color:#fff;border:1px solid #444;padding:6px;border-radius:4px}
-h1{color:#4da3ff;margin-top:40px}
-p{max-width:720px;margin:20px auto;line-height:1.6}
-a.button{display:inline-block;margin:12px;padding:14px 28px;background:#4da3ff;color:#000;border-radius:6px;text-decoration:none;font-weight:bold}
+body{
+  margin:0;
+  background:#0b0b0b;
+  color:#e6e6e6;
+  font-family:Arial,Helvetica,sans-serif;
+  text-align:center
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px
+}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #333;
+  padding-bottom:12px
+}
+select{
+  background:#111;
+  color:#fff;
+  border:1px solid #444;
+  padding:6px;
+  border-radius:4px
+}
+h1{
+  color:#4da3ff;
+  margin-top:40px
+}
+p{
+  max-width:720px;
+  margin:20px auto;
+  line-height:1.6
+}
+a.button{
+  display:block;
+  margin:12px auto;
+  padding:14px 28px;
+  background:#4da3ff;
+  color:#000;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+  max-width:420px
+}
+.notice{
+  font-size:0.9rem;
+  color:#aaa;
+  margin-top:30px
+}
 </style>
 </head>
 
@@ -26,43 +71,29 @@ a.button{display:inline-block;margin:12px;padding:14px 28px;background:#4da3ff;c
 <h1 id="title"></h1>
 <p id="desc"></p>
 
-<a class="button" href="/cryptoforseniors/practice/">Practice First</a>
-<a class="button" href="/cryptoforseniors/security/">Security First</a>
-<a class="button" href="/cryptoforseniors/ai/">AI Assisted Help</a>
-<a class="button" href="/cryptoforseniors/launchpad/">Meme Coins & NFTs</a>
-<a class="button" href="/cryptoforseniors/troil/">Experimental: TROIL</a>
+<a class="button" id="btnPractice" href="/cryptoforseniors/practice/"></a>
+<a class="button" id="btnSecurity" href="/cryptoforseniors/security/"></a>
+<a class="button" id="btnAI" href="/cryptoforseniors/ai/"></a>
+<a class="button" id="btnLaunchpad" href="/cryptoforseniors/launchpad/"></a>
+<a class="button" id="btnTroil" href="/cryptoforseniors/troil/"></a>
 
+<p class="notice" id="footerNote"></p>
 
 </div>
 
 <script>
-const T={
-en:{n:"English",t:"Crypto For Seniors",d:"Learn crypto safely. Practice first. No hype. No pressure."},
-fr:{n:"Français",t:"Crypto Pour Seniors",d:"Apprenez la crypto en toute sécurité."},
-es:{n:"Español",t:"Cripto Para Personas Mayores",d:"Aprenda cripto de forma segura."},
-hr:{n:"Hrvatski",t:"Kripto za Starije",d:"Sigurno učenje kripta."},
-ja:{n:"日本語",t:"シニア向け暗号資産",d:"安全に暗号資産を学ぶ。"},
-tl:{n:"Filipino",t:"Crypto Para sa Seniors",d:"Ligtas na pag-aaral ng crypto."},
-"zh-cn":{n:"中文(简体)",t:"老年人加密学习",d:"安全学习加密货币。"},
-"zh-tw":{n:"中文(繁體)",t:"長者加密學習",d:"安全學習加密貨幣。"}
-};
-
-const sel=document.getElementById("lang");
-Object.keys(T).forEach(k=>{
-  const o=document.createElement("option");
-  o.value=k;o.textContent=T[k].n;sel.appendChild(o);
-});
-
-function apply(l){
-  const t=T[l]||T.en;
-  localStorage.setItem("cfs-lang",l);
-  title.textContent=t.t;
-  desc.textContent=t.d;
-}
-
-sel.onchange=()=>apply(sel.value);
-const start=localStorage.getItem("cfs-lang")||"en";
-sel.value=start;apply(start);
-</script>
-</body>
-</html>
+const TEXT={
+en:{
+  n:"English",
+  title:"Crypto For Seniors",
+  desc:"Learn crypto safely. Practice first. No hype. No pressure.",
+  practice:"Practice First",
+  security:"Security First",
+  ai:"AI Assisted Help",
+  launchpad:"Meme Coins & NFTs (Education)",
+  troil:"Experimental Project: TROIL",
+  note:"Education only. No financial advice. Practice before risk."
+},
+fr:{
+  n:"Français",
+  title:"Crypto Po
