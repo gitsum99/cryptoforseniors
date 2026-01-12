@@ -14,29 +14,29 @@
       text-align: center;
     }
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 20px;
-      border-bottom: 1px solid #333;
-      font-size: 0.9rem;
-    }
-
-    .header a {
-      color: #aaa;
-      text-decoration: none;
-    }
-
     .container {
       max-width: 900px;
       margin: auto;
-      padding: 50px 20px;
+      padding: 60px 20px;
     }
 
     h1 {
       font-size: 2.6rem;
       letter-spacing: 0.1em;
+    }
+
+    p {
+      max-width: 720px;
+      margin: 20px auto;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .panel {
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 25px;
+      margin-top: 30px;
     }
 
     .practice-banner {
@@ -49,29 +49,62 @@
       font-weight: bold;
     }
 
-    .panel {
-      border: 1px solid #333;
-      border-radius: 8px;
-      padding: 25px;
-      margin-top: 30px;
+    a.back {
+      display: inline-block;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-decoration: none;
     }
 
-    p {
-      max-width: 720px;
-      margin: auto;
-      opacity: 0.9;
-      line-height: 1.6;
+    a.back:hover {
+      text-decoration: underline;
+    }
+
+    .lang {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 
 <body>
+  <!-- Global Header -->
+<div style="
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+  border-bottom:1px solid #333;
+  font-size:0.9rem;
+">
 
-  <!-- HEADER -->
-  <div class="header">
-    <a id="backLink" href="../">← Back to Crypto For Seniors</a>
+  <a href="../" style="
+    color:#aaa;
+    text-decoration:none;
+  ">
+    ← Back to Crypto For Seniors
+  </a>
 
-    <select id="langSelect">
+  <select id="langSelect" onchange="setLanguage(this.value)">
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="es">Español</option>
+    <option value="hr">Hrvatski</option>
+    <option value="ja">日本語</option>
+    <option value="tl">Filipino</option>
+    <option value="zh-cn">中文 (简体)</option>
+    <option value="zh-tw">中文 (繁體)</option>
+  </select>
+
+</div>
+
+
+  <!-- Language Selector -->
+  <div class="lang">
+    <select id="langSelect" onchange="setLanguage(this.value)">
       <option value="en">English</option>
       <option value="fr">Français</option>
       <option value="es">Español</option>
@@ -83,7 +116,85 @@
     </select>
   </div>
 
-  <!-- CONTENT -->
   <div class="container">
 
-    <h1 id="
+    <h1 id="pageTitle">Practice Mode</h1>
+
+    <div class="practice-banner">
+      PRACTICE MODE — No real money is used
+    </div>
+
+    <div class="panel">
+      <p id="pageDesc">
+        Practice Mode lets you learn crypto using simulated funds.
+        No real money is used. Mistakes are safe and unlimited.
+      </p>
+    </div>
+
+    <a class="back" id="backLink" href="../">
+      ← Back to Crypto For Seniors
+    </a>
+
+  </div>
+
+  <!-- Language Script -->
+  <script>
+    const translations = {
+      en: {
+        title: "Practice Mode",
+        desc: "Practice Mode lets you learn crypto using simulated funds. No real money is used. Mistakes are safe and unlimited.",
+        back: "← Back to Crypto For Seniors"
+      },
+      fr: {
+        title: "Mode Pratique",
+        desc: "Le mode pratique vous permet d’apprendre avec des fonds simulés. Aucun argent réel n’est utilisé.",
+        back: "← Retour à Crypto For Seniors"
+      },
+      es: {
+        title: "Modo de Práctica",
+        desc: "El modo de práctica permite aprender usando fondos simulados. No se utiliza dinero real.",
+        back: "← Volver a Crypto For Seniors"
+      },
+      hr: {
+        title: "Način Vježbe",
+        desc: "Način vježbe omogućuje učenje pomoću simuliranih sredstava. Ne koristi se pravi novac.",
+        back: "← Povratak na Crypto For Seniors"
+      },
+      ja: {
+        title: "練習モード",
+        desc: "練習モードでは模擬資金を使用して学習します。実際のお金は使用されません。",
+        back: "← Crypto For Seniors に戻る"
+      },
+      tl: {
+        title: "Practice Mode",
+        desc: "Pinapayagan ka ng practice mode na matuto gamit ang simulated na pondo. Walang totoong pera.",
+        back: "← Bumalik sa Crypto For Seniors"
+      },
+      "zh-cn": {
+        title: "练习模式",
+        desc: "练习模式允许您使用模拟资金学习加密货币。不使用真实资金。",
+        back: "← 返回 Crypto For Seniors"
+      },
+      "zh-tw": {
+        title: "練習模式",
+        desc: "練習模式讓您使用模擬資金學習加密貨幣。不使用真實資金。",
+        back: "← 返回 Crypto For Seniors"
+      }
+    };
+
+    function setLanguage(lang) {
+      localStorage.setItem("cfs-lang", lang);
+      document.getElementById("pageTitle").innerText = translations[lang].title;
+      document.getElementById("pageDesc").innerText = translations[lang].desc;
+      document.getElementById("backLink").innerText = translations[lang].back;
+    }
+
+    (function initLanguage() {
+      const lang = localStorage.getItem("cfs-lang") || "en";
+      document.getElementById("langSelect").value = lang;
+      setLanguage(lang);
+    })();
+  </script>
+
+</body>
+</html>
