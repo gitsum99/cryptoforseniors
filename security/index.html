@@ -1,109 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Security First – Crypto For Seniors</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      background: #0b0b0b;
-      color: #e5e5e5;
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    h1 {
-      font-size: 2.6rem;
-      letter-spacing: 0.1em;
-    }
-
-    h2 {
-      margin-top: 40px;
-      letter-spacing: 0.08em;
-    }
-
-    p {
-      max-width: 720px;
-      margin: 20px auto;
-      opacity: 0.9;
-      line-height: 1.6;
-    }
-
-    .panel {
-      border: 1px solid #333;
-      border-radius: 8px;
-      padding: 25px;
-      margin-top: 30px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Security First</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial;text-align:center}
+.container{max-width:900px;margin:auto;padding:30px 20px}
+.topbar{display:flex;justify-content:space-between;border-bottom:1px solid #333;padding-bottom:15px}
+select{background:#111;color:#fff;border:1px solid #444;padding:6px}
+h1{color:#4da3ff;margin-top:40px}
+p{max-width:720px;margin:18px auto;line-height:1.6}
+</style>
 </head>
 
 <body>
-
-<!-- Global Header -->
-<div style="
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 20px;
-  border-bottom:1px solid #333;
-  font-size:0.9rem;
-">
-
-  <a href="../" style="color:#aaa; text-decoration:none;">
-    ← Back to Crypto For Seniors
-  </a>
-
-  <select id="langSelect" onchange="setLanguage(this.value)">
-    <option value="en">English</option>
-    <option value="fr">Français</option>
-    <option value="es">Español</option>
-    <option value="hr">Hrvatski</option>
-    <option value="ja">日本語</option>
-    <option value="tl">Filipino</option>
-    <option value="zh-cn">中文 (简体)</option>
-    <option value="zh-tw">中文 (繁體)</option>
-  </select>
-
+<div class="container">
+<div class="topbar">
+  <a href="../" style="color:#aaa;text-decoration:none">← Home</a>
+  <select id="lang"></select>
 </div>
 
-<div class="container">
+<h1 id="title"></h1>
+<p id="p1"></p>
+<p id="p2"></p>
+<p id="p3"></p>
+</div>
 
-  <h1 id="pageTitle">Security First</h1>
+<script>
+const T={
+en:{n:"English",t:"Security First",p1:"No pressure.",p2:"No hidden actions.",p3:"Practice before risk."},
+fr:{n:"Français",t:"Sécurité d'abord",p1:"Aucune pression.",p2:"Aucune action cachée.",p3:"Pratique avant risque."},
+es:{n:"Español",t:"Seguridad Primero",p1:"Sin presión.",p2:"Sin acciones ocultas.",p3:"Practique primero."},
+hr:{n:"Hrvatski",t:"Sigurnost Prvo",p1:"Bez pritiska.",p2:"Bez skrivenih radnji.",p3:"Vježba prije rizika."},
+ja:{n:"日本語",t:"安全第一",p1:"圧力なし。",p2:"隠れた操作なし。",p3:"まず練習。"},
+tl:{n:"Filipino",t:"Unahin ang Seguridad",p1:"Walang pressure.",p2:"Walang lihim.",p3:"Practice muna."},
+"zh-cn":{n:"中文(简体)",t:"安全优先",p1:"无压力。",p2:"无隐藏行为。",p3:"先练习。"},
+"zh-tw":{n:"中文(繁體)",t:"安全優先",p1:"無壓力。",p2:"無隱藏操作。",p3:"先練習。"}
+};
 
-  <div class="panel">
-    <p id="introText">
-      Security comes before features, speed, or convenience.
-      Crypto For Seniors is designed to reduce risk and confusion at every step.
-    </p>
-  </div>
+const sel=document.getElementById("lang");
+Object.keys(T).forEach(k=>{const o=document.createElement("option");o.value=k;o.textContent=T[k].n;sel.appendChild(o);});
 
-  <div class="panel">
-    <h2 id="keysTitle">Protect Your Keys</h2>
-    <p id="keysText">
-      Never share private keys or recovery phrases.
-      Anyone asking for them is attempting theft.
-    </p>
-  </div>
+function apply(l){
+  const t=T[l]||T.en;
+  localStorage.setItem("cfs-lang",l);
+  title.textContent=t.t;
+  p1.textContent=t.p1;
+  p2.textContent=t.p2;
+  p3.textContent=t.p3;
+}
 
-  <div class="panel">
-    <h2 id="practiceTitle">Practice Before Realtime</h2>
-    <p id="practiceText">
-      Learning always starts in Practice Mode.
-      Realtime use is optional and never automatic.
-    </p>
-  </div>
-
-  <div class="panel">
-    <h2 id="aiTitle">AI Is Educational Only</h2>
-    <p id="aiText">
-      AI tools help explain concepts.
-      They do not trade, predict prices,
+sel.onchange=()=>apply(sel.value);
+const start=localStorage.getItem("cfs-lang")||"en";
+sel.value=start;apply(start);
+</script>
+</body>
+</html>
