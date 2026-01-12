@@ -83,6 +83,15 @@
       font-size: 0.95rem;
     }
 
+    .ai {
+      margin-top: 25px;
+      padding: 20px;
+      border-left: 4px solid #4cff4c;
+      background: rgba(76,255,76,0.05);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
     .loss { color: #ff6a6a; }
     .profit { color: #4cff4c; }
 
@@ -119,6 +128,8 @@
     Waiting for input…
   </div>
 
+  <div id="aiExplain" class="ai" style="display:none;"></div>
+
   <a class="back" href="../">
     ← Back to Practice Mode
   </a>
@@ -128,14 +139,17 @@
 <script>
 async function simulate() {
   const amount = Number(document.getElementById("amount").value);
+  const resultBox = document.getElementById("result");
+  const aiBox = document.getElementById("aiExplain");
+
   if (!amount || amount <= 0) {
-    document.getElementById("result").innerText =
-      "Please enter a valid simulated loan amount.";
+    resultBox.innerText = "Please enter a valid simulated loan amount.";
+    aiBox.style.display = "none";
     return;
   }
 
-  document.getElementById("result").innerText =
-    "Fetching real market price…";
+  resultBox.innerText = "Fetching real market price…";
+  aiBox.style.display = "none";
 
   try {
     const res = await fetch(
@@ -144,34 +158,41 @@ async function simulate() {
     const data = await res.json();
     const price = data.solana.usd;
 
-    // Simulated spreads + fees
     const buyPrice = price;
-    const sellPrice = price * 1.0005; // tiny arbitrage
+    const sellPrice = price * 1.0005; // tiny spread
     const fee = amount * 0.003;
 
     const profit =
       (amount / buyPrice) * sellPrice - amount - fee;
 
     if (profit > 0) {
-      document.getElementById("result").innerHTML = `
-        <span class="profit">
-          ✅ Simulated Profit: $${profit.toFixed(2)}
-        </span><br><br>
-        Real price used: SOL = $${price}<br>
-        Small spreads barely overcome fees.
+      resultBox.innerHTML = `
+        <span class="profit">✅ Simulated Profit: $${profit.toFixed(2)}</span><br>
+        SOL price used: $${price}
+      `;
+      aiBox.innerHTML = `
+        <strong>AI Explanation:</strong><br>
+        This simulation shows a rare case where a very small price difference
+        barely covered fees. In real markets, competition usually removes
+        these gaps before you can act.
       `;
     } else {
-      document.getElementById("result").innerHTML = `
-        <span class="loss">
-          ❌ Simulated Loss: $${profit.toFixed(2)}
-        </span><br><br>
-        Real price used: SOL = $${price}<br>
-        This shows why most flash loans fail.
+      resultBox.innerHTML = `
+        <span class="loss">❌ Simulated Loss: $${profit.toFixed(2)}</span><br>
+        SOL price used: $${price}
+      `;
+      aiBox.innerHTML = `
+        <strong>AI Explanation:</strong><br>
+        Even though prices were real, fees and tiny spreads eliminated profit.
+        This is why most flash loan attempts fail in practice.
       `;
     }
+
+    aiBox.style.display = "block";
+
   } catch (err) {
-    document.getElementById("result").innerText =
-      "Price fetch failed. Try again later.";
+    resultBox.innerText = "Price fetch failed. Try again later.";
+    aiBox.style.display = "none";
   }
 }
 </script>
