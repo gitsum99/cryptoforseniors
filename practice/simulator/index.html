@@ -1,124 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Flash Loan Practice Simulator</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Practice Mode – Crypto For Seniors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-body {
-  margin:0;
-  background:#0b0b0b;
-  color:#e5e5e5;
-  font-family:Arial, Helvetica, sans-serif;
-  text-align:center;
-}
-.container {
-  max-width:900px;
-  margin:auto;
-  padding:50px 20px;
-}
-.banner {
-  margin:20px auto;
-  padding:12px;
-  max-width:600px;
-  border:2px solid #4cff4c;
-  color:#4cff4c;
-  border-radius:8px;
-  font-weight:bold;
-}
-input, button {
-  width:100%;
-  padding:12px;
-  margin-top:12px;
-  background:#111;
-  color:#e5e5e5;
-  border:1px solid #444;
-  border-radius:6px;
-}
-button {
-  border:2px solid #4cff4c;
-  color:#4cff4c;
-  cursor:pointer;
-}
-button:hover {
-  background:rgba(76,255,76,0.1);
-}
-.result {
-  margin-top:25px;
-  padding:20px;
-  border:1px dashed #555;
-  border-radius:8px;
-}
-.profit { color:#4cff4c; }
-.loss { color:#ff6a6a; }
-a.back {
-  display:block;
-  margin-top:40px;
-  color:#aaa;
-  text-decoration:none;
-}
-</style>
+  <style>
+    body {
+      margin: 0;
+      background: #0b0b0b;
+      color: #e6e6e6;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      color: #4da3ff;
+      margin-bottom: 10px;
+    }
+
+    .banner {
+      background: #1e1e1e;
+      border: 2px solid #4da3ff;
+      color: #ffffff;
+      padding: 15px;
+      margin: 30px auto;
+      max-width: 700px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 20px auto;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 30px auto;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #000;
+      background: #4da3ff;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: #6bb6ff;
+    }
+
+    .note {
+      font-size: 0.95rem;
+      color: #b0b0b0;
+      margin-top: 30px;
+    }
+
+    .nav {
+      margin-top: 50px;
+    }
+
+    .nav a {
+      color: #4da3ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
+    <h1>Practice Mode</h1>
 
-<div class="container">
-<h1>Flash Loan Practice Simulator</h1>
+    <div class="banner">
+      PRACTICE ONLY — No real money, no wallets, no transactions
+    </div>
 
-<div class="banner">
-PRACTICE ONLY — Fake funds, real prices, no transactions
-</div>
+    <p>
+      Practice Mode is designed to help you learn crypto concepts safely.
+      Nothing on this page — or the simulator — can move real funds.
+    </p>
 
-<input id="amount" type="number" placeholder="Enter simulated amount (USDC)">
-<button onclick="simulate()">Simulate</button>
+    <p>
+      You will see <strong>real market prices</strong>, but all balances,
+      loans, and results are <strong>simulated</strong>.
+    </p>
 
-<div id="result" class="result">
-Enter an amount and click simulate.
-</div>
+    <p>
+      This is the recommended starting point before exploring anything else
+      in Crypto For Seniors.
+    </p>
 
-<a class="back" href="../">← Back to Practice Mode</a>
-</div>
+    <a class="button" href="./simulator/">
+      ▶ Launch Practice Simulator
+    </a>
 
-<script>
-async function simulate() {
-  const amount = Number(document.getElementById("amount").value);
-  const result = document.getElementById("result");
+    <div class="note">
+      The simulator runs on the next page.<br />
+      If nothing happens, make sure the address ends with <code>/practice/simulator/</code>
+    </div>
 
-  if (!amount || amount <= 0) {
-    result.innerText = "Please enter a valid amount.";
-    return;
-  }
-
-  result.innerText = "Fetching real SOL price…";
-
-  try {
-    const r = await fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd"
-    );
-    const d = await r.json();
-    const price = d.solana.usd;
-
-    const fee = amount * 0.003;
-    const sellGain = amount * 0.0005;
-    const profit = sellGain - fee;
-
-    if (profit > 0) {
-      result.innerHTML = `<span class="profit">
-      ✅ Simulated Profit: $${profit.toFixed(2)}<br>
-      SOL Price: $${price}
-      </span>`;
-    } else {
-      result.innerHTML = `<span class="loss">
-      ❌ Simulated Loss: $${profit.toFixed(2)}<br>
-      SOL Price: $${price}
-      </span>`;
-    }
-  } catch {
-    result.innerText = "Price fetch failed. Try again later.";
-  }
-}
-</script>
-
+    <div class="nav">
+      <a href="../">← Back to Home</a>
+    </div>
+  </div>
 </body>
 </html>
