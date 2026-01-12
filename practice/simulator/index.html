@@ -49,7 +49,7 @@
       opacity: 0.9;
     }
 
-    input, select {
+    input {
       width: 100%;
       padding: 10px;
       margin-top: 6px;
@@ -81,8 +81,10 @@
       border: 1px dashed #555;
       border-radius: 8px;
       font-size: 0.95rem;
-      opacity: 0.9;
     }
+
+    .loss { color: #ff6a6a; }
+    .profit { color: #4cff4c; }
 
     a.back {
       display: inline-block;
@@ -101,42 +103,20 @@
   <h1>Flash Loan Practice Simulator</h1>
 
   <div class="banner">
-    PRACTICE ONLY — No wallets • No real funds • No transactions
+    PRACTICE ONLY — Real prices • Fake funds • No transactions
   </div>
 
   <div class="panel">
 
     <label>Simulated Loan Amount (USDC)</label>
-    <input type="number" placeholder="e.g. 10000" disabled>
+    <input id="amount" type="number" placeholder="e.g. 10000">
 
-    <label>Swap Route</label>
-    <select disabled>
-      <option>SOL → USDC → SOL</option>
-      <option>USDC → SOL → USDC</option>
-    </select>
-
-    <label>DEX Route</label>
-    <select disabled>
-      <option>Raydium → Jupiter</option>
-      <option>Jupiter → Raydium</option>
-    </select>
-
-    <button disabled>
-      Simulate Flash Loan (Coming Next)
-    </button>
+    <button onclick="simulate()">Simulate with Live Price</button>
 
   </div>
 
-  <div class="result">
-    Simulation results will appear here once logic is enabled.
-    <br><br>
-    The simulator will show:
-    <ul>
-      <li>Borrowed amount</li>
-      <li>Swap prices</li>
-      <li>Estimated fees</li>
-      <li>Profit or loss</li>
-    </ul>
+  <div id="result" class="result">
+    Waiting for input…
   </div>
 
   <a class="back" href="../">
@@ -144,6 +124,57 @@
   </a>
 
 </div>
+
+<script>
+async function simulate() {
+  const amount = Number(document.getElementById("amount").value);
+  if (!amount || amount <= 0) {
+    document.getElementById("result").innerText =
+      "Please enter a valid simulated loan amount.";
+    return;
+  }
+
+  document.getElementById("result").innerText =
+    "Fetching real market price…";
+
+  try {
+    const res = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd"
+    );
+    const data = await res.json();
+    const price = data.solana.usd;
+
+    // Simulated spreads + fees
+    const buyPrice = price;
+    const sellPrice = price * 1.0005; // tiny arbitrage
+    const fee = amount * 0.003;
+
+    const profit =
+      (amount / buyPrice) * sellPrice - amount - fee;
+
+    if (profit > 0) {
+      document.getElementById("result").innerHTML = `
+        <span class="profit">
+          ✅ Simulated Profit: $${profit.toFixed(2)}
+        </span><br><br>
+        Real price used: SOL = $${price}<br>
+        Small spreads barely overcome fees.
+      `;
+    } else {
+      document.getElementById("result").innerHTML = `
+        <span class="loss">
+          ❌ Simulated Loss: $${profit.toFixed(2)}
+        </span><br><br>
+        Real price used: SOL = $${price}<br>
+        This shows why most flash loans fail.
+      `;
+    }
+  } catch (err) {
+    document.getElementById("result").innerText =
+      "Price fetch failed. Try again later.";
+  }
+}
+</script>
 
 </body>
 </html>
