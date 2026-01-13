@@ -1,121 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- ===============================
-       CFS GOLDEN PAGE TEMPLATE
-       SECURITY PAGE — COMPLIANT
-       =============================== -->
-
-  <meta charset="UTF-8">
-  <title>Security First — Crypto For Seniors</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      background: #0b0b0b;
-      color: #e5e5e5;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 60px 20px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      margin-top: 40px;
-      font-size: 1.4rem;
-    }
-
-    p {
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    ul {
-      margin-left: 20px;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    footer {
-      margin-top: 60px;
-      font-size: 0.85rem;
-      color: #888;
-      text-align: center;
-    }
-  </style>
-</head>
-
-<body>
-
-<main>
-  <!-- ===============================
-       EDITABLE CONTENT START
-       =============================== -->
-
-  <h1 data-i18n="page_title">Security First</h1>
-
-  <p data-i18n="intro">
-    Crypto For Seniors is designed with safety and clarity as its highest priority.
-  </p>
-
-  <h2 data-i18n="what_we_do_title">What We Do</h2>
-  <ul>
-    <li data-i18n="do_1">Provide clear, slow-paced educational explanations</li>
-    <li data-i18n="do_2">Offer practice simulations before any real-world risk</li>
-    <li data-i18n="do_3">Explain common scams, risks, and misleading tactics</li>
-    <li data-i18n="do_4">Encourage thoughtful learning without pressure</li>
-  </ul>
-
-  <h2 data-i18n="what_we_never_title">What We Never Do</h2>
-  <ul>
-    <li data-i18n="never_1">Never request wallets, private keys, or passwords</li>
-    <li data-i18n="never_2">Never push urgency, hype, or fear-based decisions</li>
-    <li data-i18n="never_3">Never execute trades or connect to live accounts</li>
-    <li data-i18n="never_4">Never hide actions or automate decisions</li>
-  </ul>
-
-  <h2 data-i18n="your_control_title">Your Control</h2>
-  <p data-i18n="control_1">
-    Every decision remains fully in the hands of the user.
-  </p>
-  <p data-i18n="control_2">
-    Learning happens at your pace, with no obligation to proceed.
-  </p>
-
-  <p data-i18n="closing">
-    If something feels confusing or rushed, the safest choice is always to pause.
-  </p>
-
-  <!-- ===============================
-       EDITABLE CONTENT END
-       =============================== -->
-
-  <footer>
-    <p data-i18n="footer">
-      Education only. No financial advice. No wallets. No live trading.
-    </p>
-  </footer>
-</main>
-
-<!-- ===============================
-     SCRIPTS — ALWAYS LAST
-     =============================== -->
 <script>
 /* ===== CFS MULTILINGUAL CORE (LOCKED) ===== */
 
 const translations = {
   en: {
+    back_home: "Back to Crypto For Seniors",
+    language_label: "Language",
+
     page_title: "Security First",
     intro: "Crypto For Seniors is designed with safety and clarity as its highest priority.",
     what_we_do_title: "What We Do",
@@ -134,7 +24,11 @@ const translations = {
     closing: "If something feels confusing or rushed, the safest choice is always to pause.",
     footer: "Education only. No financial advice. No wallets. No live trading."
   },
+
   fr: {
+    back_home: "Retour à Crypto pour les aînés",
+    language_label: "Langue",
+
     page_title: "La sécurité avant tout",
     intro: "Crypto pour les aînés est conçu avec la sécurité et la clarté comme priorité absolue.",
     what_we_do_title: "Ce que nous faisons",
@@ -153,7 +47,11 @@ const translations = {
     closing: "Si quelque chose semble confus ou pressé, la meilleure décision est de faire une pause.",
     footer: "Éducation uniquement. Aucun conseil financier."
   },
+
   es: {
+    back_home: "Volver a Crypto para personas mayores",
+    language_label: "Idioma",
+
     page_title: "Seguridad primero",
     intro: "Crypto para personas mayores está diseñado con la seguridad y la claridad como máxima prioridad.",
     what_we_do_title: "Lo que hacemos",
@@ -177,4 +75,20 @@ const translations = {
 const savedLang = localStorage.getItem("cfs-lang") || "en";
 
 function applyLang(lang) {
-  document.querySelectorAll("[data-i18n]").forEach(el
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+  localStorage.setItem("cfs-lang", lang);
+}
+
+applyLang(savedLang);
+
+const langSelect = document.getElementById("lang");
+if (langSelect) {
+  langSelect.value = savedLang;
+  langSelect.addEventListener("change", e => applyLang(e.target.value));
+}
+</script>
