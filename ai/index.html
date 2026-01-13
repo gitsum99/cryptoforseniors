@@ -59,6 +59,29 @@
 <body>
 
 <main>
+<header style="margin-bottom:40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+
+
+  <a href="../" style="color:#1f6fff;text-decoration:none;font-size:1rem">
+    ← <span data-i18n="back_home">Back to Crypto For Seniors</span>
+  </a>
+
+  <div>
+    <label for="lang" style="margin-right:6px" data-i18n="language_label">Language:</label>
+    <select id="lang">
+      <option value="en">EN</option>
+      <option value="fr">FR</option>
+      <option value="es">ES</option>
+    </select>
+  </div>
+
+</header>
+- ===============================
+     CFS SHARED HEADER (LOCKED)
+     =============================== -->
+
+
+</header>
   <!-- ===============================
        EDITABLE CONTENT START
        =============================== -->
@@ -106,8 +129,15 @@
 <script>
 /* ===== CFS MULTILINGUAL CORE (LOCKED) ===== */
 
+c
+};
+
+const savedLang = localStorage.getItem("cfs-lang") || "en";
 const translations = {
   en: {
+    back_home: "Back to Crypto For Seniors",
+    language_label: "Language",
+
     page_title: "AI Assisted Help",
     intro: "Crypto For Seniors uses AI strictly as an educational assistant.",
     what_ai_does_title: "What AI Does",
@@ -123,41 +153,47 @@ const translations = {
     closing: "AI is here to educate, not to control. Every decision remains with the user.",
     footer: "Education only. No financial advice. No wallets. No live trading."
   },
+
   fr: {
+    back_home: "Retour à Crypto pour les aînés",
+    language_label: "Langue",
+
     page_title: "Aide assistée par l’IA",
     intro: "Crypto pour les aînés utilise l’IA uniquement comme outil éducatif.",
-    what_ai_does_title: "Ce que l’IA fait",
+    what_ai_does_title: "Ce que fait l’IA",
     does_1: "Explique les concepts crypto en langage simple",
     does_2: "Aide à comprendre les risques et compromis",
     does_3: "Explique pourquoi les résultats simulés réussissent ou échouent",
     does_4: "Prend en charge l’apprentissage multilingue",
     what_ai_never_title: "Ce que l’IA ne fait jamais",
-    never_1: "Ne trade jamais et n’exécute aucune transaction",
-    never_2: "Ne prédit jamais les prix ou les marchés",
-    never_3: "Ne se connecte jamais à des portefeuilles ou clés privées",
+    never_1: "Ne trade jamais",
+    never_2: "Ne prédit jamais les prix",
+    never_3: "Ne se connecte jamais à des portefeuilles",
     never_4: "Ne remplace jamais le choix de l’utilisateur",
-    closing: "L’IA sert à informer, jamais à contrôler.",
+    closing: "L’IA est là pour informer, jamais pour contrôler.",
     footer: "Éducation uniquement. Aucun conseil financier."
   },
+
   es: {
+    back_home: "Volver a Crypto para personas mayores",
+    language_label: "Idioma",
+
     page_title: "Ayuda asistida por IA",
-    intro: "Crypto para personas mayores utiliza la IA solo como asistencia educativa.",
-    what_ai_does_title: "Lo que hace la IA",
+    intro: "Crypto para personas mayores utiliza la IA solo con fines educativos.",
+    what_ai_does_title: "Qué hace la IA",
     does_1: "Explica conceptos cripto en lenguaje sencillo",
     does_2: "Ayuda a comprender riesgos y compensaciones",
     does_3: "Explica por qué los resultados simulados funcionan o fallan",
     does_4: "Apoya el aprendizaje multilingüe",
-    what_ai_never_title: "Lo que la IA nunca hace",
-    never_1: "Nunca opera ni ejecuta transacciones",
-    never_2: "Nunca predice precios o mercados",
-    never_3: "Nunca se conecta a billeteras o claves privadas",
-    never_4: "Nunca anula la decisión del usuario",
+    what_ai_never_title: "Qué nunca hace la IA",
+    never_1: "Nunca opera",
+    never_2: "Nunca predice precios",
+    never_3: "Nunca se conecta a billeteras",
+    never_4: "Nunca anula decisiones del usuario",
     closing: "La IA está aquí para educar, no para controlar.",
     footer: "Solo educación. Sin asesoramiento financiero."
   }
 };
-
-const savedLang = localStorage.getItem("cfs-lang") || "en";
 
 function applyLang(lang) {
   document.querySelectorAll("[data-i18n]").forEach(el => {
@@ -170,6 +206,11 @@ function applyLang(lang) {
 }
 
 applyLang(savedLang);
+const langSelect = document.getElementById("lang");
+if (langSelect) {
+  langSelect.value = savedLang;
+  langSelect.addEventListener("change", e => applyLang(e.target.value));
+}
 </script>
 
 </body>
