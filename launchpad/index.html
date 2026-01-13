@@ -1,200 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>CFS Launchpad — Meme Coins & NFTs (Education Only)</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ===============================
+       CFS GOLDEN PAGE TEMPLATE
+       LAUNCHPAD — EDUCATION ONLY
+       =============================== -->
 
-<style>
-body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif;text-align:center}
-.container{max-width:900px;margin:auto;padding:30px 20px}
-.topbar{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:12px}
-select{background:#111;color:#fff;border:1px solid #444;padding:6px;border-radius:4px}
-h1{color:#4da3ff;margin-top:30px}
-.banner{border:2px solid #ffb84d;background:#1e1e1e;padding:14px;margin:25px auto;max-width:760px;font-weight:bold}
-.section{border:1px solid #333;border-radius:8px;padding:22px;margin:30px auto;max-width:760px}
-.section h2{color:#4da3ff;margin-top:0}
-.section h3{color:#9cc7ff;margin-bottom:6px}
-p{line-height:1.6;margin:10px auto;max-width:720px}
-.notice{color:#ffb84d;font-weight:bold}
-.disabled{opacity:.5;border:1px dashed #555;padding:14px;margin-top:16px}
-a{color:#4da3ff;text-decoration:none;font-weight:bold}
-</style>
+  <meta charset="UTF-8">
+  <title>Meme Coins & NFTs — Crypto For Seniors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      background: #0b0b0b;
+      color: #e5e5e5;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 1.4rem;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    img {
+      max-width: 100%;
+      border: 1px solid #333;
+      border-radius: 6px;
+      margin: 12px 0 24px 0;
+    }
+
+    .disabled-box {
+      margin-top: 40px;
+      padding: 20px;
+      border: 1px dashed #444;
+      border-radius: 6px;
+      background: #0f0f0f;
+      color: #777;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.85rem;
+      color: #888;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
 
-<div class="topbar">
-  <a href="../" id="backTop" style="color:#aaa;text-decoration:none"></a>
-  <select id="lang"></select>
-</div>
+<main>
+  <!-- ===============================
+       EDITABLE CONTENT START
+       =============================== -->
 
-<h1 id="title"></h1>
-<div class="banner" id="banner"></div>
+  <h1 data-i18n="page_title">Meme Coins & NFTs (Education)</h1>
 
-<!-- MEME COIN SUMMARY -->
-<div class="section">
-  <h2 id="memeTitle"></h2>
-  <p id="memeSummary"></p>
-</div>
-
-
-<!-- VISUAL DIAGRAMS -->
-
-<div class="section">
-  <h2>Visual Overview</h2>
-
-  <p><strong>Meme Coin Lifecycle (Conceptual)</strong></p>
-  <img src="/cryptoforseniors/assets/meme-coin-flow.png"
-       alt="Meme coin lifecycle diagram"
-       style="max-width:100%;border:1px solid #333;border-radius:6px;margin:10px 0">
-
-  <p>
-    This diagram shows how most meme coins move from idea → token supply →
-    liquidity → public market. Most fail before reaching stability.
+  <p data-i18n="intro">
+    This section explains meme coins and NFTs in simple, educational terms only.
   </p>
 
-  <p><strong>NFT Structure (Conceptual)</strong></p>
-  <img src="/cryptoforseniors/assets/nft-structure.png"
-       alt="NFT structure diagram"
-       style="max-width:100%;border:1px solid #333;border-radius:6px;margin:10px 0">
-
-  <p>
-    NFTs are not the artwork itself. They are records pointing to media,
-    metadata, and storage systems.
+  <h2 data-i18n="meme_title">Meme Coins — Concept Overview</h2>
+  <p data-i18n="meme_text">
+    Meme coins are cryptocurrencies often created around jokes, trends, or online communities.
+    While some gain popularity quickly, most do not last long.
   </p>
-</div>
 
+  <img src="../assets/meme-coin-flow.png" alt="Meme coin lifecycle diagram">
 
-<!-- NFT EDUCATION -->
-<div class="section">
-  <h2 id="nftTitle"></h2>
+  <h2 data-i18n="nft_title">NFTs — Concept Overview</h2>
+  <p data-i18n="nft_text">
+    NFTs (Non-Fungible Tokens) represent unique digital items such as artwork, music, or collectibles.
+    Ownership is recorded on a blockchain.
+  </p>
 
-  <h3 id="nftStep1Title"></h3>
-  <p id="nftStep1Text"></p>
+  <img src="../assets/nft-structure.png" alt="NFT structure diagram">
 
-  <h3 id="nftStep2Title"></h3>
-  <p id="nftStep2Text"></p>
+  <h2 data-i18n="nft_steps_title">How NFTs Work (Step by Step)</h2>
+  <ul>
+    <li data-i18n="step_1">A digital file is created (image, audio, video)</li>
+    <li data-i18n="step_2">Metadata is attached to describe the item</li>
+    <li data-i18n="step_3">The data is stored (IPFS, Arweave, or centralized servers)</li>
+    <li data-i18n="step_4">The NFT can be listed on a marketplace</li>
+    <li data-i18n="step_5">Royalties may exist, but are not guaranteed</li>
+  </ul>
 
-  <h3 id="nftStep3Title"></h3>
-  <p id="nftStep3Text"></p>
+  <div class="disabled-box">
+    <p data-i18n="disabled_title"><strong>Future Tools (Disabled)</strong></p>
+    <p data-i18n="disabled_text">
+      This platform does not allow launching tokens, minting NFTs, or connecting wallets.
+      These features are intentionally disabled.
+    </p>
+  </div>
 
-  <h3 id="nftStep4Title"></h3>
-  <p id="nftStep4Text"></p>
+  <!-- ===============================
+       EDITABLE CONTENT END
+       =============================== -->
 
-  <h3 id="nftStep5Title"></h3>
-  <p id="nftStep5Text"></p>
+  <footer>
+    <p data-i18n="footer">
+      Education only. No financial advice. No wallets. No live trading.
+    </p>
+  </footer>
+</main>
 
-  <p class="notice" id="nftWarn"></p>
-</div>
-
-<div class="section disabled">
-  <h2 id="futureTitle"></h2>
-  <p id="futureText"></p>
-</div>
-
-<p style="margin-top:40px">
-  <a href="../" id="backBottom"></a>
-</p>
-
-</div>
-
+<!-- ===============================
+     SCRIPTS — ALWAYS LAST
+     =============================== -->
 <script>
-const TEXT={
-en:{
-  n:"English",
-  title:"CFS Launchpad — Meme Coins & NFTs",
-  banner:"EDUCATIONAL ONLY — No live launches, no wallets, no financial advice",
-  back:"← Back to Crypto For Seniors",
+/* ===== CFS MULTILINGUAL CORE (LOCKED) ===== */
 
-  memeTitle:"Meme Coins — Recap",
-  memeSummary:"Meme coins rely on narrative, timing, and trust. Code alone does not create value.",
-
-  nftTitle:"NFTs — How They Work (Conceptual)",
-  nftStep1Title:"Step 1 — Digital Media",
-  nftStep1Text:"NFTs usually reference images, audio, or video. The media itself is often stored off-chain.",
-  nftStep2Title:"Step 2 — Metadata",
-  nftStep2Text:"Metadata describes the NFT (name, traits, links). If metadata is mutable, the NFT can change.",
-  nftStep3Title:"Step 3 — Storage",
-  nftStep3Text:"Files may be stored on IPFS, Arweave, or centralized servers. Storage choice affects permanence.",
-  nftStep4Title:"Step 4 — Royalties",
-  nftStep4Text:"Royalties are optional and not guaranteed. Marketplaces can ignore or bypass them.",
-  nftStep5Title:"Step 5 — Marketplaces",
-  nftStep5Text:"Marketplaces control visibility, fees, and rules. An NFT without buyers has no market value.",
-  nftWarn:"Most NFTs never sell. Understanding structure matters more than artwork.",
-
-  futureTitle:"Practice Tools (Coming Later)",
-  futureText:"Practice-only NFT metadata and royalty simulators will be added in a future phase."
-},
-fr:{
-  n:"Français",
-  title:"CFS Launchpad — Meme Coins et NFTs",
-  banner:"ÉDUCATIF UNIQUEMENT — Aucun lancement réel",
-  back:"← Retour",
-
-  memeTitle:"Meme Coins — Récapitulatif",
-  memeSummary:"Le succès dépend du récit et de la confiance.",
-
-  nftTitle:"NFTs — Fonctionnement",
-  nftStep1Title:"Étape 1 — Média",
-  nftStep1Text:"Les fichiers sont souvent stockés hors chaîne.",
-  nftStep2Title:"Étape 2 — Métadonnées",
-  nftStep2Text:"Les métadonnées peuvent être modifiables.",
-  nftStep3Title:"Étape 3 — Stockage",
-  nftStep3Text:"IPFS ou stockage centralisé.",
-  nftStep4Title:"Étape 4 — Redevances",
-  nftStep4Text:"Les redevances ne sont pas garanties.",
-  nftStep5Title:"Étape 5 — Marchés",
-  nftStep5Text:"Les marchés contrôlent la visibilité.",
-  nftWarn:"La majorité des NFTs ne se vendent pas.",
-
-  futureTitle:"Outils futurs",
-  futureText:"Des simulateurs arriveront plus tard."
-}
+const translations = {
+  en: {
+    page_title: "Meme Coins & NFTs (Education)",
+    intro: "This section explains meme coins and NFTs in simple, educational terms only.",
+    meme_title: "Meme Coins — Concept Overview",
+    meme_text: "Meme coins are cryptocurrencies often created around jokes, trends, or online communities. While some gain popularity quickly, most do not last long.",
+    nft_title: "NFTs — Concept Overview",
+    nft_text: "NFTs (Non-Fungible Tokens) represent unique digital items such as artwork, music, or collectibles. Ownership is recorded on a blockchain.",
+    nft_steps_title: "How NFTs Work (Step by Step)",
+    step_1: "A digital file is created (image, audio, video)",
+    step_2: "Metadata is attached to describe the item",
+    step_3: "The data is stored (IPFS, Arweave, or centralized servers)",
+    step_4: "The NFT can be listed on a marketplace",
+    step_5: "Royalties may exist, but are not guaranteed",
+    disabled_title: "Future Tools (Disabled)",
+    disabled_text: "This platform does not allow launching tokens, minting NFTs, or connecting wallets. These features are intentionally disabled.",
+    footer: "Education only. No financial advice. No wallets. No live trading."
+  },
+  fr: {
+    page_title: "Meme coins et NFT (éducation)",
+    intro: "Cette section explique les meme coins et les NFT de manière éducative.",
+    meme_title: "Meme coins — aperçu conceptuel",
+    meme_text: "Les meme coins sont des cryptomonnaies créées autour de blagues ou de tendances. La plupart ne durent pas.",
+    nft_title: "NFT — aperçu conceptuel",
+    nft_text: "Les NFT représentent des objets numériques uniques. La propriété est enregistrée sur une blockchain.",
+    nft_steps_title: "Fonctionnement des NFT",
+    step_1: "Création d’un fichier numérique",
+    step_2: "Ajout de métadonnées",
+    step_3: "Stockage des données",
+    step_4: "Mise en vente sur une place de marché",
+    step_5: "Les redevances ne sont pas garanties",
+    disabled_title: "Outils futurs (désactivés)",
+    disabled_text: "Aucun lancement, frappe ou portefeuille n’est autorisé.",
+    footer: "Éducation uniquement. Aucun conseil financier."
+  },
+  es: {
+    page_title: "Meme coins y NFT (educación)",
+    intro: "Esta sección explica meme coins y NFT de forma educativa.",
+    meme_title: "Meme coins — visión general",
+    meme_text: "Los meme coins son criptomonedas creadas alrededor de bromas o tendencias. La mayoría no duran.",
+    nft_title: "NFT — visión general",
+    nft_text: "Los NFT representan objetos digitales únicos. La propiedad se registra en una blockchain.",
+    nft_steps_title: "Cómo funcionan los NFT",
+    step_1: "Creación de un archivo digital",
+    step_2: "Adjuntar metadatos",
+    step_3: "Almacenamiento de datos",
+    step_4: "Listado en un mercado",
+    step_5: "Las regalías no están garantizadas",
+    disabled_title: "Herramientas futuras (deshabilitadas)",
+    disabled_text: "No se permite lanzar tokens, acuñar NFT ni conectar billeteras.",
+    footer: "Solo educación. Sin asesoramiento financiero."
+  }
 };
 
-const $=id=>document.getElementById(id);
-const sel=$("lang");
+const savedLang = localStorage.getItem("cfs-lang") || "en";
 
-Object.keys(TEXT).forEach(k=>{
-  const o=document.createElement("option");
-  o.value=k;o.textContent=TEXT[k].n;
-  sel.appendChild(o);
-});
-
-function applyLang(l){
-  const t=TEXT[l]||TEXT.en;
-  localStorage.setItem("cfs-lang",l);
-  $("title").textContent=t.title;
-  $("banner").textContent=t.banner;
-  $("backTop").textContent=t.back;
-  $("backBottom").textContent=t.back;
-
-  $("memeTitle").textContent=t.memeTitle;
-  $("memeSummary").textContent=t.memeSummary;
-
-  $("nftTitle").textContent=t.nftTitle;
-  $("nftStep1Title").textContent=t.nftStep1Title;
-  $("nftStep1Text").textContent=t.nftStep1Text;
-  $("nftStep2Title").textContent=t.nftStep2Title;
-  $("nftStep2Text").textContent=t.nftStep2Text;
-  $("nftStep3Title").textContent=t.nftStep3Title;
-  $("nftStep3Text").textContent=t.nftStep3Text;
-  $("nftStep4Title").textContent=t.nftStep4Title;
-  $("nftStep4Text").textContent=t.nftStep4Text;
-  $("nftStep5Title").textContent=t.nftStep5Title;
-  $("nftStep5Text").textContent=t.nftStep5Text;
-  $("nftWarn").textContent=t.nftWarn;
-
-  $("futureTitle").textContent=t.futureTitle;
-  $("futureText").textContent=t.futureText;
+function applyLang(lang) {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+  localStorage.setItem("cfs-lang", lang);
 }
 
-sel.onchange=()=>applyLang(sel.value);
-const start=localStorage.getItem("cfs-lang")||"en";
-sel.value=start;
-applyLang(start);
+applyLang(savedLang);
 </script>
 
 </body>
