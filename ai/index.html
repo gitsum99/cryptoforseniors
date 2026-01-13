@@ -1,59 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>AI Assisted Help</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial;text-align:center}
-.container{max-width:900px;margin:auto;padding:30px 20px}
-.topbar{display:flex;justify-content:space-between;border-bottom:1px solid #333;padding-bottom:15px}
-select{background:#111;color:#fff;border:1px solid #444;padding:6px}
-h1{color:#4da3ff;margin-top:40px}
-p{max-width:720px;margin:18px auto;line-height:1.6}
-</style>
+  <!-- ===============================
+       CFS GOLDEN PAGE TEMPLATE
+       AI PAGE — COMPLIANT
+       =============================== -->
+
+  <meta charset="UTF-8">
+  <title>AI Assistance — Crypto For Seniors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      background: #0b0b0b;
+      color: #e5e5e5;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 1.4rem;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.85rem;
+      color: #888;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
-<div class="topbar">
-  <a href="../" style="color:#aaa;text-decoration:none">← Home</a>
-  <select id="lang"></select>
-</div>
 
-<h1 id="title"></h1>
-<p id="p1"></p>
-<p id="p2"></p>
-<p id="p3"></p>
-</div>
+<main>
+  <!-- ===============================
+       EDITABLE CONTENT START
+       =============================== -->
 
+  <h1 data-i18n="page_title">AI Assisted Help</h1>
+
+  <p data-i18n="intro">
+    Crypto For Seniors uses AI strictly as an educational assistant.
+  </p>
+
+  <h2 data-i18n="what_ai_does_title">What AI Does</h2>
+  <ul>
+    <li data-i18n="does_1">Explains crypto concepts in simple language</li>
+    <li data-i18n="does_2">Helps users understand risks and trade-offs</li>
+    <li data-i18n="does_3">Explains why simulated outcomes succeed or fail</li>
+    <li data-i18n="does_4">Supports multilingual learning</li>
+  </ul>
+
+  <h2 data-i18n="what_ai_never_title">What AI Never Does</h2>
+  <ul>
+    <li data-i18n="never_1">Never trades or executes transactions</li>
+    <li data-i18n="never_2">Never predicts prices or market direction</li>
+    <li data-i18n="never_3">Never connects to wallets or private keys</li>
+    <li data-i18n="never_4">Never overrides user choice</li>
+  </ul>
+
+  <p data-i18n="closing">
+    AI is here to educate, not to control. Every decision remains with the user.
+  </p>
+
+  <!-- ===============================
+       EDITABLE CONTENT END
+       =============================== -->
+
+  <footer>
+    <p data-i18n="footer">
+      Education only. No financial advice. No wallets. No live trading.
+    </p>
+  </footer>
+</main>
+
+<!-- ===============================
+     SCRIPTS — ALWAYS LAST
+     =============================== -->
 <script>
-const T={
-en:{n:"English",t:"AI Assisted Help",p1:"AI explains concepts.",p2:"AI explains risks.",p3:"AI never trades or decides."},
-fr:{n:"Français",t:"Aide IA",p1:"L’IA explique.",p2:"L’IA informe des risques.",p3:"L’IA ne décide jamais."},
-es:{n:"Español",t:"Ayuda con IA",p1:"La IA explica.",p2:"La IA muestra riesgos.",p3:"La IA no opera."},
-hr:{n:"Hrvatski",t:"AI Pomoć",p1:"AI objašnjava.",p2:"AI prikazuje rizike.",p3:"AI ne trguje."},
-ja:{n:"日本語",t:"AIサポート",p1:"AIは説明します。",p2:"AIはリスクを示します。",p3:"AIは取引しません。"},
-tl:{n:"Filipino",t:"AI Tulong",p1:"Nagpapaliwanag ang AI.",p2:"Ipinapakita ang panganib.",p3:"Hindi nagte-trade ang AI."},
-"zh-cn":{n:"中文(简体)",t:"AI 帮助",p1:"AI 负责解释。",p2:"AI 说明风险。",p3:"AI 不交易。"},
-"zh-tw":{n:"中文(繁體)",t:"AI 幫助",p1:"AI 負責說明。",p2:"AI 說明風險。",p3:"AI 不交易。"}
+/* ===== CFS MULTILINGUAL CORE (LOCKED) ===== */
+
+const translations = {
+  en: {
+    page_title: "AI Assisted Help",
+    intro: "Crypto For Seniors uses AI strictly as an educational assistant.",
+    what_ai_does_title: "What AI Does",
+    does_1: "Explains crypto concepts in simple language",
+    does_2: "Helps users understand risks and trade-offs",
+    does_3: "Explains why simulated outcomes succeed or fail",
+    does_4: "Supports multilingual learning",
+    what_ai_never_title: "What AI Never Does",
+    never_1: "Never trades or executes transactions",
+    never_2: "Never predicts prices or market direction",
+    never_3: "Never connects to wallets or private keys",
+    never_4: "Never overrides user choice",
+    closing: "AI is here to educate, not to control. Every decision remains with the user.",
+    footer: "Education only. No financial advice. No wallets. No live trading."
+  },
+  fr: {
+    page_title: "Aide assistée par l’IA",
+    intro: "Crypto pour les aînés utilise l’IA uniquement comme outil éducatif.",
+    what_ai_does_title: "Ce que l’IA fait",
+    does_1: "Explique les concepts crypto en langage simple",
+    does_2: "Aide à comprendre les risques et compromis",
+    does_3: "Explique pourquoi les résultats simulés réussissent ou échouent",
+    does_4: "Prend en charge l’apprentissage multilingue",
+    what_ai_never_title: "Ce que l’IA ne fait jamais",
+    never_1: "Ne trade jamais et n’exécute aucune transaction",
+    never_2: "Ne prédit jamais les prix ou les marchés",
+    never_3: "Ne se connecte jamais à des portefeuilles ou clés privées",
+    never_4: "Ne remplace jamais le choix de l’utilisateur",
+    closing: "L’IA sert à informer, jamais à contrôler.",
+    footer: "Éducation uniquement. Aucun conseil financier."
+  },
+  es: {
+    page_title: "Ayuda asistida por IA",
+    intro: "Crypto para personas mayores utiliza la IA solo como asistencia educativa.",
+    what_ai_does_title: "Lo que hace la IA",
+    does_1: "Explica conceptos cripto en lenguaje sencillo",
+    does_2: "Ayuda a comprender riesgos y compensaciones",
+    does_3: "Explica por qué los resultados simulados funcionan o fallan",
+    does_4: "Apoya el aprendizaje multilingüe",
+    what_ai_never_title: "Lo que la IA nunca hace",
+    never_1: "Nunca opera ni ejecuta transacciones",
+    never_2: "Nunca predice precios o mercados",
+    never_3: "Nunca se conecta a billeteras o claves privadas",
+    never_4: "Nunca anula la decisión del usuario",
+    closing: "La IA está aquí para educar, no para controlar.",
+    footer: "Solo educación. Sin asesoramiento financiero."
+  }
 };
 
-const sel=document.getElementById("lang");
-Object.keys(T).forEach(k=>{const o=document.createElement("option");o.value=k;o.textContent=T[k].n;sel.appendChild(o);});
+const savedLang = localStorage.getItem("cfs-lang") || "en";
 
-function apply(l){
-  const t=T[l]||T.en;
-  localStorage.setItem("cfs-lang",l);
-  title.textContent=t.t;
-  p1.textContent=t.p1;
-  p2.textContent=t.p2;
-  p3.textContent=t.p3;
+function applyLang(lang) {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+  localStorage.setItem("cfs-lang", lang);
 }
 
-sel.onchange=()=>apply(sel.value);
-const start=localStorage.getItem("cfs-lang")||"en";
-sel.value=start;apply(start);
+applyLang(savedLang);
 </script>
+
 </body>
 </html>
