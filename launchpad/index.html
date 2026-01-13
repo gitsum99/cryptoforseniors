@@ -1,207 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ===============================
-       CFS GOLDEN PAGE TEMPLATE
-       LAUNCHPAD — EDUCATION ONLY
-       =============================== -->
-
   <meta charset="UTF-8">
-  <title>Meme Coins & NFTs — Crypto For Seniors</title>
+  <title>Launchpad – Crypto For Seniors</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
       background: #0b0b0b;
       color: #e5e5e5;
-      font-family: Arial, Helvetica, sans-serif;
     }
-
+    header {
+      background: #111;
+      border-bottom: 1px solid #333;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header a {
+      color: #9fd3ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header select {
+      background: #1a1a1a;
+      color: #e5e5e5;
+      border: 1px solid #444;
+      padding: 6px;
+      border-radius: 4px;
+    }
     main {
       max-width: 900px;
       margin: auto;
-      padding: 60px 20px;
+      padding: 40px 20px;
     }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+    h1, h2 {
+      color: #9fd3ff;
     }
-
-    h2 {
-      margin-top: 40px;
-      font-size: 1.4rem;
+    .section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background: #121212;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
     }
-
-    p {
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
     ul {
-      margin-left: 20px;
+      padding-left: 20px;
     }
-
     li {
       margin-bottom: 10px;
     }
-
-    img {
-      max-width: 100%;
-      border: 1px solid #333;
-      border-radius: 6px;
-      margin: 12px 0 24px 0;
-    }
-
-    .disabled-box {
-      margin-top: 40px;
-      padding: 20px;
-      border: 1px dashed #444;
-      border-radius: 6px;
-      background: #0f0f0f;
-      color: #777;
-    }
-
-    footer {
-      margin-top: 60px;
-      font-size: 0.85rem;
-      color: #888;
-      text-align: center;
+    .warning {
+      background: #1b1b1b;
+      border-left: 4px solid #ff9f9f;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 4px;
     }
   </style>
 </head>
 
 <body>
 
+<header>
+  <a href="/" data-i18n="back_home">Back to Crypto For Seniors</a>
+  <label>
+    <span data-i18n="language_label">Language</span>:
+    <select id="languageSelect">
+      <option value="en">EN</option>
+      <option value="fr">FR</option>
+      <option value="es">ES</option>
+      <option value="hr">HR</option>
+      <option value="tl">TL</option>
+      <option value="ja">JA</option>
+      <option value="zh-Hant">中文</option>
+    </select>
+  </label>
+</header>
+
 <main>
-  <!-- ===============================
-       EDITABLE CONTENT START
-       =============================== -->
+  <h1 data-i18n="page_title"></h1>
 
-  <h1 data-i18n="page_title">Meme Coins & NFTs (Education)</h1>
-
-  <p data-i18n="intro">
-    This section explains meme coins and NFTs in simple, educational terms only.
-  </p>
-
-  <h2 data-i18n="meme_title">Meme Coins — Concept Overview</h2>
-  <p data-i18n="meme_text">
-    Meme coins are cryptocurrencies often created around jokes, trends, or online communities.
-    While some gain popularity quickly, most do not last long.
-  </p>
-
-  <img src="../assets/meme-coin-flow.png" alt="Meme coin lifecycle diagram">
-
-  <h2 data-i18n="nft_title">NFTs — Concept Overview</h2>
-  <p data-i18n="nft_text">
-    NFTs (Non-Fungible Tokens) represent unique digital items such as artwork, music, or collectibles.
-    Ownership is recorded on a blockchain.
-  </p>
-
-  <img src="../assets/nft-structure.png" alt="NFT structure diagram">
-
-  <h2 data-i18n="nft_steps_title">How NFTs Work (Step by Step)</h2>
-  <ul>
-    <li data-i18n="step_1">A digital file is created (image, audio, video)</li>
-    <li data-i18n="step_2">Metadata is attached to describe the item</li>
-    <li data-i18n="step_3">The data is stored (IPFS, Arweave, or centralized servers)</li>
-    <li data-i18n="step_4">The NFT can be listed on a marketplace</li>
-    <li data-i18n="step_5">Royalties may exist, but are not guaranteed</li>
-  </ul>
-
-  <div class="disabled-box">
-    <p data-i18n="disabled_title"><strong>Future Tools (Disabled)</strong></p>
-    <p data-i18n="disabled_text">
-      This platform does not allow launching tokens, minting NFTs, or connecting wallets.
-      These features are intentionally disabled.
-    </p>
+  <div class="section">
+    <p data-i18n="intro"></p>
   </div>
 
-  <!-- ===============================
-       EDITABLE CONTENT END
-       =============================== -->
+  <div class="section">
+    <h2 data-i18n="what_title"></h2>
+    <ul>
+      <li data-i18n="what_1"></li>
+      <li data-i18n="what_2"></li>
+      <li data-i18n="what_3"></li>
+      <li data-i18n="what_4"></li>
+    </ul>
+  </div>
 
-  <footer>
-    <p data-i18n="footer">
-      Education only. No financial advice. No wallets. No live trading.
-    </p>
-  </footer>
+  <div class="section">
+    <h2 data-i18n="risks_title"></h2>
+    <ul>
+      <li data-i18n="risk_1"></li>
+      <li data-i18n="risk_2"></li>
+      <li data-i18n="risk_3"></li>
+    </ul>
+
+    <div class="warning" data-i18n="warning"></div>
+  </div>
 </main>
 
-<!-- ===============================
-     SCRIPTS — ALWAYS LAST
-     =============================== -->
 <script>
-/* ===== CFS MULTILINGUAL CORE (LOCKED) ===== */
-
 const translations = {
   en: {
-    page_title: "Meme Coins & NFTs (Education)",
-    intro: "This section explains meme coins and NFTs in simple, educational terms only.",
-    meme_title: "Meme Coins — Concept Overview",
-    meme_text: "Meme coins are cryptocurrencies often created around jokes, trends, or online communities. While some gain popularity quickly, most do not last long.",
-    nft_title: "NFTs — Concept Overview",
-    nft_text: "NFTs (Non-Fungible Tokens) represent unique digital items such as artwork, music, or collectibles. Ownership is recorded on a blockchain.",
-    nft_steps_title: "How NFTs Work (Step by Step)",
-    step_1: "A digital file is created (image, audio, video)",
-    step_2: "Metadata is attached to describe the item",
-    step_3: "The data is stored (IPFS, Arweave, or centralized servers)",
-    step_4: "The NFT can be listed on a marketplace",
-    step_5: "Royalties may exist, but are not guaranteed",
-    disabled_title: "Future Tools (Disabled)",
-    disabled_text: "This platform does not allow launching tokens, minting NFTs, or connecting wallets. These features are intentionally disabled.",
-    footer: "Education only. No financial advice. No wallets. No live trading."
+    back_home: "Back to Crypto For Seniors",
+    language_label: "Language",
+    page_title: "Launchpad (Educational)",
+    intro: "This page explains what crypto launchpads are in simple terms. No participation or investing is possible here.",
+    what_title: "What a Launchpad Is",
+    what_1: "A place where new crypto projects introduce themselves",
+    what_2: "Used to explain ideas, not to invest here",
+    what_3: "Often discussed online with hype",
+    what_4: "Very high risk for beginners",
+    risks_title: "Important Risks",
+    risk_1: "Most new projects fail",
+    risk_2: "Scams are common",
+    risk_3: "Prices can drop quickly",
+    warning: "Crypto For Seniors does not offer access to any launchpads or investments."
   },
+
   fr: {
-    page_title: "Meme coins et NFT (éducation)",
-    intro: "Cette section explique les meme coins et les NFT de manière éducative.",
-    meme_title: "Meme coins — aperçu conceptuel",
-    meme_text: "Les meme coins sont des cryptomonnaies créées autour de blagues ou de tendances. La plupart ne durent pas.",
-    nft_title: "NFT — aperçu conceptuel",
-    nft_text: "Les NFT représentent des objets numériques uniques. La propriété est enregistrée sur une blockchain.",
-    nft_steps_title: "Fonctionnement des NFT",
-    step_1: "Création d’un fichier numérique",
-    step_2: "Ajout de métadonnées",
-    step_3: "Stockage des données",
-    step_4: "Mise en vente sur une place de marché",
-    step_5: "Les redevances ne sont pas garanties",
-    disabled_title: "Outils futurs (désactivés)",
-    disabled_text: "Aucun lancement, frappe ou portefeuille n’est autorisé.",
-    footer: "Éducation uniquement. Aucun conseil financier."
+    back_home: "Retour à Crypto For Seniors",
+    language_label: "Langue",
+    page_title: "Launchpad (Éducatif)",
+    intro: "Cette page explique ce que sont les launchpads crypto. Aucune participation n’est possible ici.",
+    what_title: "Qu’est-ce qu’un launchpad",
+    what_1: "Un endroit où les nouveaux projets se présentent",
+    what_2: "Pour apprendre, pas pour investir ici",
+    what_3: "Souvent entouré de battage médiatique",
+    what_4: "Très risqué pour les débutants",
+    risks_title: "Risques importants",
+    risk_1: "La plupart des projets échouent",
+    risk_2: "Les arnaques sont fréquentes",
+    risk_3: "Les prix peuvent chuter rapidement",
+    warning: "Crypto For Seniors n’offre aucun accès à des investissements."
   },
+
   es: {
-    page_title: "Meme coins y NFT (educación)",
-    intro: "Esta sección explica meme coins y NFT de forma educativa.",
-    meme_title: "Meme coins — visión general",
-    meme_text: "Los meme coins son criptomonedas creadas alrededor de bromas o tendencias. La mayoría no duran.",
-    nft_title: "NFT — visión general",
-    nft_text: "Los NFT representan objetos digitales únicos. La propiedad se registra en una blockchain.",
-    nft_steps_title: "Cómo funcionan los NFT",
-    step_1: "Creación de un archivo digital",
-    step_2: "Adjuntar metadatos",
-    step_3: "Almacenamiento de datos",
-    step_4: "Listado en un mercado",
-    step_5: "Las regalías no están garantizadas",
-    disabled_title: "Herramientas futuras (deshabilitadas)",
-    disabled_text: "No se permite lanzar tokens, acuñar NFT ni conectar billeteras.",
-    footer: "Solo educación. Sin asesoramiento financiero."
+    back_home: "Volver a Crypto For Seniors",
+    language_label: "Idioma",
+    page_title: "Launchpad (Educativo)",
+    intro: "Esta página explica qué son los launchpads de criptomonedas. No se puede invertir aquí.",
+    what_title: "Qué es un Launchpad",
+    what_1: "Lugar donde nuevos proyectos se presentan",
+    what_2: "Solo para aprender",
+    what_3: "Mucho entusiasmo y riesgo",
+    what_4: "No recomendado para principiantes",
+    risks_title: "Riesgos Importantes",
+    risk_1: "La mayoría de los proyectos fallan",
+    risk_2: "Muchas estafas",
+    risk_3: "Precios muy volátiles",
+    warning: "Crypto For Seniors no ofrece inversiones."
+  },
+
+  hr: {
+    back_home: "Povratak na Crypto For Seniors",
+    language_label: "Jezik",
+    page_title: "Launchpad (Edukativno)",
+    intro: "Ova stranica objašnjava launchpadove. Ovdje se ne ulaže.",
+    what_title: "Što je launchpad",
+    what_1: "Mjesto za predstavljanje novih projekata",
+    what_2: "Samo za učenje",
+    what_3: "Često puno hypea",
+    what_4: "Vrlo rizično",
+    risks_title: "Važni rizici",
+    risk_1: "Većina projekata propadne",
+    risk_2: "Česte prijevare",
+    risk_3: "Brzi pad cijena",
+    warning: "Crypto For Seniors ne nudi ulaganja."
+  },
+
+  tl: {
+    back_home: "Bumalik sa Crypto For Seniors",
+    language_label: "Wika",
+    page_title: "Launchpad (Edukasyon)",
+    intro: "Ipinaliliwanag ng pahinang ito ang launchpads. Walang investment dito.",
+    what_title: "Ano ang Launchpad",
+    what_1: "Lugar para ipakilala ang proyekto",
+    what_2: "Para sa kaalaman lamang",
+    what_3: "Mataas ang hype",
+    what_4: "Mataas ang panganib",
+    risks_title: "Mahahalagang Panganib",
+    risk_1: "Karamihan ay nabibigo",
+    risk_2: "Maraming scam",
+    risk_3: "Biglang bumababa ang presyo",
+    warning: "Hindi nag-aalok ang Crypto For Seniors ng investments."
+  },
+
+  ja: {
+    back_home: "Crypto For Seniors に戻る",
+    language_label: "言語",
+    page_title: "ローンチパッド（教育用）",
+    intro: "このページはローンチパッドの説明のみです。",
+    what_title: "ローンチパッドとは",
+    what_1: "新しいプロジェクトの紹介場所",
+    what_2: "学習目的のみ",
+    what_3: "誇張が多い",
+    what_4: "非常に高リスク",
+    risks_title: "重要なリスク",
+    risk_1: "多くが失敗する",
+    risk_2: "詐欺が多い",
+    risk_3: "価格変動が激しい",
+    warning: "投資は提供していません。"
+  },
+
+  "zh-Hant": {
+    back_home: "返回 Crypto For Seniors",
+    language_label: "語言",
+    page_title: "Launchpad（教育）",
+    intro: "此頁僅用於說明什麼是加密貨幣 Launchpad。",
+    what_title: "什麼是 Launchpad",
+    what_1: "新項目的介紹平台",
+    what_2: "僅供學習",
+    what_3: "常有炒作",
+    what_4: "風險極高",
+    risks_title: "重要風險",
+    risk_1: "多數項目會失敗",
+    risk_2: "詐騙很多",
+    risk_3: "價格波動劇烈",
+    warning: "Crypto For Seniors 不提供任何投資服務。"
   }
 };
 
-const savedLang = localStorage.getItem("cfs-lang") || "en";
-
-function applyLang(lang) {
+function setLanguage(lang) {
+  localStorage.setItem("cfs-lang", lang);
+  document.documentElement.lang = lang;
   document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
+    const key = el.dataset.i18n;
     if (translations[lang] && translations[lang][key]) {
       el.textContent = translations[lang][key];
     }
   });
-  localStorage.setItem("cfs-lang", lang);
 }
 
-applyLang(savedLang);
+const savedLang = localStorage.getItem("cfs-lang") || "en";
+document.getElementById("languageSelect").value = savedLang;
+setLanguage(savedLang);
+
+document.getElementById("languageSelect").addEventListener("change", e => {
+  setLanguage(e.target.value);
+});
 </script>
 
 </body>
