@@ -1,74 +1,165 @@
-troil/index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ===============================
+       CFS GOLDEN PAGE TEMPLATE
+       TROIL — EXPERIMENTAL (DISABLED)
+       =============================== -->
+
   <meta charset="UTF-8">
-  <title>TROIL</title>
+  <title>TROIL — Experimental Project | Crypto For Seniors</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
       background: #0b0b0b;
       color: #e5e5e5;
       font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
     }
-    .container {
+
+    main {
       max-width: 900px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
+
     h1 {
-      font-size: 4rem;
-      letter-spacing: 0.15em;
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
-    .tagline {
-      font-size: 1.5rem;
-      margin: 30px 0;
-      opacity: 0.9;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin: 30px 0;
-    }
-    a.back {
-      display: inline-block;
+
+    h2 {
       margin-top: 40px;
-      font-size: 0.9rem;
+      font-size: 1.4rem;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .notice-box {
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px dashed #444;
+      border-radius: 6px;
+      background: #0f0f0f;
       color: #aaa;
-      text-decoration: none;
     }
-    a.back:hover {
-      text-decoration: underline;
-    }
-    .footer {
+
+    footer {
       margin-top: 60px;
       font-size: 0.85rem;
-      opacity: 0.6;
+      color: #888;
+      text-align: center;
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>TROIL</h1>
 
-    <div class="tagline">
-      It flows…<br>
-      precious flows…
-    </div>
+<main>
+  <!-- ===============================
+       EDITABLE CONTENT START
+       =============================== -->
 
-    <!-- Image will go here in the next step -->
-    <img src="../assets/troil.png" alt="TROIL"> 
+  <h1 data-i18n="page_title">TROIL (Experimental)</h1>
 
-    <div class="footer">
-      A Solana meme experiment.
-    </div>
+  <p data-i18n="intro">
+    TROIL is an experimental concept being explored as part of Crypto For Seniors.
+  </p>
 
-    <a class="back" href="../">
-      ← Back to Crypto For Seniors
-    </a>
+  <h2 data-i18n="what_is_title">What TROIL Is</h2>
+  <p data-i18n="what_is_text">
+    TROIL is a placeholder name for future educational ideas that may be explored
+    after the core learning platform is complete.
+  </p>
+
+  <h2 data-i18n="what_it_is_not_title">What TROIL Is Not</h2>
+  <p data-i18n="what_it_is_not_text">
+    TROIL is not an active product, tool, or investment platform.
+  </p>
+
+  <div class="notice-box">
+    <p data-i18n="disabled_notice">
+      This section is intentionally inactive. No accounts, wallets, or actions
+      are available here.
+    </p>
   </div>
+
+  <p data-i18n="closing">
+    Experimental ideas are documented carefully and only introduced when they meet
+    the same safety and clarity standards as the rest of the platform.
+  </p>
+
+  <!-- ===============================
+       EDITABLE CONTENT END
+       =============================== -->
+
+  <footer>
+    <p data-i18n="footer">
+      Education only. No financial advice. No wallets. No live trading.
+    </p>
+  </footer>
+</main>
+
+<!-- ===============================
+     SCRIPTS — ALWAYS LAST
+     =============================== -->
+<script>
+/* ===== CFS MULTILINGUAL CORE (LOCKED) ===== */
+
+const translations = {
+  en: {
+    page_title: "TROIL (Experimental)",
+    intro: "TROIL is an experimental concept being explored as part of Crypto For Seniors.",
+    what_is_title: "What TROIL Is",
+    what_is_text: "TROIL is a placeholder name for future educational ideas that may be explored after the core learning platform is complete.",
+    what_it_is_not_title: "What TROIL Is Not",
+    what_it_is_not_text: "TROIL is not an active product, tool, or investment platform.",
+    disabled_notice: "This section is intentionally inactive. No accounts, wallets, or actions are available here.",
+    closing: "Experimental ideas are documented carefully and only introduced when they meet the same safety and clarity standards as the rest of the platform.",
+    footer: "Education only. No financial advice. No wallets. No live trading."
+  },
+  fr: {
+    page_title: "TROIL (expérimental)",
+    intro: "TROIL est un concept expérimental exploré dans Crypto pour les aînés.",
+    what_is_title: "Ce qu’est TROIL",
+    what_is_text: "TROIL est un nom provisoire pour de futures idées éducatives.",
+    what_it_is_not_title: "Ce que TROIL n’est pas",
+    what_it_is_not_text: "TROIL n’est pas un produit ou une plateforme active.",
+    disabled_notice: "Cette section est volontairement inactive. Aucune action n’est disponible.",
+    closing: "Les idées expérimentales sont introduites uniquement lorsqu’elles respectent les normes de sécurité.",
+    footer: "Éducation uniquement. Aucun conseil financier."
+  },
+  es: {
+    page_title: "TROIL (experimental)",
+    intro: "TROIL es un concepto experimental explorado como parte de Crypto para personas mayores.",
+    what_is_title: "Qué es TROIL",
+    what_is_text: "TROIL es un nombre provisional para futuras ideas educativas.",
+    what_it_is_not_title: "Qué no es TROIL",
+    what_it_is_not_text: "TROIL no es un producto ni una plataforma activa.",
+    disabled_notice: "Esta sección está intencionalmente inactiva. No hay acciones disponibles.",
+    closing: "Las ideas experimentales solo se introducen cuando cumplen normas de seguridad.",
+    footer: "Solo educación. Sin asesoramiento financiero."
+  }
+};
+
+const savedLang = localStorage.getItem("cfs-lang") || "en";
+
+function applyLang(lang) {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+  localStorage.setItem("cfs-lang", lang);
+}
+
+applyLang(savedLang);
+</script>
+
 </body>
 </html>
-Add TROIL project pag
