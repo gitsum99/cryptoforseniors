@@ -1,59 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Security First</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial;text-align:center}
-.container{max-width:900px;margin:auto;padding:30px 20px}
-.topbar{display:flex;justify-content:space-between;border-bottom:1px solid #333;padding-bottom:15px}
-select{background:#111;color:#fff;border:1px solid #444;padding:6px}
-h1{color:#4da3ff;margin-top:40px}
-p{max-width:720px;margin:18px auto;line-height:1.6}
-</style>
+  <!-- ===============================
+       CFS GOLDEN PAGE TEMPLATE
+       SECURITY PAGE — COMPLIANT
+       =============================== -->
+
+  <meta charset="UTF-8">
+  <title>Security First — Crypto For Seniors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      background: #0b0b0b;
+      color: #e5e5e5;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 1.4rem;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.85rem;
+      color: #888;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
-<div class="topbar">
-  <a href="../" style="color:#aaa;text-decoration:none">← Home</a>
-  <select id="lang"></select>
-</div>
 
-<h1 id="title"></h1>
-<p id="p1"></p>
-<p id="p2"></p>
-<p id="p3"></p>
-</div>
+<main>
+  <!-- ===============================
+       EDITABLE CONTENT START
+       =============================== -->
 
+  <h1 data-i18n="page_title">Security First</h1>
+
+  <p data-i18n="intro">
+    Crypto For Seniors is designed with safety and clarity as its highest priority.
+  </p>
+
+  <h2 data-i18n="what_we_do_title">What We Do</h2>
+  <ul>
+    <li data-i18n="do_1">Provide clear, slow-paced educational explanations</li>
+    <li data-i18n="do_2">Offer practice simulations before any real-world risk</li>
+    <li data-i18n="do_3">Explain common scams, risks, and misleading tactics</li>
+    <li data-i18n="do_4">Encourage thoughtful learning without pressure</li>
+  </ul>
+
+  <h2 data-i18n="what_we_never_title">What We Never Do</h2>
+  <ul>
+    <li data-i18n="never_1">Never request wallets, private keys, or passwords</li>
+    <li data-i18n="never_2">Never push urgency, hype, or fear-based decisions</li>
+    <li data-i18n="never_3">Never execute trades or connect to live accounts</li>
+    <li data-i18n="never_4">Never hide actions or automate decisions</li>
+  </ul>
+
+  <h2 data-i18n="your_control_title">Your Control</h2>
+  <p data-i18n="control_1">
+    Every decision remains fully in the hands of the user.
+  </p>
+  <p data-i18n="control_2">
+    Learning happens at your pace, with no obligation to proceed.
+  </p>
+
+  <p data-i18n="closing">
+    If something feels confusing or rushed, the safest choice is always to pause.
+  </p>
+
+  <!-- ===============================
+       EDITABLE CONTENT END
+       =============================== -->
+
+  <footer>
+    <p data-i18n="footer">
+      Education only. No financial advice. No wallets. No live trading.
+    </p>
+  </footer>
+</main>
+
+<!-- ===============================
+     SCRIPTS — ALWAYS LAST
+     =============================== -->
 <script>
-const T={
-en:{n:"English",t:"Security First",p1:"No pressure.",p2:"No hidden actions.",p3:"Practice before risk."},
-fr:{n:"Français",t:"Sécurité d'abord",p1:"Aucune pression.",p2:"Aucune action cachée.",p3:"Pratique avant risque."},
-es:{n:"Español",t:"Seguridad Primero",p1:"Sin presión.",p2:"Sin acciones ocultas.",p3:"Practique primero."},
-hr:{n:"Hrvatski",t:"Sigurnost Prvo",p1:"Bez pritiska.",p2:"Bez skrivenih radnji.",p3:"Vježba prije rizika."},
-ja:{n:"日本語",t:"安全第一",p1:"圧力なし。",p2:"隠れた操作なし。",p3:"まず練習。"},
-tl:{n:"Filipino",t:"Unahin ang Seguridad",p1:"Walang pressure.",p2:"Walang lihim.",p3:"Practice muna."},
-"zh-cn":{n:"中文(简体)",t:"安全优先",p1:"无压力。",p2:"无隐藏行为。",p3:"先练习。"},
-"zh-tw":{n:"中文(繁體)",t:"安全優先",p1:"無壓力。",p2:"無隱藏操作。",p3:"先練習。"}
+/* ===== CFS MULTILINGUAL CORE (LOCKED) ===== */
+
+const translations = {
+  en: {
+    page_title: "Security First",
+    intro: "Crypto For Seniors is designed with safety and clarity as its highest priority.",
+    what_we_do_title: "What We Do",
+    do_1: "Provide clear, slow-paced educational explanations",
+    do_2: "Offer practice simulations before any real-world risk",
+    do_3: "Explain common scams, risks, and misleading tactics",
+    do_4: "Encourage thoughtful learning without pressure",
+    what_we_never_title: "What We Never Do",
+    never_1: "Never request wallets, private keys, or passwords",
+    never_2: "Never push urgency, hype, or fear-based decisions",
+    never_3: "Never execute trades or connect to live accounts",
+    never_4: "Never hide actions or automate decisions",
+    your_control_title: "Your Control",
+    control_1: "Every decision remains fully in the hands of the user.",
+    control_2: "Learning happens at your pace, with no obligation to proceed.",
+    closing: "If something feels confusing or rushed, the safest choice is always to pause.",
+    footer: "Education only. No financial advice. No wallets. No live trading."
+  },
+  fr: {
+    page_title: "La sécurité avant tout",
+    intro: "Crypto pour les aînés est conçu avec la sécurité et la clarté comme priorité absolue.",
+    what_we_do_title: "Ce que nous faisons",
+    do_1: "Fournir des explications éducatives claires et lentes",
+    do_2: "Offrir des simulations de pratique avant tout risque réel",
+    do_3: "Expliquer les arnaques, risques et tactiques trompeuses",
+    do_4: "Encourager un apprentissage réfléchi sans pression",
+    what_we_never_title: "Ce que nous ne faisons jamais",
+    never_1: "Ne jamais demander de portefeuilles, clés privées ou mots de passe",
+    never_2: "Ne jamais pousser à l’urgence ou à la peur",
+    never_3: "Ne jamais exécuter de transactions ou se connecter à des comptes",
+    never_4: "Ne jamais cacher d’actions ou automatiser des décisions",
+    your_control_title: "Votre contrôle",
+    control_1: "Chaque décision reste entièrement entre les mains de l’utilisateur.",
+    control_2: "L’apprentissage se fait à votre rythme, sans obligation.",
+    closing: "Si quelque chose semble confus ou pressé, la meilleure décision est de faire une pause.",
+    footer: "Éducation uniquement. Aucun conseil financier."
+  },
+  es: {
+    page_title: "Seguridad primero",
+    intro: "Crypto para personas mayores está diseñado con la seguridad y la claridad como máxima prioridad.",
+    what_we_do_title: "Lo que hacemos",
+    do_1: "Proporcionar explicaciones educativas claras y pausadas",
+    do_2: "Ofrecer simulaciones de práctica antes de cualquier riesgo real",
+    do_3: "Explicar estafas comunes, riesgos y tácticas engañosas",
+    do_4: "Fomentar el aprendizaje reflexivo sin presión",
+    what_we_never_title: "Lo que nunca hacemos",
+    never_1: "Nunca solicitar billeteras, claves privadas o contraseñas",
+    never_2: "Nunca impulsar decisiones urgentes o basadas en el miedo",
+    never_3: "Nunca ejecutar operaciones ni conectarnos a cuentas",
+    never_4: "Nunca ocultar acciones ni automatizar decisiones",
+    your_control_title: "Tu control",
+    control_1: "Cada decisión permanece completamente en manos del usuario.",
+    control_2: "El aprendizaje ocurre a tu propio ritmo, sin obligación.",
+    closing: "Si algo parece confuso o apresurado, la opción más segura es pausar.",
+    footer: "Solo educación. Sin asesoramiento financiero."
+  }
 };
 
-const sel=document.getElementById("lang");
-Object.keys(T).forEach(k=>{const o=document.createElement("option");o.value=k;o.textContent=T[k].n;sel.appendChild(o);});
+const savedLang = localStorage.getItem("cfs-lang") || "en";
 
-function apply(l){
-  const t=T[l]||T.en;
-  localStorage.setItem("cfs-lang",l);
-  title.textContent=t.t;
-  p1.textContent=t.p1;
-  p2.textContent=t.p2;
-  p3.textContent=t.p3;
-}
-
-sel.onchange=()=>apply(sel.value);
-const start=localStorage.getItem("cfs-lang")||"en";
-sel.value=start;apply(start);
-</script>
-</body>
-</html>
+function applyLang(lang) {
+  document.querySelectorAll("[data-i18n]").forEach(el
