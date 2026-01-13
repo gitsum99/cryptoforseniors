@@ -12,7 +12,6 @@
       background: #0b0b0b;
       color: #e5e5e5;
     }
-
     header {
       background: #111;
       border-bottom: 1px solid #333;
@@ -21,13 +20,11 @@
       justify-content: space-between;
       align-items: center;
     }
-
     header a {
       color: #9fd3ff;
       text-decoration: none;
       font-weight: bold;
     }
-
     header select {
       background: #1a1a1a;
       color: #e5e5e5;
@@ -35,17 +32,14 @@
       padding: 6px;
       border-radius: 4px;
     }
-
     main {
       max-width: 900px;
       margin: auto;
       padding: 40px 20px;
     }
-
     h1, h2 {
       color: #9fd3ff;
     }
-
     .section {
       margin-bottom: 40px;
       padding: 20px;
@@ -53,15 +47,12 @@
       border: 1px solid #2a2a2a;
       border-radius: 8px;
     }
-
     ul {
       padding-left: 20px;
     }
-
     li {
       margin-bottom: 10px;
     }
-
     .note {
       background: #1b1b1b;
       border-left: 4px solid #9fd3ff;
@@ -76,13 +67,16 @@
 
 <header>
   <a href="/" data-i18n="back_home">Back to Crypto For Seniors</a>
-
   <label>
     <span data-i18n="language_label">Language</span>:
     <select id="languageSelect">
       <option value="en">EN</option>
       <option value="fr">FR</option>
       <option value="es">ES</option>
+      <option value="hr">HR</option>
+      <option value="tl">TL</option>
+      <option value="ja">JA</option>
+      <option value="zh-Hant">中文</option>
     </select>
   </label>
 </header>
@@ -91,151 +85,116 @@
   <h1 data-i18n="page_title">Practice Mode</h1>
 
   <div class="section">
-    <p data-i18n="intro">
-      Practice Mode lets you learn how crypto concepts work without using real
-      money or real accounts.
-    </p>
+    <p data-i18n="intro"></p>
   </div>
 
   <div class="section">
-    <h2 data-i18n="what_this_is_title">What Practice Mode Is</h2>
+    <h2 data-i18n="what_this_is_title"></h2>
     <ul>
-      <li data-i18n="is_1">A learning environment only</li>
-      <li data-i18n="is_2">Uses imaginary balances and examples</li>
-      <li data-i18n="is_3">Shows how trades and markets behave conceptually</li>
-      <li data-i18n="is_4">Safe to explore at your own pace</li>
+      <li data-i18n="is_1"></li>
+      <li data-i18n="is_2"></li>
+      <li data-i18n="is_3"></li>
+      <li data-i18n="is_4"></li>
     </ul>
   </div>
 
   <div class="section">
-    <h2 data-i18n="what_this_is_not_title">What Practice Mode Is NOT</h2>
+    <h2 data-i18n="what_this_is_not_title"></h2>
     <ul>
-      <li data-i18n="not_1">Not real trading</li>
-      <li data-i18n="not_2">No wallets or exchanges</li>
-      <li data-i18n="not_3">No deposits or withdrawals</li>
-      <li data-i18n="not_4">No automatic actions</li>
+      <li data-i18n="not_1"></li>
+      <li data-i18n="not_2"></li>
+      <li data-i18n="not_3"></li>
+      <li data-i18n="not_4"></li>
     </ul>
   </div>
 
   <div class="section">
-    <h2 data-i18n="why_title">Why Practice First</h2>
+    <h2 data-i18n="why_title"></h2>
     <ul>
-      <li data-i18n="why_1">To understand risks before any real decisions</li>
-      <li data-i18n="why_2">To learn common mistakes safely</li>
-      <li data-i18n="why_3">To build confidence without pressure</li>
+      <li data-i18n="why_1"></li>
+      <li data-i18n="why_2"></li>
+      <li data-i18n="why_3"></li>
     </ul>
-
-    <div class="note" data-i18n="note">
-      Crypto For Seniors never connects Practice Mode to real money.
-    </div>
+    <div class="note" data-i18n="note"></div>
   </div>
 </main>
 
 <script>
-  const translations = {
-    en: {
-      back_home: "Back to Crypto For Seniors",
-      language_label: "Language",
+const translations = {
+  en: {
+    back_home: "Back to Crypto For Seniors",
+    language_label: "Language",
+    page_title: "Practice Mode",
+    intro: "Practice Mode lets you learn how crypto concepts work without using real money or real accounts.",
+    what_this_is_title: "What Practice Mode Is",
+    is_1: "A learning environment only",
+    is_2: "Uses imaginary balances and examples",
+    is_3: "Shows how trades and markets behave conceptually",
+    is_4: "Safe to explore at your own pace",
+    what_this_is_not_title: "What Practice Mode Is NOT",
+    not_1: "Not real trading",
+    not_2: "No wallets or exchanges",
+    not_3: "No deposits or withdrawals",
+    not_4: "No automatic actions",
+    why_title: "Why Practice First",
+    why_1: "To understand risks before any real decisions",
+    why_2: "To learn common mistakes safely",
+    why_3: "To build confidence without pressure",
+    note: "Crypto For Seniors never connects Practice Mode to real money."
+  },
 
-      page_title: "Practice Mode",
-      intro: "Practice Mode lets you learn how crypto concepts work without using real money or real accounts.",
+  fr: {
+    back_home: "Retour à Crypto For Seniors",
+    language_label: "Langue",
+    page_title: "Mode Pratique",
+    intro: "Le mode pratique vous permet d’apprendre les concepts crypto sans utiliser d’argent réel ni de comptes réels.",
+    what_this_is_title: "Ce qu’est le mode pratique",
+    is_1: "Un environnement d’apprentissage uniquement",
+    is_2: "Utilise des soldes et des exemples fictifs",
+    is_3: "Explique le fonctionnement des marchés",
+    is_4: "Sûr et sans pression",
+    what_this_is_not_title: "Ce que le mode pratique n’est PAS",
+    not_1: "Pas du trading réel",
+    not_2: "Aucun portefeuille ni échange",
+    not_3: "Aucun dépôt ou retrait",
+    not_4: "Aucune action automatique",
+    why_title: "Pourquoi pratiquer d’abord",
+    why_1: "Comprendre les risques avant toute décision",
+    why_2: "Apprendre les erreurs courantes en toute sécurité",
+    why_3: "Gagner en confiance sans pression",
+    note: "Crypto For Seniors ne relie jamais le mode pratique à de l’argent réel."
+  },
 
-      what_this_is_title: "What Practice Mode Is",
-      is_1: "A learning environment only",
-      is_2: "Uses imaginary balances and examples",
-      is_3: "Shows how trades and markets behave conceptually",
-      is_4: "Safe to explore at your own pace",
+  es: {
+    back_home: "Volver a Crypto For Seniors",
+    language_label: "Idioma",
+    page_title: "Modo de Práctica",
+    intro: "El modo de práctica te permite aprender conceptos de criptomonedas sin usar dinero real ni cuentas reales.",
+    what_this_is_title: "Qué es el modo de práctica",
+    is_1: "Solo un entorno de aprendizaje",
+    is_2: "Usa saldos y ejemplos imaginarios",
+    is_3: "Muestra cómo funcionan los mercados",
+    is_4: "Seguro y sin presión",
+    what_this_is_not_title: "Lo que NO es el modo de práctica",
+    not_1: "No es trading real",
+    not_2: "Sin billeteras ni intercambios",
+    not_3: "Sin depósitos ni retiros",
+    not_4: "Sin acciones automáticas",
+    why_title: "Por qué practicar primero",
+    why_1: "Entender los riesgos antes de decidir",
+    why_2: "Aprender errores comunes con seguridad",
+    why_3: "Ganar confianza sin presión",
+    note: "Crypto For Seniors nunca conecta el modo de práctica con dinero real."
+  },
 
-      what_this_is_not_title: "What Practice Mode Is NOT",
-      not_1: "Not real trading",
-      not_2: "No wallets or exchanges",
-      not_3: "No deposits or withdrawals",
-      not_4: "No automatic actions",
-
-      why_title: "Why Practice First",
-      why_1: "To understand risks before any real decisions",
-      why_2: "To learn common mistakes safely",
-      why_3: "To build confidence without pressure",
-
-      note: "Crypto For Seniors never connects Practice Mode to real money."
-    },
-
-    fr: {
-      back_home: "Retour à Crypto For Seniors",
-      language_label: "Langue",
-
-      page_title: "Mode Pratique",
-      intro: "Le mode pratique vous permet d’apprendre les concepts crypto sans utiliser d’argent réel ni de comptes réels.",
-
-      what_this_is_title: "Ce qu’est le mode pratique",
-      is_1: "Un environnement d’apprentissage uniquement",
-      is_2: "Utilise des soldes et des exemples fictifs",
-      is_3: "Explique le fonctionnement des marchés",
-      is_4: "Sûr et sans pression",
-
-      what_this_is_not_title: "Ce que le mode pratique n’est PAS",
-      not_1: "Pas du trading réel",
-      not_2: "Aucun portefeuille ni échange",
-      not_3: "Aucun dépôt ou retrait",
-      not_4: "Aucune action automatique",
-
-      why_title: "Pourquoi pratiquer d’abord",
-      why_1: "Comprendre les risques avant toute décision",
-      why_2: "Apprendre les erreurs courantes en toute sécurité",
-      why_3: "Gagner en confiance sans pression",
-
-      note: "Crypto For Seniors ne relie jamais le mode pratique à de l’argent réel."
-    },
-
-    es: {
-      back_home: "Volver a Crypto For Seniors",
-      language_label: "Idioma",
-
-      page_title: "Modo de Práctica",
-      intro: "El modo de práctica te permite aprender conceptos de criptomonedas sin usar dinero real ni cuentas reales.",
-
-      what_this_is_title: "Qué es el modo de práctica",
-      is_1: "Solo un entorno de aprendizaje",
-      is_2: "Usa saldos y ejemplos imaginarios",
-      is_3: "Muestra cómo funcionan los mercados",
-      is_4: "Seguro y sin presión",
-
-      what_this_is_not_title: "Lo que NO es el modo de práctica",
-      not_1: "No es trading real",
-      not_2: "Sin billeteras ni intercambios",
-      not_3: "Sin depósitos ni retiros",
-      not_4: "Sin acciones automáticas",
-
-      why_title: "Por qué practicar primero",
-      why_1: "Entender los riesgos antes de decidir",
-      why_2: "Aprender errores comunes con seguridad",
-      why_3: "Ganar confianza sin presión",
-
-      note: "Crypto For Seniors nunca conecta el modo de práctica con dinero real."
-    }
-  };
-
-  function setLanguage(lang) {
-    localStorage.setItem("cfs-lang", lang);
-    document.documentElement.lang = lang;
-
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-      const key = el.getAttribute("data-i18n");
-      if (translations[lang] && translations[lang][key]) {
-        el.textContent = translations[lang][key];
-      }
-    });
-  }
-
-  const savedLang = localStorage.getItem("cfs-lang") || "en";
-  document.getElementById("languageSelect").value = savedLang;
-  setLanguage(savedLang);
-
-  document.getElementById("languageSelect").addEventListener("change", e => {
-    setLanguage(e.target.value);
-  });
-</script>
-
-</body>
-</html>
-
+  hr: {
+    back_home: "Povratak na Crypto For Seniors",
+    language_label: "Jezik",
+    page_title: "Način vježbanja",
+    intro: "Način vježbanja omogućuje učenje kripto pojmova bez korištenja stvarnog novca ili računa.",
+    what_this_is_title: "Što je način vježbanja",
+    is_1: "Isključivo okruženje za učenje",
+    is_2: "Koristi zamišljena stanja i primjere",
+    is_3: "Prikazuje kako tržišta funkcioniraju",
+    is_4: "Sigurno istraživanje vlastitim tempom",
+    wha
