@@ -53,12 +53,13 @@
     li {
       margin-bottom: 10px;
     }
-    .warning {
-      background: #1b1b1b;
-      border-left: 4px solid #ff9f9f;
-      padding: 15px;
-      margin-top: 20px;
-      border-radius: 4px;
+    footer {
+      background: #111;
+      border-top: 1px solid #333;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #aaa;
     }
   </style>
 </head>
@@ -66,7 +67,7 @@
 <body>
 
 <header>
-  <a href="/" data-i18n="back_home">Back to Crypto For Seniors</a>
+  <a href="/cryptoforseniors/" data-i18n="back_home">Back to Crypto For Seniors</a>
   <label>
     <span data-i18n="language_label">Language</span>:
     <select id="languageSelect">
@@ -99,158 +100,54 @@
   </div>
 
   <div class="section">
-    <h2 data-i18n="risks_title"></h2>
+    <h2 data-i18n="risk_title"></h2>
     <ul>
       <li data-i18n="risk_1"></li>
       <li data-i18n="risk_2"></li>
       <li data-i18n="risk_3"></li>
+      <li data-i18n="risk_4"></li>
     </ul>
-
-    <div class="warning" data-i18n="warning"></div>
   </div>
 </main>
+
+<footer>
+  <p data-i18n="footer_notice"></p>
+  <p>© <span id="footerYear"></span> Crypto For Seniors</p>
+</footer>
 
 <script>
 const translations = {
   en: {
     back_home: "Back to Crypto For Seniors",
     language_label: "Language",
-    page_title: "Launchpad (Educational)",
-    intro: "This page explains what crypto launchpads are in simple terms. No participation or investing is possible here.",
-    what_title: "What a Launchpad Is",
-    what_1: "A place where new crypto projects introduce themselves",
-    what_2: "Used to explain ideas, not to invest here",
-    what_3: "Often discussed online with hype",
-    what_4: "Very high risk for beginners",
-    risks_title: "Important Risks",
-    risk_1: "Most new projects fail",
-    risk_2: "Scams are common",
-    risk_3: "Prices can drop quickly",
-    warning: "Crypto For Seniors does not offer access to any launchpads or investments."
+    page_title: "Launchpad",
+    intro: "Launchpads are places where new crypto projects are introduced before they reach the public market.",
+    what_title: "What Launchpads Are Used For",
+    what_1: "Introducing new crypto or NFT projects",
+    what_2: "Raising early interest and awareness",
+    what_3: "Testing ideas before full release",
+    what_4: "Attracting early participants",
+    risk_title: "Important Risks",
+    risk_1: "Most projects fail after launch",
+    risk_2: "Scams and fake teams are common",
+    risk_3: "Early hype often fades quickly",
+    risk_4: "Losses can happen very fast",
+    footer_notice: "Educational use only. No financial advice."
   },
 
   fr: {
     back_home: "Retour à Crypto For Seniors",
     language_label: "Langue",
-    page_title: "Launchpad (Éducatif)",
-    intro: "Cette page explique ce que sont les launchpads crypto. Aucune participation n’est possible ici.",
-    what_title: "Qu’est-ce qu’un launchpad",
-    what_1: "Un endroit où les nouveaux projets se présentent",
-    what_2: "Pour apprendre, pas pour investir ici",
-    what_3: "Souvent entouré de battage médiatique",
-    what_4: "Très risqué pour les débutants",
-    risks_title: "Risques importants",
+    page_title: "Launchpad",
+    intro: "Les launchpads présentent de nouveaux projets crypto avant leur lancement public.",
+    what_title: "À quoi servent les launchpads",
+    what_1: "Présenter de nouveaux projets crypto ou NFT",
+    what_2: "Créer de l’intérêt précoce",
+    what_3: "Tester des idées",
+    what_4: "Attirer des participants initiaux",
+    risk_title: "Risques Importants",
     risk_1: "La plupart des projets échouent",
     risk_2: "Les arnaques sont fréquentes",
-    risk_3: "Les prix peuvent chuter rapidement",
-    warning: "Crypto For Seniors n’offre aucun accès à des investissements."
-  },
-
-  es: {
-    back_home: "Volver a Crypto For Seniors",
-    language_label: "Idioma",
-    page_title: "Launchpad (Educativo)",
-    intro: "Esta página explica qué son los launchpads de criptomonedas. No se puede invertir aquí.",
-    what_title: "Qué es un Launchpad",
-    what_1: "Lugar donde nuevos proyectos se presentan",
-    what_2: "Solo para aprender",
-    what_3: "Mucho entusiasmo y riesgo",
-    what_4: "No recomendado para principiantes",
-    risks_title: "Riesgos Importantes",
-    risk_1: "La mayoría de los proyectos fallan",
-    risk_2: "Muchas estafas",
-    risk_3: "Precios muy volátiles",
-    warning: "Crypto For Seniors no ofrece inversiones."
-  },
-
-  hr: {
-    back_home: "Povratak na Crypto For Seniors",
-    language_label: "Jezik",
-    page_title: "Launchpad (Edukativno)",
-    intro: "Ova stranica objašnjava launchpadove. Ovdje se ne ulaže.",
-    what_title: "Što je launchpad",
-    what_1: "Mjesto za predstavljanje novih projekata",
-    what_2: "Samo za učenje",
-    what_3: "Često puno hypea",
-    what_4: "Vrlo rizično",
-    risks_title: "Važni rizici",
-    risk_1: "Većina projekata propadne",
-    risk_2: "Česte prijevare",
-    risk_3: "Brzi pad cijena",
-    warning: "Crypto For Seniors ne nudi ulaganja."
-  },
-
-  tl: {
-    back_home: "Bumalik sa Crypto For Seniors",
-    language_label: "Wika",
-    page_title: "Launchpad (Edukasyon)",
-    intro: "Ipinaliliwanag ng pahinang ito ang launchpads. Walang investment dito.",
-    what_title: "Ano ang Launchpad",
-    what_1: "Lugar para ipakilala ang proyekto",
-    what_2: "Para sa kaalaman lamang",
-    what_3: "Mataas ang hype",
-    what_4: "Mataas ang panganib",
-    risks_title: "Mahahalagang Panganib",
-    risk_1: "Karamihan ay nabibigo",
-    risk_2: "Maraming scam",
-    risk_3: "Biglang bumababa ang presyo",
-    warning: "Hindi nag-aalok ang Crypto For Seniors ng investments."
-  },
-
-  ja: {
-    back_home: "Crypto For Seniors に戻る",
-    language_label: "言語",
-    page_title: "ローンチパッド（教育用）",
-    intro: "このページはローンチパッドの説明のみです。",
-    what_title: "ローンチパッドとは",
-    what_1: "新しいプロジェクトの紹介場所",
-    what_2: "学習目的のみ",
-    what_3: "誇張が多い",
-    what_4: "非常に高リスク",
-    risks_title: "重要なリスク",
-    risk_1: "多くが失敗する",
-    risk_2: "詐欺が多い",
-    risk_3: "価格変動が激しい",
-    warning: "投資は提供していません。"
-  },
-
-  "zh-Hant": {
-    back_home: "返回 Crypto For Seniors",
-    language_label: "語言",
-    page_title: "Launchpad（教育）",
-    intro: "此頁僅用於說明什麼是加密貨幣 Launchpad。",
-    what_title: "什麼是 Launchpad",
-    what_1: "新項目的介紹平台",
-    what_2: "僅供學習",
-    what_3: "常有炒作",
-    what_4: "風險極高",
-    risks_title: "重要風險",
-    risk_1: "多數項目會失敗",
-    risk_2: "詐騙很多",
-    risk_3: "價格波動劇烈",
-    warning: "Crypto For Seniors 不提供任何投資服務。"
-  }
-};
-
-function setLanguage(lang) {
-  localStorage.setItem("cfs-lang", lang);
-  document.documentElement.lang = lang;
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
-  });
-}
-
-const savedLang = localStorage.getItem("cfs-lang") || "en";
-document.getElementById("languageSelect").value = savedLang;
-setLanguage(savedLang);
-
-document.getElementById("languageSelect").addEventListener("change", e => {
-  setLanguage(e.target.value);
-});
-</script>
-
-</body>
-</html>
+    risk_3: "Le battage médiatique disparaît vite",
+    risk_4: "Les pertes peuvent être rapides",
+    foote
