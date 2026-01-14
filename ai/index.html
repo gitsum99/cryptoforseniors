@@ -160,4 +160,103 @@ const translations = {
     what_2: "Repite sin juzgar",
     what_3: "Advierte sobre riesgos",
     what_4: "Apoya el aprendizaje",
-    limits_title: "Q_
+    limits_title: "Qué NO hace la IA",
+    limit_1: "No toma decisiones",
+    limit_2: "No garantiza ganancias",
+    limit_3: "No controla fondos",
+    footer_notice: "Solo uso educativo."
+  },
+
+  hr: {
+    back_home: "Povratak na Crypto For Seniors",
+    language_label: "Jezik",
+    page_title: "AI Vodič",
+    intro: "AI pomaže u objašnjavanju pojmova.",
+    what_title: "Što AI radi",
+    what_1: "Objašnjava složene ideje",
+    what_2: "Ponavlja bez osude",
+    what_3: "Upozorava na rizike",
+    what_4: "Podržava učenje",
+    limits_title: "Što AI NE radi",
+    limit_1: "Ne donosi odluke",
+    limit_2: "Ne jamči dobit",
+    limit_3: "Ne upravlja sredstvima",
+    footer_notice: "Samo edukativna uporaba."
+  },
+
+  tl: {
+    back_home: "Bumalik sa Crypto For Seniors",
+    language_label: "Wika",
+    page_title: "AI Gabay",
+    intro: "Tinutulungan ng AI ang pag-unawa sa crypto.",
+    what_title: "Ginagawa ng AI",
+    what_1: "Nagpapaliwanag ng konsepto",
+    what_2: "Umuulit nang walang husga",
+    what_3: "Nagbababala sa panganib",
+    what_4: "Sumusuporta sa pag-aaral",
+    limits_title: "Hindi Ginagawa ng AI",
+    limit_1: "Hindi nagdedesisyon",
+    limit_2: "Walang garantiya",
+    limit_3: "Hindi humahawak ng pera",
+    footer_notice: "Para sa edukasyon lamang."
+  },
+
+  ja: {
+    back_home: "Crypto For Seniors に戻る",
+    language_label: "言語",
+    page_title: "AI ガイダンス",
+    intro: "AIは理解を助けるために使用されます。",
+    what_title: "AIの役割",
+    what_1: "分かりやすく説明",
+    what_2: "何度でも繰り返す",
+    what_3: "リスクを指摘",
+    what_4: "学習を支援",
+    limits_title: "AIがしないこと",
+    limit_1: "判断しない",
+    limit_2: "利益を保証しない",
+    limit_3: "資金を管理しない",
+    footer_notice: "教育目的のみです。"
+  },
+
+  "zh-Hant": {
+    back_home: "返回 Crypto For Seniors",
+    language_label: "語言",
+    page_title: "AI 指導",
+    intro: "AI 用於協助理解並降低風險。",
+    what_title: "AI 的功能",
+    what_1: "解釋複雜概念",
+    what_2: "耐心重複說明",
+    what_3: "提醒常見風險",
+    what_4: "支持學習進度",
+    limits_title: "AI 不會做的事",
+    limit_1: "不替你做決定",
+    limit_2: "不保證獲利",
+    limit_3: "不管理資金",
+    footer_notice: "僅供教育用途。"
+  }
+};
+
+function setLanguage(lang) {
+  localStorage.setItem("cfs-lang", lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+}
+
+const savedLang = localStorage.getItem("cfs-lang") || "en";
+document.getElementById("languageSelect").value = savedLang;
+setLanguage(savedLang);
+
+document.getElementById("languageSelect").addEventListener("change", e => {
+  setLanguage(e.target.value);
+});
+
+document.getElementById("footerYear").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
