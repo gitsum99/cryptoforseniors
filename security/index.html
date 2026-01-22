@@ -1,159 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Security First – Crypto For Seniors</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Security First – Crypto For Seniors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0b0b;
-      color: #e5e5e5;
-    }
-    header {
-      background: #111;
-      border-bottom: 1px solid #333;
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header a {
-      color: #9fd3ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    header select {
-      background: #1a1a1a;
-      color: #e5e5e5;
-      border: 1px solid #444;
-      padding: 6px;
-      border-radius: 4px;
-    }
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    h1, h2 {
-      color: #9fd3ff;
-    }
-    .section {
-      margin-bottom: 40px;
-      padding: 20px;
-      background: #121212;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    footer {
-      background: #111;
-      border-top: 1px solid #333;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-      color: #aaa;
-    }
-  </style>
+<style>
+body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif}
+header{background:#111;border-bottom:1px solid #333;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+header a{color:#9fd3ff;text-decoration:none;font-weight:bold}
+select{background:#1a1a1a;color:#e6e6e6;border:1px solid #444;padding:6px;border-radius:4px}
+main{max-width:900px;margin:auto;padding:50px 20px}
+h1,h2{color:#9fd3ff}
+p{line-height:1.6;max-width:760px}
+.section{margin-top:30px;padding:22px;background:#121212;border:1px solid #2a2a2a;border-radius:8px}
+ul{padding-left:20px}
+li{margin-bottom:10px}
+.notice{margin-top:30px;font-size:0.95rem;color:#ccc}
+</style>
 </head>
 
 <body>
 
 <header>
-  <a href="/cryptoforseniors/" data-i18n="back_home">Back to Crypto For Seniors</a>
-  <label>
-    <span data-i18n="language_label">Language</span>:
-    <select id="languageSelect">
-      <option value="en">EN</option>
-      <option value="fr">FR</option>
-      <option value="es">ES</option>
-      <option value="hr">HR</option>
-      <option value="tl">TL</option>
-      <option value="ja">JA</option>
-      <option value="zh-Hant">中文</option>
-    </select>
-  </label>
+  <a href="/cryptoforseniors/" data-i18n="back"></a>
+  <select id="lang"></select>
 </header>
 
 <main>
-  <h1 data-i18n="page_title"></h1>
+  <h1 data-i18n="title"></h1>
+  <p data-i18n="intro"></p>
 
   <div class="section">
-    <p data-i18n="intro"></p>
-  </div>
-
-  <div class="section">
-    <h2 data-i18n="rules_title"></h2>
+    <h2 data-i18n="principlesTitle"></h2>
     <ul>
-      <li data-i18n="rule_1"></li>
-      <li data-i18n="rule_2"></li>
-      <li data-i18n="rule_3"></li>
-      <li data-i18n="rule_4"></li>
+      <li data-i18n="p1"></li>
+      <li data-i18n="p2"></li>
+      <li data-i18n="p3"></li>
+      <li data-i18n="p4"></li>
     </ul>
   </div>
 
   <div class="section">
-    <h2 data-i18n="scams_title"></h2>
+    <h2 data-i18n="neverTitle"></h2>
     <ul>
-      <li data-i18n="scam_1"></li>
-      <li data-i18n="scam_2"></li>
-      <li data-i18n="scam_3"></li>
+      <li data-i18n="n1"></li>
+      <li data-i18n="n2"></li>
+      <li data-i18n="n3"></li>
+      <li data-i18n="n4"></li>
     </ul>
   </div>
+
+  <div class="section">
+    <h2 data-i18n="whyTitle"></h2>
+    <p data-i18n="whyText"></p>
+  </div>
+
+  <div class="notice" data-i18n="notice"></div>
 </main>
 
-<footer>
-  <p data-i18n="footer_notice"></p>
-  <p>© <span id="footerYear"></span> Crypto For Seniors</p>
-</footer>
-
 <script>
-const translations = {
-  en: {
-    back_home: "Back to Crypto For Seniors",
-    language_label: "Language",
-    page_title: "Security First",
-    intro: "Security is the most important part of using crypto. This page explains how people are commonly scammed and how to stay safe.",
-    rules_title: "Basic Safety Rules",
-    rule_1: "Never share private keys or recovery phrases",
-    rule_2: "Do not trust unsolicited messages or offers",
-    rule_3: "Avoid urgency and pressure tactics",
-    rule_4: "If something sounds too good to be true, it is",
-    scams_title: "Common Scams",
-    scam_1: "Fake support messages",
-    scam_2: "Impersonation of trusted services",
-    scam_3: "Links that lead to fake websites",
-    footer_notice: "Educational use only. No financial advice."
-  },
+const I18N={
+  en:{name:"English"},
+  fr:{name:"Français"},
+  es:{name:"Español"},
+  hr:{name:"Hrvatski"},
+  tl:{name:"Filipino (Tagalog)"},
+  ja:{name:"日本語"},
+  "zh-cn":{name:"中文（简体）"},
+  "zh-tw":{name:"中文（繁體）"}
+};
 
-  fr: {
-    back_home: "Retour à Crypto For Seniors",
-    language_label: "Langue",
-    page_title: "La Sécurité d’Abord",
-    intro: "La sécurité est essentielle en crypto. Cette page explique les arnaques courantes.",
-    rules_title: "Règles de Sécurité",
-    rule_1: "Ne partagez jamais vos clés privées",
-    rule_2: "Ne faites pas confiance aux messages non sollicités",
-    rule_3: "Évitez l’urgence et la pression",
-    rule_4: "Si cela semble trop beau, c’est une arnaque",
-    scams_title: "Arnaques Courantes",
-    scam_1: "Faux supports",
-    scam_2: "Usurpation d’identité",
-    scam_3: "Liens frauduleux",
-    footer_notice: "Usage éducatif uniquement."
-  },
-
-  es: {
-    back_home: "Volver a Crypto For Seniors",
-    language_label: "Idioma",
-    page_title: "Seguridad Primero",
-    intro: "La seguridad es clave en cripto. Aquí explicamos cómo evitar estafas.",
-    rules_title: "Reglas Básicas",
-    rule_1:_
+const PAGE_TEXT={
+en:{
+  back:"Back to Crypto For Seniors",
+  title:"Security First",
+  intro:"Security is the foundation of Crypto For Seniors. This project is designed to reduce risk, prevent pressure, and protect users from common crypto scams.",
+  principlesTitle:"Our Core Security Principles",
+  p1:"Education before action",
+  p2:"Practice before real-world risk",
+  p3:"Clarity over complexity",
+  p4:"No urgency, no pressure",
+  neverTitle:"What We Never Do",
+  n1:"We never ask for wallets, private keys, or passwords",
+  n2:"We never connect to exchanges or real accounts",
+  n3:"We never execute trades or transactions",
+  n4:"We never hide actions or automate decisions",
+  whyTitle:"Why This Matters",
+  whyText:"Many crypto losses happen because people are rushed, confused, or misled. CFS is intentionally slow, transparent, and educational to reduce those risks.",
+  notice:"If something feels urgent, secretive, or too good to be true — stop. Education should never pressure you."
+},
+fr:{
+  back:"Retour à Crypto For Seniors",
+  title:"La sécurité avant tout",
+  intro:"La sécurité est la base de Crypto For Seniors. Ce projet vise à réduire les risques et à prévenir les arnaques.",
+  principlesTitle:"Principes de sécurité",
+  p1:"L’éducation avant l’action",
+  p2:"La pratique avant le risque réel",
+  p3:"La clarté avant la complexité",
+  p4:"Aucune urgence, aucune pression",
+  neverTitle:"Ce que nous ne faisons jamais",
+  n1:"Nous ne demandons jamais de portefeuilles ou de clés privées",
+  n2:"Nous ne nous connectons jamais à des comptes réels",
+  n3:"Nous n’exécutons jamais de transactions",
+  n4:"Nous ne cachons jamais d’actions",
+  whyTitle:"Pourquoi c’est important",
+  whyText:"La plupart des pertes surviennent par précipitation ou confusion. CFS privilégie la transparence.",
+  notice:"Si quelque chose semble urgent ou trop beau pour être vrai, arrêtez-vous."
+},
+es:{
+  back:"Volver a Crypto For Seniors",
+  title:"La seguridad primero",
+  intro:"La seguridad es la base de Crypto For Seniors. Este proyecto reduce riesgos y evita estafas.",
+  principlesTitle:"Principios de seguridad",
+  p1:"Educación antes de actuar",
+  p2:"Práctica antes del riesgo real",
+  p3:"Claridad sobre complejidad",
+  p4:"Sin urgencia ni presión",
+  neverTitle:"Lo que nunca hacemos",
+  n1:"Nunca pedimos billeteras o claves privadas",
+  n2:"Nunca conectamos cuentas reales",
+  n3:"Nunca ejecutamos transacciones",
+  n4:"Nunca ocultamos acciones",
+  whyTitle:"Por qué importa",
+  whyText:"Muchas pérdidas ocurren por confusión o prisa. CFS evita eso.",
+  notice:"Si parece urgente o demasiado bueno, deténgase."
+},
+hr:{
+  back:"Povratak na Crypto For Seniors",
+  title:"Sigurnost na prvom mjestu",
+  intro:"Sigurnost je temelj projekta Crypto For Seniors.",
+  principlesTitle:"Sigurnosna načela",
+  p1:"Edukacija prije djelovanja",
+  p2:"Vježbanje prije pravog rizika",
+  p3:"Jasnoća ispred složenosti",
+  p4:"Bez žurbe i pritiska",
+  neverTitle:"Što nikada ne radimo",
+  n1:"Nikada ne tražimo privatne ključeve",
+  n2:"Nikada se ne povezujemo s pravim računima",
+  n3:"Nikada ne izvršavamo transakcije",
+  n4:"Nikada ne skrivamo radnje",
+  whyTitle:"Zašto je važno",
+  whyText:"Gubici se često događaju zbog pritiska. CFS to sprječava.",
+  notice:"Ako nešto djeluje hitno ili predobro — stanite."
+},
+tl:{
+  back:"Bumalik sa Crypto For Seniors",
+  title:"Unahin ang seguridad",
+  intro:"Ang seguridad ang pundasyon ng Crypto For Seniors.",
+  principlesTitle:"Mga prinsipyo ng seguridad",
+  p1:"Edukasyon bago aksyon",
+  p2:"Practice bago totoong panganib",
+  p3:"Linaw bago komplikasyon",
+  p4:"Walang pressure",
+  neverTitle:"Hindi namin ginagawa",
+  n1:"Hindi kami humihingi ng wallet o private key",
+  n2:"Hindi kami kumokonekta sa totoong account",
+  n3:"Hindi kami nagte-trade",
+  n4:"Hindi kami nagtatago ng aksyon",
+  whyTitle:"Bakit mahalaga",
+  whyText:"Maraming nalulugi dahil sa pressure. Iniiwasan ito ng CFS.",
+  notice:"Kapag mukhang urgent o sobrang ganda — huminto."
+},
+ja:{
+  back:"Crypto For Seniors に戻る",
+  title:"セキュリティ最優先",
+  intro:"セキュリティは Crypto For Seniors の基盤です。",
+  principlesTitle:"安全の原則",
+  p1:"行動の前に学習",
+  p2:"実践して
