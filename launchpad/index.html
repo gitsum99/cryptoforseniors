@@ -1,153 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Launchpad – Crypto For Seniors</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Launchpad – Crypto For Seniors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0b0b;
-      color: #e5e5e5;
-    }
-    header {
-      background: #111;
-      border-bottom: 1px solid #333;
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header a {
-      color: #9fd3ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    header select {
-      background: #1a1a1a;
-      color: #e5e5e5;
-      border: 1px solid #444;
-      padding: 6px;
-      border-radius: 4px;
-    }
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    h1, h2 {
-      color: #9fd3ff;
-    }
-    .section {
-      margin-bottom: 40px;
-      padding: 20px;
-      background: #121212;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    footer {
-      background: #111;
-      border-top: 1px solid #333;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-      color: #aaa;
-    }
-  </style>
+<style>
+body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif}
+header{background:#111;border-bottom:1px solid #333;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+header a{color:#9fd3ff;text-decoration:none;font-weight:bold}
+select{background:#1a1a1a;color:#e6e6e6;border:1px solid #444;padding:6px;border-radius:4px}
+main{max-width:900px;margin:auto;padding:50px 20px}
+h1,h2,h3{color:#9fd3ff}
+p{line-height:1.6;max-width:760px}
+.section{margin-top:30px;padding:22px;background:#121212;border:1px solid #2a2a2a;border-radius:8px}
+ul{padding-left:20px}
+li{margin-bottom:10px}
+.banner{border:2px solid #ffb84d;background:#1e1e1e;padding:14px;margin-top:20px;font-weight:bold;border-radius:6px}
+.notice{margin-top:30px;font-size:0.95rem;color:#ccc}
+.disabled{opacity:.6;border:1px dashed #555}
+</style>
 </head>
 
 <body>
 
 <header>
-  <a href="/cryptoforseniors/" data-i18n="back_home">Back to Crypto For Seniors</a>
-  <label>
-    <span data-i18n="language_label">Language</span>:
-    <select id="languageSelect">
-      <option value="en">EN</option>
-      <option value="fr">FR</option>
-      <option value="es">ES</option>
-      <option value="hr">HR</option>
-      <option value="tl">TL</option>
-      <option value="ja">JA</option>
-      <option value="zh-Hant">中文</option>
-    </select>
-  </label>
+  <a href="/cryptoforseniors/" data-i18n="back"></a>
+  <select id="lang"></select>
 </header>
 
 <main>
-  <h1 data-i18n="page_title"></h1>
+  <h1 data-i18n="title"></h1>
+  <p data-i18n="intro"></p>
+
+  <div class="banner" data-i18n="banner"></div>
 
   <div class="section">
-    <p data-i18n="intro"></p>
-  </div>
-
-  <div class="section">
-    <h2 data-i18n="what_title"></h2>
+    <h2 data-i18n="memeTitle"></h2>
+    <p data-i18n="memeIntro"></p>
     <ul>
-      <li data-i18n="what_1"></li>
-      <li data-i18n="what_2"></li>
-      <li data-i18n="what_3"></li>
-      <li data-i18n="what_4"></li>
+      <li data-i18n="m1"></li>
+      <li data-i18n="m2"></li>
+      <li data-i18n="m3"></li>
+      <li data-i18n="m4"></li>
     </ul>
   </div>
 
   <div class="section">
-    <h2 data-i18n="risk_title"></h2>
+    <h2 data-i18n="nftTitle"></h2>
+    <p data-i18n="nftIntro"></p>
     <ul>
-      <li data-i18n="risk_1"></li>
-      <li data-i18n="risk_2"></li>
-      <li data-i18n="risk_3"></li>
-      <li data-i18n="risk_4"></li>
+      <li data-i18n="n1"></li>
+      <li data-i18n="n2"></li>
+      <li data-i18n="n3"></li>
+      <li data-i18n="n4"></li>
     </ul>
   </div>
+
+  <div class="section disabled">
+    <h2 data-i18n="futureTitle"></h2>
+    <p data-i18n="futureText"></p>
+  </div>
+
+  <div class="notice" data-i18n="notice"></div>
 </main>
 
-<footer>
-  <p data-i18n="footer_notice"></p>
-  <p>© <span id="footerYear"></span> Crypto For Seniors</p>
-</footer>
-
 <script>
-const translations = {
-  en: {
-    back_home: "Back to Crypto For Seniors",
-    language_label: "Language",
-    page_title: "Launchpad",
-    intro: "Launchpads are places where new crypto projects are introduced before they reach the public market.",
-    what_title: "What Launchpads Are Used For",
-    what_1: "Introducing new crypto or NFT projects",
-    what_2: "Raising early interest and awareness",
-    what_3: "Testing ideas before full release",
-    what_4: "Attracting early participants",
-    risk_title: "Important Risks",
-    risk_1: "Most projects fail after launch",
-    risk_2: "Scams and fake teams are common",
-    risk_3: "Early hype often fades quickly",
-    risk_4: "Losses can happen very fast",
-    footer_notice: "Educational use only. No financial advice."
-  },
+const I18N={
+  en:{name:"English"},
+  fr:{name:"Français"},
+  es:{name:"Español"},
+  hr:{name:"Hrvatski"},
+  tl:{name:"Filipino (Tagalog)"},
+  ja:{name:"日本語"},
+  "zh-cn":{name:"中文（简体）"},
+  "zh-tw":{name:"中文（繁體）"}
+};
 
-  fr: {
-    back_home: "Retour à Crypto For Seniors",
-    language_label: "Langue",
-    page_title: "Launchpad",
-    intro: "Les launchpads présentent de nouveaux projets crypto avant leur lancement public.",
-    what_title: "À quoi servent les launchpads",
-    what_1: "Présenter de nouveaux projets crypto ou NFT",
-    what_2: "Créer de l’intérêt précoce",
-    what_3: "Tester des idées",
-    what_4: "Attirer des participants initiaux",
-    risk_title: "Risques Importants",
-    risk_1: "La plupart des projets échouent",
-    risk_2: "Les arnaques sont fréquentes",
-    risk_3: "Le battage médiatique disparaît vite",
-    risk_4: "Les pertes peuvent être rapides",
-    foote
+const PAGE_TEXT={
+en:{
+  back:"Back to Crypto For Seniors",
+  title:"Launchpad (Education Only)",
+  intro:"The Launchpad explains how meme coins and NFTs are created and brought to market, without launching anything for real.",
+  banner:"EDUCATION ONLY — No live launches, no wallets, no transactions",
+  memeTitle:"Meme Coins — How They Come to Market",
+  memeIntro:"Meme coins often move quickly and rely on attention rather than fundamentals.",
+  m1:"A name and narrative are created",
+  m2:"A token supply is defined",
+  m3:"Liquidity is added to a market",
+  m4:"Public trading begins (high risk)",
+  nftTitle:"NFTs — Structure and Reality",
+  nftIntro:"NFTs are records that point to media and metadata.",
+  n1:"The media is usually stored off-chain",
+  n2:"Metadata defines traits and links",
+  n3:"Royalties are optional and not guaranteed",
+  n4:"Marketplaces control visibility and fees",
+  futureTitle:"Practice Tools (Coming Later)",
+  futureText:"Future practice-only tools may simulate token creation and NFT metadata without risk.",
+  notice:"Most meme coins and NFTs fail. Education reduces risk, but does not remove it."
+},
+fr:{
+  back:"Retour à Crypto For Seniors",
+  title:"Plateforme de lancement (Éducation)",
+  intro:"Cette page explique comment les meme coins et NFTs arrivent sur le marché.",
+  banner:"ÉDUCATIF UNIQUEMENT — Aucun lancement réel",
+  memeTitle:"Meme Coins — Mise sur le marché",
+  memeIntro:"Les meme coins dépendent souvent de l’attention.",
+  m1:"Création du nom et du récit",
+  m2:"Définition de l’offre",
+  m3:"Ajout de liquidité",
+  m4:"Début du trading (risqué)",
+  nftTitle:"NFTs — Structure",
+  nftIntro:"Les NFTs sont des enregistrements numériques.",
+  n1:"Les médias sont hors chaîne",
+  n2:"Les métadonnées définissent le NFT",
+  n3:"Les royalties ne sont pas garanties",
+  n4:"Les plateformes contrôlent la visibilité",
+  futureTitle:"Outils futurs",
+  futureText:"Des outils éducatifs arriveront plus tard.",
+  notice:"La plupart échouent. L’éducation aide à réduire les risques."
+},
+es:{
+  back:"Volver a Crypto For Seniors",
+  title:"Plataforma educativa",
+  intro:"Explica cómo se crean meme coins y NFTs.",
+  banner:"SOLO EDUCACIÓN — Sin lanzamientos reales",
+  memeTitle:"Meme Coins",
+  memeIntro:"Dependen de atención y narrativa.",
+  m1:"Nombre y narrativa",
+  m2:"Oferta del token",
+  m3:"Liquidez",
+  m4:"Trading público (riesgoso)",
+  nftTitle:"NFTs",
+  nftIntro:"Registros digitales de medios.",
+  n1:"Medios fuera de la cadena",
+  n2:"Metadatos",
+  n3:"Regalías opcionales",
+  n4:"Control del mercado",
+  futureTitle:"Herramientas futuras",
+  futureText:"Simulaciones educativas más adelante.",
+  notice:"La mayoría fracasa."
+},
+hr:{
+  back:"Povratak na Crypto For Seniors",
+  title:"Edukativni
