@@ -46,123 +46,124 @@ a{color:#4da3ff;text-decoration:none;font-weight:bold}
 </div>
 
 <script>
-const TXT={
-en:{
-  n:"English",
-  t:"Flash Loan Practice Simulator",
-  b:"PRACTICE ONLY — Fake funds, real prices",
-  i:"Learn how flash loans work using simulated funds.",
-  p:"Enter simulated loan amount (USDC):",
-  r:"Simulate",
-  bk:"← Back to Practice",
-  load:"Loading price…",
-  bad:"Enter a valid amount.",
-  res:"Simulation Result",
-  m:"Market price",
-  l:"Loan",
-  c:"Costs",
-  g:"Gain",
-  pf:"Result: Profit",
-  ls:"Result: Loss"
-},
-fr:{
-  n:"Français",
-  t:"Simulateur de Prêt Flash",
-  b:"MODE PRATIQUE — Fonds simulés",
-  i:"Apprenez les prêts flash avec des fonds simulés.",
-  p:"Entrez le montant simulé (USDC):",
-  r:"Simuler",
-  bk:"← Retour",
-  load:"Chargement du prix…",
-  bad:"Veuillez entrer un montant valide.",
-  res:"Résultat",
-  m:"Prix du marché",
-  l:"Prêt",
-  c:"Coûts",
-  g:"Gain",
-  pf:"Résultat : Profit",
-  ls:"Résultat : Perte"
-},
-es:{
-  n:"Español",
-  t:"Simulador de Flash Loan",
-  b:"MODO PRÁCTICA — Fondos simulados",
-  i:"Aprenda con fondos simulados.",
-  p:"Ingrese monto simulado (USDC):",
-  r:"Simular",
-  bk:"← Volver",
-  load:"Cargando precio…",
-  bad:"Ingrese un monto válido.",
-  res:"Resultado",
-  m:"Precio de mercado",
-  l:"Préstamo",
-  c:"Costos",
-  g:"Ganancia",
-  pf:"Resultado: Ganancia",
-  ls:"Resultado: Pérdida"
-}
+const TXT = {
+  en: {
+    n: "English",
+    t: "Flash Loan Practice Simulator",
+    b: "PRACTICE ONLY — Fake funds, real prices",
+    i: "Learn how flash loans work using simulated funds in a safe environment.",
+    p: "Enter a simulated loan amount (USDC):",
+    r: "Run Simulation",
+    bk: "← Back to Practice Mode",
+    load: "Loading market price…",
+    bad: "Please enter a valid amount.",
+    res: "Simulation Result",
+    m: "Market price used",
+    l: "Simulated loan amount",
+    c: "Estimated costs",
+    g: "Estimated gain",
+    pf: "Result: Profit",
+    ls: "Result: Loss"
+  },
+  fr: {
+    n: "Français",
+    t: "Simulateur de Prêt Flash",
+    b: "MODE PRATIQUE — Fonds simulés, prix réels",
+    i: "Apprenez le fonctionnement des prêts flash avec des fonds simulés.",
+    p: "Entrez un montant de prêt simulé (USDC) :",
+    r: "Lancer la simulation",
+    bk: "← Retour au mode pratique",
+    load: "Chargement du prix du marché…",
+    bad: "Veuillez entrer un montant valide.",
+    res: "Résultat de la simulation",
+    m: "Prix du marché utilisé",
+    l: "Montant du prêt simulé",
+    c: "Coûts estimés",
+    g: "Gain estimé",
+    pf: "Résultat : Profit",
+    ls: "Résultat : Perte"
+  },
+  es: {
+    n: "Español",
+    t: "Simulador de Préstamo Flash",
+    b: "MODO PRÁCTICA — Fondos simulados, precios reales",
+    i: "Aprenda cómo funcionan los préstamos flash usando fondos simulados.",
+    p: "Ingrese un monto de préstamo simulado (USDC):",
+    r: "Ejecutar simulación",
+    bk: "← Volver al modo práctica",
+    load: "Cargando precio del mercado…",
+    bad: "Por favor ingrese un monto válido.",
+    res: "Resultado de la simulación",
+    m: "Precio de mercado utilizado",
+    l: "Monto del préstamo simulado",
+    c: "Costos estimados",
+    g: "Ganancia estimada",
+    pf: "Resultado: Ganancia",
+    ls: "Resultado: Pérdida"
+  }
 };
 
-const $=id=>document.getElementById(id);
-const sel=$("lang");
+const $ = id => document.getElementById(id);
+const sel = $("lang");
 
 let currentLang = localStorage.getItem("cfs-lang") || "en";
 
-Object.keys(TXT).forEach(k=>{
-  const o=document.createElement("option");
-  o.value=k;
-  o.textContent=TXT[k].n;
+Object.keys(TXT).forEach(k => {
+  const o = document.createElement("option");
+  o.value = k;
+  o.textContent = TXT[k].n;
   sel.appendChild(o);
 });
 
-function setLang(l){
-  currentLang=l;
-  localStorage.setItem("cfs-lang",l);
-  const t=TXT[l];
-  $("title").textContent=t.t;
-  $("banner").textContent=t.b;
-  $("intro").textContent=t.i;
-  $("prompt").textContent=t.p;
-  $("run").textContent=t.r;
-  $("backTop").textContent=t.bk;
-  $("backBottom").textContent=t.bk;
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem("cfs-lang", lang);
+  const t = TXT[lang];
+
+  $("title").textContent = t.t;
+  $("banner").textContent = t.b;
+  $("intro").textContent = t.i;
+  $("prompt").textContent = t.p;
+  $("run").textContent = t.r;
+  $("backTop").textContent = t.bk;
+  $("backBottom").textContent = t.bk;
 }
 
-async function runSim(){
-  const t=TXT[currentLang];
-  const amt=parseFloat($("amount").value);
-  const out=$("out");
+async function runSim() {
+  const t = TXT[currentLang];
+  const amt = parseFloat($("amount").value);
+  const out = $("out");
 
-  if(isNaN(amt)||amt<=0){
+  if (isNaN(amt) || amt <= 0) {
     alert(t.bad);
     return;
   }
 
-  out.style.display="block";
-  out.textContent=t.load;
+  out.style.display = "block";
+  out.textContent = t.load;
 
-  const r=await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
-  const d=await r.json();
-  const price=d.ethereum.usd;
+  const r = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
+  const d = await r.json();
+  const price = d.ethereum.usd;
 
-  const cost=amt*0.003;
-  const gain=amt*0.0025;
-  const net=gain-cost;
+  const cost = amt * 0.003;
+  const gain = amt * 0.0025;
+  const net = gain - cost;
 
-  out.innerHTML=`
+  out.innerHTML = `
     <h3>${t.res}</h3>
     <p>${t.m}: $${price}</p>
     <p>${t.l}: $${amt.toLocaleString()}</p>
     <p>${t.c}: $${cost.toFixed(2)}</p>
     <p>${t.g}: $${gain.toFixed(2)}</p>
-    <p><strong>${net>0?t.pf:t.ls} $${Math.abs(net).toFixed(2)}</strong></p>
+    <p><strong>${net > 0 ? t.pf : t.ls} $${Math.abs(net).toFixed(2)}</strong></p>
   `;
 }
 
-$("run").onclick=runSim;
-sel.onchange=e=>setLang(e.target.value);
+$("run").onclick = runSim;
+sel.onchange = e => setLang(e.target.value);
 
-sel.value=currentLang;
+sel.value = currentLang;
 setLang(currentLang);
 </script>
 
