@@ -23,7 +23,7 @@ li{margin-bottom:10px}
 <body>
 
 <header>
- <a href="../" data-i18n="back"></a>
+  <a href="../" data-i18n="back"></a>
   <select id="lang"></select>
 </header>
 
@@ -60,7 +60,7 @@ li{margin-bottom:10px}
 </main>
 
 <script>
-const I18N={
+const LANGS = {
   en:{name:"English"},
   fr:{name:"Français"},
   es:{name:"Español"},
@@ -71,96 +71,96 @@ const I18N={
   "zh-tw":{name:"中文（繁體）"}
 };
 
-const PAGE_TEXT={
+const TEXT = {
 en:{
   back:"Back to Crypto For Seniors",
   title:"Security First",
-  intro:"Security is the foundation of Crypto For Seniors. This project is designed to reduce risk, prevent pressure, and protect users from common crypto scams.",
-  principlesTitle:"Our Core Security Principles",
+  intro:"Security is the foundation of Crypto For Seniors. This site is designed to reduce risk and prevent pressure or manipulation.",
+  principlesTitle:"Core Security Principles",
   p1:"Education before action",
   p2:"Practice before real-world risk",
   p3:"Clarity over complexity",
-  p4:"No urgency, no pressure",
+  p4:"No urgency or pressure",
   neverTitle:"What We Never Do",
   n1:"We never ask for wallets, private keys, or passwords",
-  n2:"We never connect to exchanges or real accounts",
+  n2:"We never connect to real exchanges or accounts",
   n3:"We never execute trades or transactions",
   n4:"We never hide actions or automate decisions",
   whyTitle:"Why This Matters",
-  whyText:"Many crypto losses happen because people are rushed, confused, or misled. CFS is intentionally slow, transparent, and educational to reduce those risks.",
-  notice:"If something feels urgent, secretive, or too good to be true — stop. Education should never pressure you."
+  whyText:"Most crypto losses happen due to urgency, confusion, or manipulation. CFS is intentionally slow and transparent.",
+  notice:"If something feels urgent or secretive, stop. Education should never pressure you."
 },
 fr:{
   back:"Retour à Crypto For Seniors",
   title:"La sécurité avant tout",
-  intro:"La sécurité est la base de Crypto For Seniors. Ce projet vise à réduire les risques et à prévenir les arnaques.",
+  intro:"La sécurité est la base de Crypto For Seniors.",
   principlesTitle:"Principes de sécurité",
-  p1:"L’éducation avant l’action",
-  p2:"La pratique avant le risque réel",
-  p3:"La clarté avant la complexité",
-  p4:"Aucune urgence, aucune pression",
+  p1:"Éducation avant action",
+  p2:"Pratique avant risque réel",
+  p3:"Clarté avant complexité",
+  p4:"Aucune urgence",
   neverTitle:"Ce que nous ne faisons jamais",
-  n1:"Nous ne demandons jamais de portefeuilles ou de clés privées",
-  n2:"Nous ne nous connectons jamais à des comptes réels",
+  n1:"Nous ne demandons jamais de clés privées",
+  n2:"Nous ne connectons jamais de comptes réels",
   n3:"Nous n’exécutons jamais de transactions",
   n4:"Nous ne cachons jamais d’actions",
   whyTitle:"Pourquoi c’est important",
-  whyText:"La plupart des pertes surviennent par précipitation ou confusion. CFS privilégie la transparence.",
-  notice:"Si quelque chose semble urgent ou trop beau pour être vrai, arrêtez-vous."
+  whyText:"La plupart des pertes sont dues à la pression.",
+  notice:"Si cela semble urgent, arrêtez-vous."
 },
 es:{
   back:"Volver a Crypto For Seniors",
-  title:"La seguridad primero",
-  intro:"La seguridad es la base de Crypto For Seniors. Este proyecto reduce riesgos y evita estafas.",
+  title:"Seguridad primero",
+  intro:"La seguridad es la base de Crypto For Seniors.",
   principlesTitle:"Principios de seguridad",
   p1:"Educación antes de actuar",
   p2:"Práctica antes del riesgo real",
   p3:"Claridad sobre complejidad",
-  p4:"Sin urgencia ni presión",
+  p4:"Sin urgencia",
   neverTitle:"Lo que nunca hacemos",
-  n1:"Nunca pedimos billeteras o claves privadas",
+  n1:"Nunca pedimos claves privadas",
   n2:"Nunca conectamos cuentas reales",
   n3:"Nunca ejecutamos transacciones",
   n4:"Nunca ocultamos acciones",
   whyTitle:"Por qué importa",
-  whyText:"Muchas pérdidas ocurren por confusión o prisa. CFS evita eso.",
-  notice:"Si parece urgente o demasiado bueno, deténgase."
+  whyText:"Muchas pérdidas ocurren por presión.",
+  notice:"Si parece urgente, deténgase."
 },
 hr:{
   back:"Povratak na Crypto For Seniors",
   title:"Sigurnost na prvom mjestu",
-  intro:"Sigurnost je temelj projekta Crypto For Seniors.",
+  intro:"Sigurnost je temelj projekta.",
   principlesTitle:"Sigurnosna načela",
   p1:"Edukacija prije djelovanja",
   p2:"Vježbanje prije pravog rizika",
   p3:"Jasnoća ispred složenosti",
-  p4:"Bez žurbe i pritiska",
+  p4:"Bez žurbe",
   neverTitle:"Što nikada ne radimo",
   n1:"Nikada ne tražimo privatne ključeve",
-  n2:"Nikada se ne povezujemo s pravim računima",
+  n2:"Nikada se ne povezujemo s računima",
   n3:"Nikada ne izvršavamo transakcije",
   n4:"Nikada ne skrivamo radnje",
   whyTitle:"Zašto je važno",
-  whyText:"Gubici se često događaju zbog pritiska. CFS to sprječava.",
-  notice:"Ako nešto djeluje hitno ili predobro — stanite."
+  whyText:"Pritisak uzrokuje gubitke.",
+  notice:"Ako djeluje hitno — stanite."
 },
 tl:{
   back:"Bumalik sa Crypto For Seniors",
   title:"Unahin ang seguridad",
-  intro:"Ang seguridad ang pundasyon ng Crypto For Seniors.",
+  intro:"Ang seguridad ang pundasyon ng CFS.",
   principlesTitle:"Mga prinsipyo ng seguridad",
   p1:"Edukasyon bago aksyon",
-  p2:"Practice bago totoong panganib",
+  p2:"Practice bago panganib",
   p3:"Linaw bago komplikasyon",
   p4:"Walang pressure",
   neverTitle:"Hindi namin ginagawa",
-  n1:"Hindi kami humihingi ng wallet o private key",
-  n2:"Hindi kami kumokonekta sa totoong account",
+  n1:"Hindi kami humihingi ng private keys",
+  n2:"Hindi kami kumokonekta sa account",
   n3:"Hindi kami nagte-trade",
-  n4:"Hindi kami nagtatago ng aksyon",
+  n4:"Hindi kami nagtatago",
   whyTitle:"Bakit mahalaga",
-  whyText:"Maraming nalulugi dahil sa pressure. Iniiwasan ito ng CFS.",
-  notice:"Kapag mukhang urgent o sobrang ganda — huminto."
+  whyText:"Maraming nalulugi dahil sa pressure.",
+  notice:"Kapag mukhang urgent — huminto."
 },
 ja:{
   back:"Crypto For Seniors に戻る",
@@ -168,4 +168,75 @@ ja:{
   intro:"セキュリティは Crypto For Seniors の基盤です。",
   principlesTitle:"安全の原則",
   p1:"行動の前に学習",
-  p2:"実践して
+  p2:"実践してからリスク",
+  p3:"複雑さより明確さ",
+  p4:"緊急性なし",
+  neverTitle:"絶対にしないこと",
+  n1:"秘密鍵を要求しない",
+  n2:"実際の口座に接続しない",
+  n3:"取引を実行しない",
+  n4:"操作を隠さない",
+  whyTitle:"重要な理由",
+  whyText:"多くの損失は焦りから生じます。",
+  notice:"急かされたら止まりましょう。"
+},
+"zh-cn":{
+  back:"返回 Crypto For Seniors",
+  title:"安全优先",
+  intro:"安全是 Crypto For Seniors 的基础。",
+  principlesTitle:"安全原则",
+  p1:"行动前先学习",
+  p2:"实践先于风险",
+  p3:"清晰胜于复杂",
+  p4:"没有紧迫感",
+  neverTitle:"我们从不做的事",
+  n1:"不索要私钥",
+  n2:"不连接真实账户",
+  n3:"不执行交易",
+  n4:"不隐藏行为",
+  whyTitle:"为什么重要",
+  whyText:"压力导致损失。",
+  notice:"如果感觉紧急，请停止。"
+},
+"zh-tw":{
+  back:"返回 Crypto For Seniors",
+  title:"安全優先",
+  intro:"安全是 Crypto For Seniors 的基礎。",
+  principlesTitle:"安全原則",
+  p1:"行動前先學習",
+  p2:"實踐先於風險",
+  p3:"清楚勝於複雜",
+  p4:"沒有緊迫感",
+  neverTitle:"我們從不做的事",
+  n1:"不索取私鑰",
+  n2:"不連接真實帳戶",
+  n3:"不執行交易",
+  n4:"不隱藏行為",
+  whyTitle:"為何重要",
+  whyText:"壓力會導致損失。",
+  notice:"如果感覺緊急，請停下來。"
+}
+};
+
+const sel=document.getElementById("lang");
+Object.keys(LANGS).forEach(k=>{
+  const o=document.createElement("option");
+  o.value=k;o.textContent=LANGS[k].name;sel.appendChild(o);
+});
+
+function apply(l){
+  localStorage.setItem("cfs-lang",l);
+  document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.dataset.i18n;
+    if(TEXT[l] && TEXT[l][key]) el.textContent=TEXT[l][key];
+  });
+}
+
+const start=localStorage.getItem("cfs-lang")||"en";
+sel.value=start;apply(start);
+sel.onchange=e=>apply(e.target.value);
+</script>
+
+</body>
+</html>
