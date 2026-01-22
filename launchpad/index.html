@@ -2,145 +2,165 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Launchpad – Crypto For Seniors</title>
+<title>CFS Launchpad — Meme Coins & NFTs</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif}
-header{background:#111;border-bottom:1px solid #333;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+header{background:#111;border-bottom:1px solid #333;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 header a{color:#9fd3ff;text-decoration:none;font-weight:bold}
 select{background:#1a1a1a;color:#e6e6e6;border:1px solid #444;padding:6px;border-radius:4px}
 main{max-width:900px;margin:auto;padding:50px 20px}
-h1,h2,h3{color:#9fd3ff}
-p{line-height:1.6;max-width:760px}
+h1,h2{color:#9fd3ff}
 .section{margin-top:30px;padding:22px;background:#121212;border:1px solid #2a2a2a;border-radius:8px}
-ul{padding-left:20px}
-li{margin-bottom:10px}
-.banner{border:2px solid #ffb84d;background:#1e1e1e;padding:14px;margin-top:20px;font-weight:bold;border-radius:6px}
-.notice{margin-top:30px;font-size:0.95rem;color:#ccc}
-.disabled{opacity:.6;border:1px dashed #555}
+p{line-height:1.6;max-width:760px}
+.notice{margin-top:30px;color:#ccc;font-size:.95rem}
 </style>
 </head>
 
 <body>
 
 <header>
- <a href="../" data-i18n="back"></a>
+  <a href="../" data-i18n="back"></a>
   <select id="lang"></select>
 </header>
 
 <main>
   <h1 data-i18n="title"></h1>
-  <p data-i18n="intro"></p>
 
-  <div class="banner" data-i18n="banner"></div>
+  <div class="section">
+    <p data-i18n="intro"></p>
+  </div>
 
   <div class="section">
     <h2 data-i18n="memeTitle"></h2>
-    <p data-i18n="memeIntro"></p>
-    <ul>
-      <li data-i18n="m1"></li>
-      <li data-i18n="m2"></li>
-      <li data-i18n="m3"></li>
-      <li data-i18n="m4"></li>
-    </ul>
+    <p data-i18n="memeText"></p>
   </div>
 
   <div class="section">
     <h2 data-i18n="nftTitle"></h2>
-    <p data-i18n="nftIntro"></p>
-    <ul>
-      <li data-i18n="n1"></li>
-      <li data-i18n="n2"></li>
-      <li data-i18n="n3"></li>
-      <li data-i18n="n4"></li>
-    </ul>
-  </div>
-
-  <div class="section disabled">
-    <h2 data-i18n="futureTitle"></h2>
-    <p data-i18n="futureText"></p>
+    <p data-i18n="nftText"></p>
   </div>
 
   <div class="notice" data-i18n="notice"></div>
 </main>
 
 <script>
-const I18N={
-  en:{name:"English"},
-  fr:{name:"Français"},
-  es:{name:"Español"},
-  hr:{name:"Hrvatski"},
-  tl:{name:"Filipino (Tagalog)"},
-  ja:{name:"日本語"},
-  "zh-cn":{name:"中文（简体）"},
-  "zh-tw":{name:"中文（繁體）"}
+const LANGS={
+  en:"English",
+  fr:"Français",
+  es:"Español",
+  hr:"Hrvatski",
+  tl:"Filipino",
+  ja:"日本語",
+  "zh-cn":"中文（简体）",
+  "zh-tw":"中文（繁體）"
 };
 
-const PAGE_TEXT={
+const TEXT={
 en:{
-  back:"Back to Crypto For Seniors",
-  title:"Launchpad (Education Only)",
-  intro:"The Launchpad explains how meme coins and NFTs are created and brought to market, without launching anything for real.",
-  banner:"EDUCATION ONLY — No live launches, no wallets, no transactions",
-  memeTitle:"Meme Coins — How They Come to Market",
-  memeIntro:"Meme coins often move quickly and rely on attention rather than fundamentals.",
-  m1:"A name and narrative are created",
-  m2:"A token supply is defined",
-  m3:"Liquidity is added to a market",
-  m4:"Public trading begins (high risk)",
-  nftTitle:"NFTs — Structure and Reality",
-  nftIntro:"NFTs are records that point to media and metadata.",
-  n1:"The media is usually stored off-chain",
-  n2:"Metadata defines traits and links",
-  n3:"Royalties are optional and not guaranteed",
-  n4:"Marketplaces control visibility and fees",
-  futureTitle:"Practice Tools (Coming Later)",
-  futureText:"Future practice-only tools may simulate token creation and NFT metadata without risk.",
-  notice:"Most meme coins and NFTs fail. Education reduces risk, but does not remove it."
+  back:"← Back to Crypto For Seniors",
+  title:"CFS Launchpad — Meme Coins & NFTs",
+  intro:"The Launchpad explains how meme coins and NFTs are created and brought to market. This page is educational only.",
+  memeTitle:"Meme Coins",
+  memeText:"Meme coins are driven by narratives, timing, liquidity, and trust. Code alone does not create value.",
+  nftTitle:"NFTs",
+  nftText:"NFTs are blockchain records pointing to media and metadata. Ownership does not guarantee value or permanence.",
+  notice:"Education only. No wallets, no minting, no trading, no financial advice."
 },
 fr:{
-  back:"Retour à Crypto For Seniors",
-  title:"Plateforme de lancement (Éducation)",
-  intro:"Cette page explique comment les meme coins et NFTs arrivent sur le marché.",
-  banner:"ÉDUCATIF UNIQUEMENT — Aucun lancement réel",
-  memeTitle:"Meme Coins — Mise sur le marché",
-  memeIntro:"Les meme coins dépendent souvent de l’attention.",
-  m1:"Création du nom et du récit",
-  m2:"Définition de l’offre",
-  m3:"Ajout de liquidité",
-  m4:"Début du trading (risqué)",
-  nftTitle:"NFTs — Structure",
-  nftIntro:"Les NFTs sont des enregistrements numériques.",
-  n1:"Les médias sont hors chaîne",
-  n2:"Les métadonnées définissent le NFT",
-  n3:"Les royalties ne sont pas garanties",
-  n4:"Les plateformes contrôlent la visibilité",
-  futureTitle:"Outils futurs",
-  futureText:"Des outils éducatifs arriveront plus tard.",
-  notice:"La plupart échouent. L’éducation aide à réduire les risques."
+  back:"← Retour à Crypto For Seniors",
+  title:"CFS Launchpad — Meme Coins et NFTs",
+  intro:"Le Launchpad explique la création et la mise sur le marché des meme coins et NFTs.",
+  memeTitle:"Meme Coins",
+  memeText:"Les meme coins reposent sur le récit, le timing et la confiance.",
+  nftTitle:"NFTs",
+  nftText:"Les NFTs sont des enregistrements blockchain liés à des médias.",
+  notice:"Contenu éducatif uniquement. Aucun conseil financier."
 },
 es:{
-  back:"Volver a Crypto For Seniors",
-  title:"Plataforma educativa",
-  intro:"Explica cómo se crean meme coins y NFTs.",
-  banner:"SOLO EDUCACIÓN — Sin lanzamientos reales",
+  back:"← Volver a Crypto For Seniors",
+  title:"CFS Launchpad — Meme Coins y NFTs",
+  intro:"Launchpad explica cómo se crean los meme coins y NFTs.",
   memeTitle:"Meme Coins",
-  memeIntro:"Dependen de atención y narrativa.",
-  m1:"Nombre y narrativa",
-  m2:"Oferta del token",
-  m3:"Liquidez",
-  m4:"Trading público (riesgoso)",
+  memeText:"Los meme coins dependen de narrativa y confianza.",
   nftTitle:"NFTs",
-  nftIntro:"Registros digitales de medios.",
-  n1:"Medios fuera de la cadena",
-  n2:"Metadatos",
-  n3:"Regalías opcionales",
-  n4:"Control del mercado",
-  futureTitle:"Herramientas futuras",
-  futureText:"Simulaciones educativas más adelante.",
-  notice:"La mayoría fracasa."
+  nftText:"Los NFTs son registros que apuntan a contenido digital.",
+  notice:"Solo educación. Sin transacciones reales."
 },
 hr:{
-  back:"Povratak na Crypto For Seniors",
-  title:"Edukativni
+  back:"← Povratak na Crypto For Seniors",
+  title:"CFS Launchpad — Meme Coinovi i NFT-ovi",
+  intro:"Launchpad objašnjava kako se stvaraju meme coinovi i NFT-ovi.",
+  memeTitle:"Meme Coinovi",
+  memeText:"Vrijednost ovisi o povjerenju i narativu.",
+  nftTitle:"NFT-ovi",
+  nftText:"NFT-ovi su zapisi koji upućuju na digitalni sadržaj.",
+  notice:"Samo edukacija. Bez stvarnih transakcija."
+},
+tl:{
+  back:"← Bumalik sa Crypto For Seniors",
+  title:"CFS Launchpad — Meme Coins at NFTs",
+  intro:"Ipinapaliwanag ng Launchpad ang paggawa ng meme coins at NFTs.",
+  memeTitle:"Meme Coins",
+  memeText:"Umaasa sa kwento at tiwala.",
+  nftTitle:"NFTs",
+  nftText:"Ang NFTs ay talaan na tumuturo sa media.",
+  notice:"Pang-edukasyon lamang."
+},
+ja:{
+  back:"← Crypto For Seniors に戻る",
+  title:"CFS Launchpad — ミームコインとNFT",
+  intro:"このページはミームコインとNFTの仕組みを説明します。",
+  memeTitle:"ミームコイン",
+  memeText:"物語性と信頼が重要です。",
+  nftTitle:"NFT",
+  nftText:"NFTはデジタルデータへの参照です。",
+  notice:"教育目的のみ。"
+},
+"zh-cn":{
+  back:"← 返回 Crypto For Seniors",
+  title:"CFS Launchpad — 模因币与 NFT",
+  intro:"本页面介绍模因币和 NFT 的创建方式。",
+  memeTitle:"模因币",
+  memeText:"价值取决于叙事和信任。",
+  nftTitle:"NFT",
+  nftText:"NFT 是指向数字内容的记录。",
+  notice:"仅用于教育。"
+},
+"zh-tw":{
+  back:"← 返回 Crypto For Seniors",
+  title:"CFS Launchpad — 迷因幣與 NFT",
+  intro:"本頁說明迷因幣與 NFT 的概念。",
+  memeTitle:"迷因幣",
+  memeText:"價值取決於敘事與信任。",
+  nftTitle:"NFT",
+  nftText:"NFT 是指向數位內容的紀錄。",
+  notice:"僅供教育用途。"
+}
+};
+
+const sel=document.getElementById("lang");
+Object.keys(LANGS).forEach(k=>{
+  const o=document.createElement("option");
+  o.value=k;o.textContent=LANGS[k];
+  sel.appendChild(o);
+});
+
+function applyLang(l){
+  localStorage.setItem("cfs-lang",l);
+  document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.dataset.i18n;
+    el.textContent=TEXT[l][key];
+  });
+}
+
+const start=localStorage.getItem("cfs-lang")||"en";
+sel.value=start;
+applyLang(start);
+sel.onchange=e=>applyLang(e.target.value);
+</script>
+
+</body>
+</html>
