@@ -6,165 +6,243 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif;text-align:center}
-.container{max-width:900px;margin:auto;padding:30px 20px}
-.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:10px}
-select{background:#111;color:#fff;border:1px solid #444;padding:6px;border-radius:4px}
-h1{color:#4da3ff;margin-top:25px}
-.banner{border:2px solid #ffb84d;background:#1e1e1e;padding:14px;margin:25px auto;font-weight:bold}
-p{max-width:720px;margin:16px auto;line-height:1.6}
-input{padding:12px;font-size:1.1rem;width:220px;text-align:center;border-radius:6px;border:none}
-button{margin-top:18px;padding:14px 28px;font-size:1.1rem;font-weight:bold;background:#4da3ff;color:#000;border:none;border-radius:6px;cursor:pointer}
-.result{display:none;margin-top:30px;padding:20px;border:1px solid #333;background:#141414;max-width:720px;margin-left:auto;margin-right:auto}
-a{color:#4da3ff;text-decoration:none;font-weight:bold}
+body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif}
+header{background:#111;border-bottom:1px solid #333;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+header a{color:#9fd3ff;text-decoration:none;font-weight:bold}
+select{background:#1a1a1a;color:#e6e6e6;border:1px solid #444;padding:6px;border-radius:4px}
+main{max-width:900px;margin:auto;padding:50px 20px;text-align:center}
+h1{color:#9fd3ff}
+.banner{border:2px solid #ffb84d;background:#1e1e1e;padding:14px;margin:20px auto;font-weight:bold;border-radius:6px}
+p{max-width:760px;margin:16px auto;line-height:1.6}
+input{padding:12px;font-size:1.1rem;width:240px;text-align:center;border-radius:6px;border:none}
+button{margin-top:18px;padding:14px 28px;font-size:1.1rem;font-weight:bold;background:#9fd3ff;color:#000;border:none;border-radius:6px;cursor:pointer}
+.result{display:none;margin-top:30px;padding:20px;border:1px solid #333;background:#141414;border-radius:8px}
 </style>
 </head>
 
 <body>
-<div class="container">
 
-<div class="top">
-  <a id="backTop" href="/cryptoforseniors/practice/"></a>
+<header>
+  <a href="/cryptoforseniors/practice/" data-i18n="back"></a>
   <select id="lang"></select>
-</div>
+</header>
 
-<h1 id="title"></h1>
-<div id="banner" class="banner"></div>
+<main>
+  <h1 data-i18n="title"></h1>
 
-<p id="intro"></p>
-<p id="prompt"></p>
+  <div class="banner" data-i18n="banner"></div>
 
-<input id="amount" type="number" placeholder="10000"><br>
-<button id="run"></button>
+  <p data-i18n="intro"></p>
+  <p data-i18n="prompt"></p>
 
-<div id="out" class="result"></div>
+  <input id="amount" type="number" placeholder="10000"><br>
+  <button id="run" data-i18n="run"></button>
 
-<p style="margin-top:40px">
-  <a id="backBottom" href="/cryptoforseniors/practice/"></a>
-</p>
-
-</div>
+  <div id="out" class="result"></div>
+</main>
 
 <script>
-const TXT = {
-  en: {
-    n: "English",
-    t: "Flash Loan Practice Simulator",
-    b: "PRACTICE ONLY — Fake funds, real prices",
-    i: "Learn how flash loans work using simulated funds in a safe environment.",
-    p: "Enter a simulated loan amount (USDC):",
-    r: "Run Simulation",
-    bk: "← Back to Practice Mode",
-    load: "Loading market price…",
-    bad: "Please enter a valid amount.",
-    res: "Simulation Result",
-    m: "Market price used",
-    l: "Simulated loan amount",
-    c: "Estimated costs",
-    g: "Estimated gain",
-    pf: "Result: Profit",
-    ls: "Result: Loss"
-  },
-  fr: {
-    n: "Français",
-    t: "Simulateur de Prêt Flash",
-    b: "MODE PRATIQUE — Fonds simulés, prix réels",
-    i: "Apprenez le fonctionnement des prêts flash avec des fonds simulés.",
-    p: "Entrez un montant de prêt simulé (USDC) :",
-    r: "Lancer la simulation",
-    bk: "← Retour au mode pratique",
-    load: "Chargement du prix du marché…",
-    bad: "Veuillez entrer un montant valide.",
-    res: "Résultat de la simulation",
-    m: "Prix du marché utilisé",
-    l: "Montant du prêt simulé",
-    c: "Coûts estimés",
-    g: "Gain estimé",
-    pf: "Résultat : Profit",
-    ls: "Résultat : Perte"
-  },
-  es: {
-    n: "Español",
-    t: "Simulador de Préstamo Flash",
-    b: "MODO PRÁCTICA — Fondos simulados, precios reales",
-    i: "Aprenda cómo funcionan los préstamos flash usando fondos simulados.",
-    p: "Ingrese un monto de préstamo simulado (USDC):",
-    r: "Ejecutar simulación",
-    bk: "← Volver al modo práctica",
-    load: "Cargando precio del mercado…",
-    bad: "Por favor ingrese un monto válido.",
-    res: "Resultado de la simulación",
-    m: "Precio de mercado utilizado",
-    l: "Monto del préstamo simulado",
-    c: "Costos estimados",
-    g: "Ganancia estimada",
-    pf: "Resultado: Ganancia",
-    ls: "Resultado: Pérdida"
-  }
+const I18N={
+  en:{name:"English"},
+  fr:{name:"Français"},
+  es:{name:"Español"},
+  hr:{name:"Hrvatski"},
+  tl:{name:"Filipino (Tagalog)"},
+  ja:{name:"日本語"},
+  "zh-cn":{name:"中文（简体）"},
+  "zh-tw":{name:"中文（繁體）"}
 };
 
-const $ = id => document.getElementById(id);
-const sel = $("lang");
-
-let currentLang = localStorage.getItem("cfs-lang") || "en";
-
-Object.keys(TXT).forEach(k => {
-  const o = document.createElement("option");
-  o.value = k;
-  o.textContent = TXT[k].n;
-  sel.appendChild(o);
-});
-
-function setLang(lang) {
-  currentLang = lang;
-  localStorage.setItem("cfs-lang", lang);
-  const t = TXT[lang];
-
-  $("title").textContent = t.t;
-  $("banner").textContent = t.b;
-  $("intro").textContent = t.i;
-  $("prompt").textContent = t.p;
-  $("run").textContent = t.r;
-  $("backTop").textContent = t.bk;
-  $("backBottom").textContent = t.bk;
+const PAGE_TEXT={
+en:{
+  back:"Back to Practice Mode",
+  title:"Flash Loan Practice Simulator",
+  banner:"PRACTICE ONLY — Fake funds, real prices, no wallets, no transactions",
+  intro:"This simulator demonstrates flash loans using simulated balances and read-only market data.",
+  prompt:"Enter a simulated loan amount (USDC):",
+  run:"Run Simulation",
+  bad:"Please enter a valid amount.",
+  load:"Loading market price…",
+  res:"Simulation Result",
+  price:"Market price",
+  loan:"Simulated loan",
+  cost:"Estimated costs",
+  gain:"Estimated gain",
+  profit:"Result: Profit",
+  loss:"Result: Loss"
+},
+fr:{
+  back:"Retour au mode pratique",
+  title:"Simulateur de prêt flash",
+  banner:"PRATIQUE UNIQUEMENT — Fonds simulés",
+  intro:"Ce simulateur montre les prêts flash avec des données simulées.",
+  prompt:"Entrez un montant simulé (USDC):",
+  run:"Lancer la simulation",
+  bad:"Veuillez entrer un montant valide.",
+  load:"Chargement du prix…",
+  res:"Résultat de la simulation",
+  price:"Prix du marché",
+  loan:"Montant simulé",
+  cost:"Coûts estimés",
+  gain:"Gain estimé",
+  profit:"Résultat : Profit",
+  loss:"Résultat : Perte"
+},
+es:{
+  back:"Volver al modo de práctica",
+  title:"Simulador de préstamo flash",
+  banner:"PRÁCTICA SOLAMENTE — Fondos simulados",
+  intro:"Este simulador explica los préstamos flash con datos simulados.",
+  prompt:"Ingrese un monto simulado (USDC):",
+  run:"Ejecutar simulación",
+  bad:"Ingrese un monto válido.",
+  load:"Cargando precio…",
+  res:"Resultado de la simulación",
+  price:"Precio de mercado",
+  loan:"Monto simulado",
+  cost:"Costos estimados",
+  gain:"Ganancia estimada",
+  profit:"Resultado: Ganancia",
+  loss:"Resultado: Pérdida"
+},
+hr:{
+  back:"Natrag na način vježbanja",
+  title:"Simulator flash zajma",
+  banner:"VJEŽBA — Simulirana sredstva",
+  intro:"Simulator prikazuje flash zajmove uz simulirane podatke.",
+  prompt:"Unesite simulirani iznos (USDC):",
+  run:"Pokreni simulaciju",
+  bad:"Unesite ispravan iznos.",
+  load:"Učitavanje cijene…",
+  res:"Rezultat simulacije",
+  price:"Tržišna cijena",
+  loan:"Simulirani zajam",
+  cost:"Procijenjeni troškovi",
+  gain:"Procijenjena dobit",
+  profit:"Rezultat: Dobit",
+  loss:"Rezultat: Gubitak"
+},
+tl:{
+  back:"Bumalik sa Practice Mode",
+  title:"Flash Loan Practice Simulator",
+  banner:"PRACTICE ONLY — Simulated na pondo",
+  intro:"Ipinapakita ng simulator na ito ang flash loans gamit ang simulated na datos.",
+  prompt:"Ilagay ang simulated na halaga (USDC):",
+  run:"Simulan ang simulation",
+  bad:"Maglagay ng wastong halaga.",
+  load:"Kinukuha ang presyo…",
+  res:"Resulta ng simulation",
+  price:"Presyo sa merkado",
+  loan:"Simulated na loan",
+  cost:"Tinatayang gastos",
+  gain:"Tinatayang kita",
+  profit:"Resulta: Kita",
+  loss:"Resulta: Lugi"
+},
+ja:{
+  back:"練習モードに戻る",
+  title:"フラッシュローン練習シミュレーター",
+  banner:"練習専用 — 模擬資金",
+  intro:"このシミュレーターは模擬データでフラッシュローンを学びます。",
+  prompt:"模擬ローン金額を入力 (USDC):",
+  run:"シミュレーション実行",
+  bad:"有効な金額を入力してください。",
+  load:"価格を取得中…",
+  res:"シミュレーション結果",
+  price:"市場価格",
+  loan:"模擬ローン",
+  cost:"推定コスト",
+  gain:"推定利益",
+  profit:"結果：利益",
+  loss:"結果：損失"
+},
+"zh-cn":{
+  back:"返回练习模式",
+  title:"闪电贷练习模拟器",
+  banner:"仅限练习 — 模拟资金",
+  intro:"此模拟器使用模拟数据讲解闪电贷。",
+  prompt:"输入模拟金额 (USDC):",
+  run:"运行模拟",
+  bad:"请输入有效金额。",
+  load:"加载价格中…",
+  res:"模拟结果",
+  price:"市场价格",
+  loan:"模拟贷款",
+  cost:"预计成本",
+  gain:"预计收益",
+  profit:"结果：盈利",
+  loss:"结果：亏损"
+},
+"zh-tw":{
+  back:"返回練習模式",
+  title:"閃電貸練習模擬器",
+  banner:"僅限練習 — 模擬資金",
+  intro:"此模擬器使用模擬資料說明閃電貸。",
+  prompt:"輸入模擬金額 (USDC):",
+  run:"執行模擬",
+  bad:"請輸入有效金額。",
+  load:"載入價格中…",
+  res:"模擬結果",
+  price:"市場價格",
+  loan:"模擬貸款",
+  cost:"預估成本",
+  gain:"預估收益",
+  profit:"結果：盈利",
+  loss:"結果：虧損"
 }
+};
 
-async function runSim() {
-  const t = TXT[currentLang];
-  const amt = parseFloat($("amount").value);
-  const out = $("out");
-
-  if (isNaN(amt) || amt <= 0) {
-    alert(t.bad);
-    return;
+function initLang(){
+  const sel=document.getElementById("lang");
+  Object.keys(I18N).forEach(k=>{
+    const o=document.createElement("option");
+    o.value=k;o.textContent=I18N[k].name;sel.appendChild(o);
+  });
+  function apply(l){
+    localStorage.setItem("cfs-lang",l);
+    document.documentElement.lang=l;
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      const key=el.dataset.i18n;
+      if(PAGE_TEXT[l] && PAGE_TEXT[l][key]){
+        el.textContent=PAGE_TEXT[l][key];
+      }
+    });
   }
-
-  out.style.display = "block";
-  out.textContent = t.load;
-
-  const r = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
-  const d = await r.json();
-  const price = d.ethereum.usd;
-
-  const cost = amt * 0.003;
-  const gain = amt * 0.0025;
-  const net = gain - cost;
-
-  out.innerHTML = `
-    <h3>${t.res}</h3>
-    <p>${t.m}: $${price}</p>
-    <p>${t.l}: $${amt.toLocaleString()}</p>
-    <p>${t.c}: $${cost.toFixed(2)}</p>
-    <p>${t.g}: $${gain.toFixed(2)}</p>
-    <p><strong>${net > 0 ? t.pf : t.ls} $${Math.abs(net).toFixed(2)}</strong></p>
-  `;
+  const start=localStorage.getItem("cfs-lang")||"en";
+  sel.value=start;apply(start);
+  sel.onchange=e=>apply(e.target.value);
 }
 
-$("run").onclick = runSim;
-sel.onchange = e => setLang(e.target.value);
+async function runSim(){
+  const lang=localStorage.getItem("cfs-lang")||"en";
+  const t=PAGE_TEXT[lang];
+  const amt=parseFloat(document.getElementById("amount").value);
+  const out=document.getElementById("out");
 
-sel.value = currentLang;
-setLang(currentLang);
+  if(isNaN(amt)||amt<=0){alert(t.bad);return;}
+
+  out.style.display="block";
+  out.textContent=t.load;
+
+  const r=await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
+  const d=await r.json();
+  const price=d.ethereum.usd;
+
+  const cost=amt*0.003;
+  const gain=amt*0.0025;
+  const net=gain-cost;
+
+  out.innerHTML=
+    `<h3>${t.res}</h3>
+     <p>${t.price}: $${price}</p>
+     <p>${t.loan}: $${amt.toLocaleString()}</p>
+     <p>${t.cost}: $${cost.toFixed(2)}</p>
+     <p>${t.gain}: $${gain.toFixed(2)}</p>
+     <p><strong>${net>0?t.profit:t.loss} $${Math.abs(net).toFixed(2)}</strong></p>`;
+}
+
+document.getElementById("run").onclick=runSim;
+initLang();
 </script>
 
 </body>
