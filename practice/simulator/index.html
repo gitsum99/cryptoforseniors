@@ -3,3 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <title>Flash Loan Practice Simulator – Crypto For Seniors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif;text-align:center}
+.container{max-width:900px;margin:auto;padding:30px 20px}
+.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;padding-bottom:10px}
+select{background:#111;color:#fff;border:1px solid #444;padding:6px;border-radius:4px}
+h1{color:#4da3ff;margin-top:25px}
+.banner{border:2px solid #ffb84d;background:#1e1e1e;padding:14px;margin:25px auto;font-weight:bold}
+p{max-width:720px;margin:16px auto;line-height:1.6}
+input{padding:12px;font-size:1.1rem;width:220px;text-align:center;border-radius:6px;border:none}
+button{margin-top:18px;padding:14px 28px;font-size:1.1rem;font-weight:bold;background:#4da3ff;color:#000;border:none;border-radius:6px;cursor:pointer}
+.result{display:none;margin-top:30px;padding:20px;border:1px solid #333;background:#141414;max-width:720px;margin-left:auto;margin-right:auto}
+a{color:#4da3ff;text-decoration:none;font-weight:bold}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="top">
+  <a id="backTop" href="/cryptoforseniors/practice/"></a>
+  <select id="lang"></select>
+</div>
+
+<h1 id="title"></h1>
+<div id="banner" class="banner"></div>
+
+<p id="intro"></p>
+<p id="prompt"></p>
+
+<input id="amount" type="number" placeholder="10000"><br>
+<button id="run"></button>
+
+<div id="out" class="result"></div>
+
+<p style="margin-top:40px">
+  <a id="backBottom" href="/cryptoforseniors/practice/"></a>
+</p>
+
+</div>
+
+<script>
+const TXT={
+en:{
+  n:"English",
+  t:"Flash Loan Practice Simulator",
+  b:"PRACTICE ONLY — Fake funds, real prices",
+  i:"Learn how flash loans work using simulated funds.",
+  p:"Enter simulated loan amount (USDC):",
+  r:"Simulate",
+  bk:"← Back to Practice",
+  load:"Loading price…",
+  bad:"Enter a valid amount.",
+  res:"Simulation Result",
+  m:"Market price",
+  l:"Loan",
+  c:"Costs",
+  g:"Gain",
+  pf:"Result: Profit",
+  ls:"Result: Loss"
+}
+};
+
+const $=id=>document.getElementById(id);
+const sel=$("lang");
+
+Object.keys(TXT).forEach(k=>{
+  const o=document.createElement("option");
+  o.value=k;
+  o.textContent=TXT[k].n;
+  sel.appendChild(o);
+});
+
+function setLang(l){
+  const t=TXT[l];
+  localStorage.setItem("cfs-lang",l);
+  $("title").textContent=t.t;
+  $("banner").textContent=t.b;
+  $("intro").textContent=t.i;
+  $("prompt").textContent=t.p;
+  $("run").textContent=t.r;
+  $("backTop").textContent=t.bk;
+  $("backBottom").textContent=t.bk;
+}
+
+async function runSim(){
+  const amt=parseFloat($("amount").value);
+  const out=$("out");
+  if(isNaN(amt)||amt<=0){alert(TXT.en.bad);return;}
+  out.style.display="block";
+  out.textContent=TXT.en.load;
+
+  const r=await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
+  const d=await r.json();
+  const price=d.ethereum.usd;
+
+  const cost=amt*0.003;
+  const gain=amt*0.0025;
+  const net=gain-cost;
+
+  out.innerHTML=`
+    <h3>${TXT.en.res}</h3>
+    <p>${TXT.en.m}: $${price}</p>
+    <p>${TXT.en.l}: $${amt.toLocaleString()}</p>
+    <p>${TXT.en.c}: $${cost.toFixed(2)}</p>
+    <p>${TXT.en.g}: $${gain.toFixed(2)}</p>
+    <p><strong>${net>0?TXT.en.pf:TXT.en.ls} $${Math.abs(net).toFixed(2)}</strong></p>
+  `;
+}
+
+$("run").onclick=runSim;
+
+sel.onchange=()=>setLang(sel.value);
+const start=localStorage.getItem("cfs-lang")||"en";
+sel.value=start;
+setLang(start);
+</script>
+
+</body>
+</html>
