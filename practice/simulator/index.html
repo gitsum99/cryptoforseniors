@@ -64,11 +64,49 @@ en:{
   g:"Gain",
   pf:"Result: Profit",
   ls:"Result: Loss"
+},
+fr:{
+  n:"Français",
+  t:"Simulateur de Prêt Flash",
+  b:"MODE PRATIQUE — Fonds simulés",
+  i:"Apprenez les prêts flash avec des fonds simulés.",
+  p:"Entrez le montant simulé (USDC):",
+  r:"Simuler",
+  bk:"← Retour",
+  load:"Chargement du prix…",
+  bad:"Veuillez entrer un montant valide.",
+  res:"Résultat",
+  m:"Prix du marché",
+  l:"Prêt",
+  c:"Coûts",
+  g:"Gain",
+  pf:"Résultat : Profit",
+  ls:"Résultat : Perte"
+},
+es:{
+  n:"Español",
+  t:"Simulador de Flash Loan",
+  b:"MODO PRÁCTICA — Fondos simulados",
+  i:"Aprenda con fondos simulados.",
+  p:"Ingrese monto simulado (USDC):",
+  r:"Simular",
+  bk:"← Volver",
+  load:"Cargando precio…",
+  bad:"Ingrese un monto válido.",
+  res:"Resultado",
+  m:"Precio de mercado",
+  l:"Préstamo",
+  c:"Costos",
+  g:"Ganancia",
+  pf:"Resultado: Ganancia",
+  ls:"Resultado: Pérdida"
 }
 };
 
 const $=id=>document.getElementById(id);
 const sel=$("lang");
+
+let currentLang = localStorage.getItem("cfs-lang") || "en";
 
 Object.keys(TXT).forEach(k=>{
   const o=document.createElement("option");
@@ -78,8 +116,9 @@ Object.keys(TXT).forEach(k=>{
 });
 
 function setLang(l){
-  const t=TXT[l];
+  currentLang=l;
   localStorage.setItem("cfs-lang",l);
+  const t=TXT[l];
   $("title").textContent=t.t;
   $("banner").textContent=t.b;
   $("intro").textContent=t.i;
@@ -90,11 +129,17 @@ function setLang(l){
 }
 
 async function runSim(){
+  const t=TXT[currentLang];
   const amt=parseFloat($("amount").value);
   const out=$("out");
-  if(isNaN(amt)||amt<=0){alert(TXT.en.bad);return;}
+
+  if(isNaN(amt)||amt<=0){
+    alert(t.bad);
+    return;
+  }
+
   out.style.display="block";
-  out.textContent=TXT.en.load;
+  out.textContent=t.load;
 
   const r=await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
   const d=await r.json();
@@ -105,21 +150,20 @@ async function runSim(){
   const net=gain-cost;
 
   out.innerHTML=`
-    <h3>${TXT.en.res}</h3>
-    <p>${TXT.en.m}: $${price}</p>
-    <p>${TXT.en.l}: $${amt.toLocaleString()}</p>
-    <p>${TXT.en.c}: $${cost.toFixed(2)}</p>
-    <p>${TXT.en.g}: $${gain.toFixed(2)}</p>
-    <p><strong>${net>0?TXT.en.pf:TXT.en.ls} $${Math.abs(net).toFixed(2)}</strong></p>
+    <h3>${t.res}</h3>
+    <p>${t.m}: $${price}</p>
+    <p>${t.l}: $${amt.toLocaleString()}</p>
+    <p>${t.c}: $${cost.toFixed(2)}</p>
+    <p>${t.g}: $${gain.toFixed(2)}</p>
+    <p><strong>${net>0?t.pf:t.ls} $${Math.abs(net).toFixed(2)}</strong></p>
   `;
 }
 
 $("run").onclick=runSim;
+sel.onchange=e=>setLang(e.target.value);
 
-sel.onchange=()=>setLang(sel.value);
-const start=localStorage.getItem("cfs-lang")||"en";
-sel.value=start;
-setLang(start);
+sel.value=currentLang;
+setLang(currentLang);
 </script>
 
 </body>
