@@ -1,261 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>AI Guidance – Crypto For Seniors</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>AI Assisted Help – Crypto For Seniors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0b0b;
-      color: #e5e5e5;
-    }
-    header {
-      background: #111;
-      border-bottom: 1px solid #333;
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header a {
-      color: #9fd3ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    header select {
-      background: #1a1a1a;
-      color: #e5e5e5;
-      border: 1px solid #444;
-      padding: 6px;
-      border-radius: 4px;
-    }
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    h1, h2 {
-      color: #9fd3ff;
-    }
-    .section {
-      margin-bottom: 40px;
-      padding: 20px;
-      background: #121212;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    footer {
-      background: #111;
-      border-top: 1px solid #333;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-      color: #aaa;
-    }
-  </style>
+<style>
+body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif}
+header{background:#111;border-bottom:1px solid #333;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+header a{color:#9fd3ff;text-decoration:none;font-weight:bold}
+select{background:#1a1a1a;color:#e6e6e6;border:1px solid #444;padding:6px;border-radius:4px}
+main{max-width:900px;margin:auto;padding:50px 20px}
+h1,h2{color:#9fd3ff}
+p{line-height:1.6;max-width:760px}
+.section{margin-top:30px;padding:22px;background:#121212;border:1px solid #2a2a2a;border-radius:8px}
+ul{padding-left:20px}
+li{margin-bottom:10px}
+.notice{margin-top:30px;font-size:0.95rem;color:#ccc}
+</style>
 </head>
 
 <body>
 
 <header>
-  <a href="/cryptoforseniors/" data-i18n="back_home">Back to Crypto For Seniors</a>
-  <label>
-    <span data-i18n="language_label">Language</span>:
-    <select id="languageSelect">
-      <option value="en">EN</option>
-      <option value="fr">FR</option>
-      <option value="es">ES</option>
-      <option value="hr">HR</option>
-      <option value="tl">TL</option>
-      <option value="ja">JA</option>
-      <option value="zh-Hant">中文</option>
-    </select>
-  </label>
+  <a href="/cryptoforseniors/" data-i18n="back"></a>
+  <select id="lang"></select>
 </header>
 
 <main>
-  <h1 data-i18n="page_title"></h1>
+  <h1 data-i18n="title"></h1>
+  <p data-i18n="intro"></p>
 
   <div class="section">
-    <p data-i18n="intro"></p>
-  </div>
-
-  <div class="section">
-    <h2 data-i18n="what_title"></h2>
+    <h2 data-i18n="whatTitle"></h2>
     <ul>
-      <li data-i18n="what_1"></li>
-      <li data-i18n="what_2"></li>
-      <li data-i18n="what_3"></li>
-      <li data-i18n="what_4"></li>
+      <li data-i18n="w1"></li>
+      <li data-i18n="w2"></li>
+      <li data-i18n="w3"></li>
+      <li data-i18n="w4"></li>
     </ul>
   </div>
 
   <div class="section">
-    <h2 data-i18n="limits_title"></h2>
+    <h2 data-i18n="neverTitle"></h2>
     <ul>
-      <li data-i18n="limit_1"></li>
-      <li data-i18n="limit_2"></li>
-      <li data-i18n="limit_3"></li>
+      <li data-i18n="n1"></li>
+      <li data-i18n="n2"></li>
+      <li data-i18n="n3"></li>
+      <li data-i18n="n4"></li>
     </ul>
   </div>
+
+  <div class="section">
+    <h2 data-i18n="whyTitle"></h2>
+    <p data-i18n="whyText"></p>
+  </div>
+
+  <div class="notice" data-i18n="notice"></div>
 </main>
 
-<footer>
-  <p data-i18n="footer_notice"></p>
-  <p>© <span id="footerYear"></span> Crypto For Seniors</p>
-</footer>
-
 <script>
-const translations = {
-  en: {
-    back_home: "Back to Crypto For Seniors",
-    language_label: "Language",
-    page_title: "AI Guidance",
-    intro: "AI assistance is used to explain concepts, slow learning down, and reduce mistakes.",
-    what_title: "What AI Does",
-    what_1: "Explains complex ideas in simple language",
-    what_2: "Repeats information without judgment",
-    what_3: "Highlights common risks and mistakes",
-    what_4: "Supports learning at your own pace",
-    limits_title: "What AI Does NOT Do",
-    limit_1: "Does not make decisions for you",
-    limit_2: "Does not guarantee profits",
-    limit_3: "Does not control wallets or funds",
-    footer_notice: "Educational use only. No financial advice."
-  },
-
-  fr: {
-    back_home: "Retour à Crypto For Seniors",
-    language_label: "Langue",
-    page_title: "Guidage IA",
-    intro: "L’IA est utilisée pour expliquer et ralentir l’apprentissage.",
-    what_title: "Ce que fait l’IA",
-    what_1: "Explique les idées complexes simplement",
-    what_2: "Répète sans jugement",
-    what_3: "Souligne les risques courants",
-    what_4: "Soutient un apprentissage progressif",
-    limits_title: "Ce que l’IA ne fait PAS",
-    limit_1: "Ne prend pas de décisions",
-    limit_2: "Ne garantit aucun profit",
-    limit_3: "Ne contrôle pas les fonds",
-    footer_notice: "Usage éducatif uniquement."
-  },
-
-  es: {
-    back_home: "Volver a Crypto For Seniors",
-    language_label: "Idioma",
-    page_title: "Guía de IA",
-    intro: "La IA se utiliza para explicar conceptos y reducir errores.",
-    what_title: "Qué hace la IA",
-    what_1: "Explica ideas complejas",
-    what_2: "Repite sin juzgar",
-    what_3: "Advierte sobre riesgos",
-    what_4: "Apoya el aprendizaje",
-    limits_title: "Qué NO hace la IA",
-    limit_1: "No toma decisiones",
-    limit_2: "No garantiza ganancias",
-    limit_3: "No controla fondos",
-    footer_notice: "Solo uso educativo."
-  },
-
-  hr: {
-    back_home: "Povratak na Crypto For Seniors",
-    language_label: "Jezik",
-    page_title: "AI Vodič",
-    intro: "AI pomaže u objašnjavanju pojmova.",
-    what_title: "Što AI radi",
-    what_1: "Objašnjava složene ideje",
-    what_2: "Ponavlja bez osude",
-    what_3: "Upozorava na rizike",
-    what_4: "Podržava učenje",
-    limits_title: "Što AI NE radi",
-    limit_1: "Ne donosi odluke",
-    limit_2: "Ne jamči dobit",
-    limit_3: "Ne upravlja sredstvima",
-    footer_notice: "Samo edukativna uporaba."
-  },
-
-  tl: {
-    back_home: "Bumalik sa Crypto For Seniors",
-    language_label: "Wika",
-    page_title: "AI Gabay",
-    intro: "Tinutulungan ng AI ang pag-unawa sa crypto.",
-    what_title: "Ginagawa ng AI",
-    what_1: "Nagpapaliwanag ng konsepto",
-    what_2: "Umuulit nang walang husga",
-    what_3: "Nagbababala sa panganib",
-    what_4: "Sumusuporta sa pag-aaral",
-    limits_title: "Hindi Ginagawa ng AI",
-    limit_1: "Hindi nagdedesisyon",
-    limit_2: "Walang garantiya",
-    limit_3: "Hindi humahawak ng pera",
-    footer_notice: "Para sa edukasyon lamang."
-  },
-
-  ja: {
-    back_home: "Crypto For Seniors に戻る",
-    language_label: "言語",
-    page_title: "AI ガイダンス",
-    intro: "AIは理解を助けるために使用されます。",
-    what_title: "AIの役割",
-    what_1: "分かりやすく説明",
-    what_2: "何度でも繰り返す",
-    what_3: "リスクを指摘",
-    what_4: "学習を支援",
-    limits_title: "AIがしないこと",
-    limit_1: "判断しない",
-    limit_2: "利益を保証しない",
-    limit_3: "資金を管理しない",
-    footer_notice: "教育目的のみです。"
-  },
-
-  "zh-Hant": {
-    back_home: "返回 Crypto For Seniors",
-    language_label: "語言",
-    page_title: "AI 指導",
-    intro: "AI 用於協助理解並降低風險。",
-    what_title: "AI 的功能",
-    what_1: "解釋複雜概念",
-    what_2: "耐心重複說明",
-    what_3: "提醒常見風險",
-    what_4: "支持學習進度",
-    limits_title: "AI 不會做的事",
-    limit_1: "不替你做決定",
-    limit_2: "不保證獲利",
-    limit_3: "不管理資金",
-    footer_notice: "僅供教育用途。"
-  }
+const I18N={
+  en:{name:"English"},
+  fr:{name:"Français"},
+  es:{name:"Español"},
+  hr:{name:"Hrvatski"},
+  tl:{name:"Filipino (Tagalog)"},
+  ja:{name:"日本語"},
+  "zh-cn":{name:"中文（简体）"},
+  "zh-tw":{name:"中文（繁體）"}
 };
 
-function setLanguage(lang) {
-  localStorage.setItem("cfs-lang", lang);
-  document.documentElement.lang = lang;
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
-  });
+const PAGE_TEXT={
+en:{
+  back:"Back to Crypto For Seniors",
+  title:"AI Assisted Help",
+  intro:"Crypto For Seniors uses AI strictly as an educational assistant. AI helps explain concepts clearly and accessibly.",
+  whatTitle:"What AI Does Here",
+  w1:"Explains crypto concepts in simple language",
+  w2:"Helps with translations and accessibility",
+  w3:"Explains risks, outcomes, and terminology",
+  w4:"Supports learning at your own pace",
+  neverTitle:"What AI Will Never Do",
+  n1:"AI will never trade or move funds",
+  n2:"AI will never connect to wallets or accounts",
+  n3:"AI will never predict prices or profits",
+  n4:"AI will never override user decisions",
+  whyTitle:"Why This Matters",
+  whyText:"AI misuse can create false confidence and pressure. CFS restricts AI to education only to reduce harm.",
+  notice:"AI assistance on this site is informational only and not financial advice."
+},
+fr:{
+  back:"Retour à Crypto For Seniors",
+  title:"Aide assistée par IA",
+  intro:"Crypto For Seniors utilise l’IA uniquement comme outil éducatif.",
+  whatTitle:"Ce que fait l’IA ici",
+  w1:"Explique les concepts simplement",
+  w2:"Aide à la traduction et à l’accessibilité",
+  w3:"Explique les risques et résultats",
+  w4:"Soutient l’apprentissage autonome",
+  neverTitle:"Ce que l’IA ne fera jamais",
+  n1:"Ne fera jamais de trading",
+  n2:"Ne se connectera jamais à des portefeuilles",
+  n3:"Ne prédira jamais les prix",
+  n4:"Ne prendra jamais de décisions",
+  whyTitle:"Pourquoi c’est important",
+  whyText:"Un mauvais usage de l’IA peut induire en erreur. CFS limite son rôle.",
+  notice:"L’IA ici est uniquement informative."
+},
+es:{
+  back:"Volver a Crypto For Seniors",
+  title:"Ayuda asistida por IA",
+  intro:"Crypto For Seniors usa IA solo para educación.",
+  whatTitle:"Qué hace la IA aquí",
+  w1:"Explica conceptos claramente",
+  w2:"Ayuda con traducciones",
+  w3:"Explica riesgos y resultados",
+  w4:"Apoya el aprendizaje",
+  neverTitle:"Lo que la IA nunca hará",
+  n1:"Nunca operará",
+  n2:"Nunca conectará billeteras",
+  n3:"Nunca predecirá precios",
+  n4:"Nunca tomará decisiones",
+  whyTitle:"Por qué importa",
+  whyText:"El mal uso de IA crea falsas expectativas.",
+  notice:"La IA aquí no es asesoría financiera."
+},
+hr:{
+  back:"Povratak na Crypto For Seniors",
+  title:"AI pomoć",
+  intro:"AI se koristi isključivo za edukaciju.",
+  whatTitle:"Što AI radi",
+  w1:"Objašnjava pojmove",
+  w2:"Pomaže s prijevodima",
+  w3:"Objašnjava rizike",
+  w4:"Podržava učenje",
+  neverTitle:"Što AI nikada ne radi",
+  n1:"Ne trguje",
+  n2:"Ne povezuje novčanike",
+  n3:"Ne predviđa cijene",
+  n4:"Ne donosi odluke",
+  whyTitle:"Zašto je važno",
+  whyText:"AI mora biti ograničen radi sigurnosti.",
+  notice:"AI je samo informativan."
+},
+tl:{
+  back:"Bumalik sa Crypto For Seniors",
+  title:"AI na Tulong",
+  intro:"Ginagamit ang AI para sa edukasyon lamang.",
+  whatTitle:"Ano ang ginagawa ng AI",
+  w1:"Nagpapaliwanag ng konsepto",
+  w2:"Tumutulong sa pagsasalin",
+  w3:"Nagpapaliwanag ng panganib",
+  w4:"Sumusuporta sa pag-aaral",
+  neverTitle:"Ano ang hindi gagawin ng AI",
+  n1:"Hindi magte-trade",
+  n2:"Hindi kokonekta sa wallet",
+  n3:"Hindi huhula ng presyo",
+  n4:"Hindi magdedesisyon",
+  whyTitle:"Bakit mahalaga",
+  whyText:"Ang maling AI ay nakakasama.",
+  notice:"AI ay pang-edukasyon lamang."
+},
+ja:{
+  back:"Crypto For Seniors に戻る",
+  title:"AI 学習補助",
+  intro:"AI は教育目的のみに使用されます。",
+  whatTitle:"AI の役割",
+  w1:"概念を分かりやすく説明",
+  w2:"翻訳と補助",
+  w3:"リスクの説明",
+  w4:"学習支援",
+  neverTitle:"AI がしないこと",
+  n1:"取引しない",
+  n2:"ウォレット接続しない",
+  n3:"価格予測しない",
+  n4:"判断しない",
+  whyTitle:"重要な理由",
+  whyText:"AI の誤用は危険です。",
+  notice:"AI は情報提供のみです。"
+},
+"zh-cn":{
+  back:"返回 Crypto For Seniors",
+  title:"AI 辅助帮助",
+  intro:"AI 仅用于教育目的。",
+  whatTitle:"AI 在这里做什么",
+  w1:"解释概念",
+  w2:"帮助翻译",
+  w3:"解释风险",
+  w4:"支持学习",
+  neverTitle:"AI 不会做的事",
+  n1:"不会交易",
+  n2:"不会连接钱包",
+  n3:"不会预测价格",
+  n4:"不会替你决定",
+  whyTitle:"为何重要",
+  whyText:"限制 AI 可减少风险。",
+  notice:"AI 仅供信息参考。"
+},
+"zh-tw":{
+  back:"返回 Crypto For Seniors",
+  title:"AI 輔助幫助",
+  intro:"AI 僅用於教育用途。",
+  whatTitle:"AI 的用途",
+  w1:"解釋概念",
+  w2:"協助翻譯",
+  w3:"解釋風險",
+  w4:"支援學習",
+  neverTitle:"AI 不會做的事",
+  n1:"不會交易",
+  n2:"不會連接錢包",
+  n3:"不會預測價格",
+  n4:"不會替你決定",
+  whyTitle:"為何重要",
+  whyText:"限制 AI 可降低風險。",
+  notice:"AI 僅供資訊用途。"
 }
+};
 
-const savedLang = localStorage.getItem("cfs-lang") || "en";
-document.getElementById("languageSelect").value = savedLang;
-setLanguage(savedLang);
-
-document.getElementById("languageSelect").addEventListener("change", e => {
-  setLanguage(e.target.value);
-});
-
-document.getElementById("footerYear").textContent = new Date().getFullYear();
+function initLang(){
+  const sel=document.getElementById("lang");
+  Object.keys(I18N).forEach(k=>{
+    const o=document.createElement("option");
+    o.value=k;o.textContent=I18N[k].name;sel.appendChild(o);
+  });
+  function apply(l){
+    localStorage.setItem("cfs-lang",l);
+    document.documentElement.lang=l;
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      const key=el.dataset.i18n;
+      if(PAGE_TEXT[l] && PAGE_TEXT[l][key]){
+        el.textContent=PAGE_TEXT[l][key];
+      }
+    });
+  }
+  const start=localStorage.getItem("cfs-lang")||"en";
+  sel.value=start;apply(start);
+  sel.onchange=e=>apply(e.target.value);
+}
+initLang();
 </script>
 
 </body>
