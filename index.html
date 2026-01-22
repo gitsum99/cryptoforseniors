@@ -1,211 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Crypto For Seniors</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Crypto For Seniors (CFS)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0b0b;
-      color: #e5e5e5;
-      text-align: center;
-    }
-    header {
-      background: #111;
-      border-bottom: 1px solid #333;
-      padding: 20px;
-    }
-    header h1 {
-      margin: 0;
-      color: #9fd3ff;
-    }
-    header select {
-      margin-top: 10px;
-      background: #1a1a1a;
-      color: #e5e5e5;
-      border: 1px solid #444;
-      padding: 6px;
-      border-radius: 4px;
-    }
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    .nav {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-    .nav a {
-      display: block;
-      padding: 20px;
-      background: #121212;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-      color: #9fd3ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .nav a:hover {
-      background: #1a1a1a;
-    }
-    footer {
-      background: #111;
-      border-top: 1px solid #333;
-      padding: 20px;
-      font-size: 14px;
-      color: #aaa;
-    }
-  </style>
+<style>
+body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif}
+header{background:#111;border-bottom:1px solid #333;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+header h1{margin:0;font-size:1.2rem;color:#9fd3ff}
+select{background:#1a1a1a;color:#e6e6e6;border:1px solid #444;padding:6px;border-radius:4px}
+main{max-width:900px;margin:auto;padding:60px 20px;text-align:center}
+h2{color:#9fd3ff;margin-bottom:10px}
+p{max-width:760px;margin:16px auto;line-height:1.6}
+.nav{margin-top:40px;display:flex;flex-direction:column;gap:14px}
+.nav a{display:block;padding:16px;border-radius:8px;background:#1a1a1a;border:1px solid #333;color:#9fd3ff;text-decoration:none;font-weight:bold}
+.nav a:hover{background:#222}
+.notice{margin-top:50px;font-size:0.9rem;color:#aaa}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1 data-i18n="title">Crypto For Seniors</h1>
-  <p data-i18n="subtitle">Learn advanced crypto concepts safely and step by step</p>
-
-  <select id="languageSelect">
-    <option value="en">EN</option>
-    <option value="fr">FR</option>
-    <option value="es">ES</option>
-    <option value="hr">HR</option>
-    <option value="tl">TL</option>
-    <option value="ja">JA</option>
-    <option value="zh-Hant">中文</option>
-  </select>
+  <h1>Crypto For Seniors</h1>
+  <select id="lang"></select>
 </header>
 
 <main>
+  <h2 data-i18n="title"></h2>
   <p data-i18n="intro"></p>
 
   <div class="nav">
-    <a href="/cryptoforseniors/ai/" data-i18n="nav_ai">AI Guidance</a>
-    <a href="/cryptoforseniors/security/" data-i18n="nav_security">Security First</a>
-    <a href="/cryptoforseniors/practice/" data-i18n="nav_practice">Practice Mode</a>
-    <a href="/cryptoforseniors/launchpad/" data-i18n="nav_launchpad">Launchpad</a>
-    <a href="/cryptoforseniors/troil/" data-i18n="nav_troil">TROIL Risk Levels</a>
+    <a href="/cryptoforseniors/practice/" data-i18n="practice"></a>
+    <a href="/cryptoforseniors/security/" data-i18n="security"></a>
+    <a href="/cryptoforseniors/ai/" data-i18n="ai"></a>
+    <a href="/cryptoforseniors/launchpad/" data-i18n="launchpad"></a>
   </div>
+
+  <div class="notice" data-i18n="notice"></div>
 </main>
 
-<footer>
-  <p data-i18n="footer_notice"></p>
-  <p>© <span id="footerYear"></span> Crypto For Seniors</p>
-</footer>
-
 <script>
-const translations = {
-  en: {
-    title: "Crypto For Seniors",
-    subtitle: "Learn advanced crypto concepts safely and step by step",
-    intro: "This site guides seniors through complex crypto topics using practice, simulation, and guided progression.",
-    nav_ai: "AI Guidance",
-    nav_security: "Security First",
-    nav_practice: "Practice Mode",
-    nav_launchpad: "Launchpad",
-    nav_troil: "TROIL Risk Levels",
-    footer_notice: "Educational use only. No financial advice. Use at your own risk."
-  },
-
-  fr: {
-    title: "Crypto For Seniors",
-    subtitle: "Apprendre la crypto en toute sécurité, étape par étape",
-    intro: "Ce site guide les aînés à travers des concepts crypto complexes avec des simulations et de la pratique.",
-    nav_ai: "Guidage IA",
-    nav_security: "Sécurité",
-    nav_practice: "Mode Pratique",
-    nav_launchpad: "Launchpad",
-    nav_troil: "Niveaux de Risque TROIL",
-    footer_notice: "Usage éducatif uniquement. Aucun conseil financier."
-  },
-
-  es: {
-    title: "Crypto For Seniors",
-    subtitle: "Aprenda criptomonedas de forma segura y gradual",
-    intro: "Este sitio guía a personas mayores a través de conceptos avanzados con práctica y simulación.",
-    nav_ai: "Guía de IA",
-    nav_security: "Seguridad",
-    nav_practice: "Modo Práctica",
-    nav_launchpad: "Launchpad",
-    nav_troil: "Niveles de Riesgo TROIL",
-    footer_notice: "Solo uso educativo. Sin asesoramiento financiero."
-  },
-
-  hr: {
-    title: "Crypto For Seniors",
-    subtitle: "Sigurno učenje kripta korak po korak",
-    intro: "Ova stranica vodi starije kroz složene kripto teme pomoću simulacije.",
-    nav_ai: "AI Vodič",
-    nav_security: "Sigurnost",
-    nav_practice: "Način Vježbanja",
-    nav_launchpad: "Launchpad",
-    nav_troil: "TROIL Rizici",
-    footer_notice: "Samo edukativna uporaba."
-  },
-
-  tl: {
-    title: "Crypto For Seniors",
-    subtitle: "Ligtas na pag-aaral ng crypto",
-    intro: "Gabay ito para sa seniors sa crypto gamit ang simulation at pagsasanay.",
-    nav_ai: "AI Gabay",
-    nav_security: "Seguridad",
-    nav_practice: "Practice Mode",
-    nav_launchpad: "Launchpad",
-    nav_troil: "TROIL Risk Levels",
-    footer_notice: "Para sa edukasyon lamang."
-  },
-
-  ja: {
-    title: "Crypto For Seniors",
-    subtitle: "安全に暗号資産を学ぶ",
-    intro: "このサイトは高齢者向けに安全な暗号資産学習を提供します。",
-    nav_ai: "AI ガイド",
-    nav_security: "セキュリティ",
-    nav_practice: "練習モード",
-    nav_launchpad: "ローンチパッド",
-    nav_troil: "TROIL リスク",
-    footer_notice: "教育目的のみです。"
-  },
-
-  "zh-Hant": {
-    title: "Crypto For Seniors",
-    subtitle: "安全學習加密貨幣",
-    intro: "本網站為長者提供加密貨幣的安全學習環境。",
-    nav_ai: "AI 指導",
-    nav_security: "安全",
-    nav_practice: "練習模式",
-    nav_launchpad: "Launchpad",
-    nav_troil: "TROIL 風險",
-    footer_notice: "僅供教育用途，非投資建議。"
-  }
+const I18N={
+  en:{name:"English"},
+  fr:{name:"Français"},
+  es:{name:"Español"},
+  hr:{name:"Hrvatski"},
+  tl:{name:"Filipino (Tagalog)"},
+  ja:{name:"日本語"},
+  "zh-cn":{name:"中文（简体）"},
+  "zh-tw":{name:"中文（繁體）"}
 };
 
-function setLanguage(lang) {
-  localStorage.setItem("cfs-lang", lang);
-  document.documentElement.lang = lang;
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
+const PAGE_TEXT={
+en:{
+  title:"A safe place to learn crypto — without risk",
+  intro:"Crypto For Seniors is an education-first project designed to explain cryptocurrency clearly, slowly, and safely. No hype. No pressure. No real money.",
+  practice:"Practice First (Safe Learning Mode)",
+  security:"Security First (How to Stay Safe)",
+  ai:"AI Assisted Help (Education Only)",
+  launchpad:"Launchpad (Meme Coins & NFTs — Education)",
+  notice:"This site never connects to wallets, exchanges, or real funds."
+},
+fr:{
+  title:"Un endroit sûr pour apprendre la crypto — sans risque",
+  intro:"Crypto For Seniors est un projet éducatif conçu pour expliquer la cryptomonnaie clairement et en toute sécurité.",
+  practice:"Pratiquer d’abord (Mode sécurisé)",
+  security:"La sécurité avant tout",
+  ai:"Aide assistée par IA",
+  launchpad:"Plateforme de lancement (Éducation)",
+  notice:"Ce site ne se connecte jamais à des portefeuilles ou à de l’argent réel."
+},
+es:{
+  title:"Un lugar seguro para aprender cripto — sin riesgo",
+  intro:"Crypto For Seniors es un proyecto educativo diseñado para explicar las criptomonedas de forma clara y segura.",
+  practice:"Practicar primero",
+  security:"Seguridad primero",
+  ai:"Ayuda asistida por IA",
+  launchpad:"Plataforma educativa",
+  notice:"Este sitio nunca se conecta a fondos reales."
+},
+hr:{
+  title:"Sigurno mjesto za učenje kripta",
+  intro:"Crypto For Seniors je edukativni projekt bez rizika i pritiska.",
+  practice:"Prvo vježbajte",
+  security:"Sigurnost na prvom mjestu",
+  ai:"AI pomoć",
+  launchpad:"Edukativni launchpad",
+  notice:"Stranica se nikada ne povezuje s pravim novcem."
+},
+tl:{
+  title:"Ligtas na lugar para matuto ng crypto",
+  intro:"Ang Crypto For Seniors ay proyekto para sa ligtas at malinaw na pag-aaral.",
+  practice:"Magpraktis muna",
+  security:"Unahin ang seguridad",
+  ai:"AI na tumutulong",
+  launchpad:"Launchpad pang-edukasyon",
+  notice:"Hindi kailanman kumokonekta sa totoong pera."
+},
+ja:{
+  title:"安全に暗号資産を学ぶ場所",
+  intro:"Crypto For Seniors は安全第一の学習プロジェクトです。",
+  practice:"練習から始める",
+  security:"セキュリティ重視",
+  ai:"AI 学習補助",
+  launchpad:"教育用ローンチパッド",
+  notice:"実際の資金には一切接続しません。"
+},
+"zh-cn":{
+  title:"安全学习加密货币的地方",
+  intro:"Crypto For Seniors 是一个以安全和教育为核心的项目。",
+  practice:"先练习",
+  security:"安全第一",
+  ai:"AI 辅助学习",
+  launchpad:"教育启动平台",
+  notice:"本站不会连接真实资金。"
+},
+"zh-tw":{
+  title:"安全學習加密貨幣的地方",
+  intro:"Crypto For Seniors 是以安全與教育為核心的專案。",
+  practice:"先練習",
+  security:"安全第一",
+  ai:"AI 輔助學習",
+  launchpad:"教育啟動平台",
+  notice:"本站不會連結真實資金。"
+}
+};
+
+function initLang(){
+  const sel=document.getElementById("lang");
+  Object.keys(I18N).forEach(k=>{
+    const o=document.createElement("option");
+    o.value=k;o.textContent=I18N[k].name;sel.appendChild(o);
   });
+
+  function apply(l){
+    localStorage.setItem("cfs-lang",l);
+    document.documentElement.lang=l;
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      const key=el.dataset.i18n;
+      if(PAGE_TEXT[l] && PAGE_TEXT[l][key]){
+        el.textContent=PAGE_TEXT[l][key];
+      }
+    });
+  }
+
+  const start=localStorage.getItem("cfs-lang")||"en";
+  sel.value=start;
+  apply(start);
+  sel.onchange=e=>apply(e.target.value);
 }
 
-const savedLang = localStorage.getItem("cfs-lang") || "en";
-document.getElementById("languageSelect").value = savedLang;
-setLanguage(savedLang);
-
-document.getElementById("languageSelect").addEventListener("change", e => {
-  setLanguage(e.target.value);
-});
-
-document.getElementById("footerYear").textContent = new Date().getFullYear();
-</script>
-
-</body>
-</html>
+initLang();
+</s
