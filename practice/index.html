@@ -1,183 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Practice Mode – Crypto For Seniors</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Practice Mode – Crypto For Seniors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0b0b;
-      color: #e5e5e5;
-    }
-    header {
-      background: #111;
-      border-bottom: 1px solid #333;
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    header a {
-      color: #9fd3ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    header select {
-      background: #1a1a1a;
-      color: #e5e5e5;
-      border: 1px solid #444;
-      padding: 6px;
-      border-radius: 4px;
-    }
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    h1, h2 {
-      color: #9fd3ff;
-    }
-    .section {
-      margin-bottom: 40px;
-      padding: 20px;
-      background: #121212;
-      border: 1px solid #2a2a2a;
-      border-radius: 8px;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    .note {
-      background: #1b1b1b;
-      border-left: 4px solid #9fd3ff;
-      padding: 15px;
-      margin-top: 20px;
-      border-radius: 4px;
-    }
-    .launch {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 26px;
-      background: #9fd3ff;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-    }
-  </style>
+<style>
+body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif}
+header{background:#111;border-bottom:1px solid #333;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+header a{color:#9fd3ff;text-decoration:none;font-weight:bold}
+select{background:#1a1a1a;color:#e6e6e6;border:1px solid #444;padding:6px;border-radius:4px}
+main{max-width:900px;margin:auto;padding:50px 20px}
+h1,h2{color:#9fd3ff}
+p{line-height:1.6;max-width:760px}
+.section{margin-top:30px;padding:22px;background:#121212;border:1px solid #2a2a2a;border-radius:8px}
+ul{padding-left:20px}
+li{margin-bottom:10px}
+.banner{border:2px solid #ffb84d;background:#1e1e1e;padding:14px;margin-top:20px;font-weight:bold;border-radius:6px}
+.launch{display:inline-block;margin-top:22px;padding:14px 26px;background:#9fd3ff;color:#000;text-decoration:none;font-weight:bold;border-radius:6px}
+.notice{margin-top:30px;font-size:0.95rem;color:#ccc}
+</style>
 </head>
 
 <body>
 
 <header>
-  <a href="/cryptoforseniors/" data-i18n="back_home">Back to Crypto For Seniors</a>
-  <label>
-    <span data-i18n="language_label">Language</span>:
-    <select id="languageSelect">
-      <option value="en">EN</option>
-      <option value="fr">FR</option>
-      <option value="es">ES</option>
-      <option value="hr">HR</option>
-      <option value="tl">TL</option>
-      <option value="ja">JA</option>
-      <option value="zh-Hant">中文</option>
-    </select>
-  </label>
+  <a href="/cryptoforseniors/" data-i18n="back"></a>
+  <select id="lang"></select>
 </header>
 
 <main>
-  <h1 data-i18n="page_title">Practice Mode</h1>
+  <h1 data-i18n="title"></h1>
+  <p data-i18n="intro"></p>
+
+  <div class="banner" data-i18n="banner"></div>
 
   <div class="section">
-    <p data-i18n="intro"></p>
-  </div>
-
-  <div class="section">
-    <h2 data-i18n="what_this_is_title"></h2>
+    <h2 data-i18n="isTitle"></h2>
     <ul>
-      <li data-i18n="is_1"></li>
-      <li data-i18n="is_2"></li>
-      <li data-i18n="is_3"></li>
-      <li data-i18n="is_4"></li>
+      <li data-i18n="is1"></li>
+      <li data-i18n="is2"></li>
+      <li data-i18n="is3"></li>
+      <li data-i18n="is4"></li>
     </ul>
   </div>
 
   <div class="section">
-    <h2 data-i18n="what_this_is_not_title"></h2>
+    <h2 data-i18n="notTitle"></h2>
     <ul>
-      <li data-i18n="not_1"></li>
-      <li data-i18n="not_2"></li>
-      <li data-i18n="not_3"></li>
-      <li data-i18n="not_4"></li>
+      <li data-i18n="not1"></li>
+      <li data-i18n="not2"></li>
+      <li data-i18n="not3"></li>
+      <li data-i18n="not4"></li>
     </ul>
   </div>
 
   <div class="section">
-    <h2 data-i18n="why_title"></h2>
+    <h2 data-i18n="whyTitle"></h2>
     <ul>
-      <li data-i18n="why_1"></li>
-      <li data-i18n="why_2"></li>
-      <li data-i18n="why_3"></li>
+      <li data-i18n="why1"></li>
+      <li data-i18n="why2"></li>
+      <li data-i18n="why3"></li>
     </ul>
 
-    <a class="launch" href="/cryptoforseniors/practice/simulator/">
-      ▶ Launch Practice Simulator
-    </a>
-
-    <div class="note" data-i18n="note"></div>
+    <a class="launch" href="/cryptoforseniors/practice/simulator/" data-i18n="launch"></a>
   </div>
+
+  <div class="notice" data-i18n="notice"></div>
 </main>
 
 <script>
-const translations = {
-  en: {
-    back_home: "Back to Crypto For Seniors",
-    language_label: "Language",
-    page_title: "Practice Mode",
-    intro: "Practice Mode lets you learn crypto concepts without using real money or accounts.",
-    what_this_is_title: "What Practice Mode IS",
-    is_1: "A learning-only environment",
-    is_2: "Uses simulated balances and examples",
-    is_3: "Shows how markets and tools work",
-    is_4: "Safe and pressure-free",
-    what_this_is_not_title: "What Practice Mode is NOT",
-    not_1: "Not real trading",
-    not_2: "No wallets or exchanges",
-    not_3: "No deposits or withdrawals",
-    not_4: "No automated actions",
-    why_title: "Why practice first",
-    why_1: "Understand risks before deciding",
-    why_2: "Learn common mistakes safely",
-    why_3: "Build confidence without pressure",
-    note: "Crypto For Seniors never connects Practice Mode to real money."
-  }
+const I18N={
+  en:{name:"English"},
+  fr:{name:"Français"},
+  es:{name:"Español"},
+  hr:{name:"Hrvatski"},
+  tl:{name:"Filipino (Tagalog)"},
+  ja:{name:"日本語"},
+  "zh-cn":{name:"中文（简体）"},
+  "zh-tw":{name:"中文（繁體）"}
 };
 
-function setLanguage(lang) {
-  localStorage.setItem("cfs-lang", lang);
-  document.documentElement.lang = lang;
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
-    }
-  });
+const PAGE_TEXT={
+en:{
+  back:"Back to Crypto For Seniors",
+  title:"Practice Mode",
+  intro:"Practice Mode allows you to learn how crypto systems work using simulated data only.",
+  banner:"PRACTICE ONLY — No real money, no wallets, no transactions",
+  isTitle:"What Practice Mode Is",
+  is1:"A safe, educational learning environment",
+  is2:"Uses simulated balances and examples",
+  is3:"Explains how markets and strategies work",
+  is4:"Free from pressure and urgency",
+  notTitle:"What Practice Mode Is Not",
+  not1:"It is not real trading",
+  not2:"It does not connect to wallets or exchanges",
+  not3:"It does not involve deposits or withdrawals",
+  not4:"It does not automate decisions",
+  whyTitle:"Why Practice First",
+  why1:"Understand risks before using real money",
+  why2:"Learn from mistakes safely",
+  why3:"Build confidence at your own pace",
+  launch:"Launch Practice Simulator",
+  notice:"Crypto For Seniors never connects practice tools to real funds."
+},
+fr:{
+  back:"Retour à Crypto For Seniors",
+  title:"Mode Pratique",
+  intro:"Le mode pratique permet d’apprendre la crypto avec des données simulées.",
+  banner:"PRATIQUE UNIQUEMENT — Aucun argent réel",
+  isTitle:"Ce qu’est le mode pratique",
+  is1:"Un environnement éducatif sûr",
+  is2:"Soldes et exemples simulés",
+  is3:"Explique le fonctionnement des marchés",
+  is4:"Sans pression ni urgence",
+  notTitle:"Ce que le mode pratique n’est pas",
+  not1:"Ce n’est pas du trading réel",
+  not2:"Aucune connexion aux portefeuilles",
+  not3:"Aucun dépôt ni retrait",
+  not4:"Aucune automatisation",
+  whyTitle:"Pourquoi pratiquer d’abord",
+  why1:"Comprendre les risques",
+  why2:"Apprendre sans danger",
+  why3:"Développer la confiance",
+  launch:"Lancer le simulateur",
+  notice:"Crypto For Seniors ne relie jamais la pratique à de l’argent réel."
+},
+es:{
+  back:"Volver a Crypto For Seniors",
+  title:"Modo de Práctica",
+  intro:"El modo de práctica permite aprender usando solo datos simulados.",
+  banner:"PRÁCTICA SOLAMENTE — Sin dinero real",
+  isTitle:"Qué es el modo de práctica",
+  is1:"Entorno educativo seguro",
+  is2:"Saldos simulados",
+  is3:"Explica cómo funcionan los mercados",
+  is4:"Sin presión",
+  notTitle:"Qué no es",
+  not1:"No es trading real",
+  not2:"No conecta billeteras",
+  not3:"Sin depósitos",
+  not4:"Sin automatización",
+  whyTitle:"Por qué practicar primero",
+  why1:"Entender riesgos",
+  why2:"Aprender con seguridad",
+  why3:"Ganar confianza",
+  launch:"Iniciar simulador",
+  notice:"Crypto For Seniors nunca conecta la práctica con dinero real."
+},
+hr:{
+  back:"Povratak na Crypto For Seniors",
+  title:"Način vježbanja",
+  intro:"Način vježbanja omogućuje učenje uz simulirane podatke.",
+  banner:"VJEŽBA — Bez stvarnog novca",
+  isTitle:"Što je način vježbanja",
+  is1:"Sigurno edukativno okruženje",
+  is2:"Simulirani primjeri",
+  is3:"Objašnjava tržišta",
+  is4:"Bez pritiska",
+  notTitle:"Što nije",
+  not1:"Nije pravo trgovanje",
+  not2:"Nema povezivanja s novčanicima",
+  not3:"Nema uplata",
+  not4:"Nema automatizacije",
+  whyTitle:"Zašto prvo vježbati",
+  why1:"Razumjeti rizike",
+  why2:"Sigurno učiti",
+  why3:"Steći povjerenje",
+  launch:"Pokreni simulator",
+  notice:"CFS nikada ne povezuje vježbu sa stvarnim novcem."
+},
+tl:{
+  back:"Bumalik sa Crypto For Seniors",
+  title:"Practice Mode",
+  intro:"Tinutulungan kang matuto gamit ang simulated na datos.",
+  banner:"PRACTICE ONLY — Walang totoong pera",
+  isTitle:"Ano ang Practice Mode",
+  is1:"Ligtas na pag-aaral",
+  is2:"Simulated na balanse",
+  is3:"Ipinapaliwanag ang merkado",
+  is4:"Walang pressure",
+  notTitle:"Ano ang hindi",
+  not1:"Hindi totoong trading",
+  not2:"Walang wallet",
+  not3:"Walang deposito",
+  not4:"Walang automation",
+  whyTitle:"Bakit magpraktis muna",
+  why1:"Unawain ang panganib",
+  why2:"Matuto nang ligtas",
+  why3:"Magkaroon ng kumpiyansa",
+  launch:"Simulan ang simulator",
+  notice:"Hindi kailanman kumokonekta sa totoong pera."
+},
+ja:{
+  back:"Crypto For Seniors に戻る",
+  title:"練習モード",
+  intro:"模擬データのみを使って学びます。",
+  banner:"練習専用 — 実際の資金なし",
+  isTitle:"練習モードとは",
+  is1:"安全な学習環境",
+  is2:"模擬データを使用",
+  is3:"市場の仕組みを説明",
+  is4:"プレッシャーなし",
+  notTitle:"しないこと",
+  not1:"実際の取引ではない",
+  not2:"ウォレットに接続しない",
+  not3:"入出金なし",
+  not4:"自動化なし",
+  whyTitle:"練習が必要な理由",
+  why1:"リスクを理解する",
+  why2:"安全に学ぶ",
+  why3:"自信をつける",
+  launch:"シミュレーターを起動",
+  notice:"実際の資金には接続しません。"
+},
+"zh-cn":{
+  back:"返回 Crypto For Seniors",
+  title:"练习模式",
+  intro:"仅使用模拟数据进行学习。",
+  banner:"仅限练习 — 无真实资金",
+  isTitle:"什么是练习模式",
+  is1:"安全的学习环境",
+  is2:"使用模拟数据",
+  is3:"解释市场原理",
+  is4:"无压力",
+  notTitle:"不是什么",
+  not1:"不是实际交易",
+  not2:"不连接钱包",
+  not3:"无存取款",
+  not4:"无自动化",
+  whyTitle:"为何先练习",
+  why1:"理解风险",
+  why2:"安全学习",
+  why3:"建立信心",
+  launch:"启动模拟器",
+  notice:"本站不连接真实资金。"
+},
+"zh-tw":{
+  back:"返回 Crypto For Seniors",
+  title:"練習模式",
+  intro:"僅使用模擬資料進行學習。",
+  banner:"僅限練習 — 無真實資金",
+  isTitle:"什麼是練習模式",
+  is1:"安全的學習環境",
+  is2:"使用模擬資料",
+  is3:"解釋市場運作",
+  is4:"無壓力",
+  notTitle:"不是什麼",
+  not1:"不是實際交易",
+  not2:"不連接錢包",
+  not3:"無存取款",
+  not4:"無自動化",
+  whyTitle:"為何先練習",
+  why1:"理解風險",
+  why2:"安全學習",
+  why3:"建立信心",
+  launch:"啟動模擬器",
+  notice:"本站不連結真實資金。"
 }
+};
 
-const selector = document.getElementById("languageSelect");
-const savedLang = localStorage.getItem("cfs-lang") || "en";
-selector.value = savedLang;
-setLanguage(savedLang);
-
-selector.addEventListener("change", e => setLanguage(e.target.value));
+function initLang(){
+  const sel=document.getElementById("lang");
+  Object.keys(I18N).forEach(k=>{
+    const o=document.createElement("option");
+    o.value=k;o.textContent=I18N[k].name;sel.appendChild(o);
+  });
+  function apply(l){
+    localStorage.setItem("cfs-lang",l);
+    document.documentElement.lang=l;
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+      const key=el.dataset.i18n;
+      if(PAGE_TEXT[l] && PAGE_TEXT[l][key]){
+        el.textContent=PAGE_TEXT[l][key];
+      }
+    });
+  }
+  const start=localStorage.getItem("cfs-lang")||"en";
+  sel.value=start;apply(start);
+  sel.onchange=e=>apply(e.target.value);
+}
+initLang();
 </script>
 
 </body>
