@@ -116,11 +116,16 @@ function showResults(single, multi) {
     message = "Both strategies faced risk. Timing matters.";
   }
 
-  document.getElementById("results").innerText =
-    "Single Wallet: " + single.toFixed(2) +
-    " | Multi Wallet: " + multi.toFixed(2) +
-    "\n" + message;
+document.getElementById("out").innerText =
+  "Single Wallet: " + single.toFixed(2) +
+  " | Multi Wallet: " + multi.toFixed(2) +
+  "\n" + message;
+
+document.getElementById("out").style.display = "block";
 }
+
+document.getElementById("run").onclick = runSim;
+
 </script>
 
 </body>
