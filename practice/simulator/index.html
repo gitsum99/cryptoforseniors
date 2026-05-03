@@ -2,61 +2,36 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Flash Loan Practice Simulator – Crypto For Seniors</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>Practice Simulator</title>
 <style>
-body{margin:0;background:#0b0b0b;color:#e6e6e6;font-family:Arial,Helvetica,sans-serif}
-header{background:#111;border-bottom:1px solid #333;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-header a{color:#9fd3ff;text-decoration:none;font-weight:bold}
-select{background:#1a1a1a;color:#e6e6e6;border:1px solid #444;padding:6px;border-radius:4px}
-main{max-width:900px;margin:auto;padding:50px 20px;text-align:center}
-h1{color:#9fd3ff}
-.banner{border:2px solid #ffb84d;background:#1e1e1e;padding:14px;margin:20px auto;font-weight:bold;border-radius:6px}
-p{max-width:760px;margin:16px auto;line-height:1.6}
-input{padding:12px;font-size:1.1rem;width:240px;text-align:center;border-radius:6px;border:none}
-button{margin-top:18px;padding:14px 28px;font-size:1.1rem;font-weight:bold;background:#9fd3ff;color:#000;border:none;border-radius:6px;cursor:pointer}
-.result{display:none;margin-top:30px;padding:20px;border:1px solid #333;background:#141414;border-radius:8px}
+body { background:#111; color:#eee; font-family:Arial; text-align:center; padding:20px; }
+button { padding:10px 20px; margin:20px; }
+canvas { border:1px solid #333; margin-top:20px; }
+#out { display:none; margin-top:20px; }
 </style>
 </head>
 
 <body>
 
-<header>
-  <a href="/cryptoforseniors/practice/" data-i18n="back"></a>
-  <select id="lang"></select>
-</header>
+<h1>Practice Simulator</h1>
 
-<main>
-  <h1 data-i18n="title"></h1>
+<button id="run">Run Simulation</button>
 
-  <div class="banner" data-i18n="banner"></div>
+<canvas id="chart" width="900" height="300"></canvas>
 
-  <p data-i18n="intro"></p>
-  <p data-i18n="prompt"></p>
+<div id="out"></div>
 
-  <input id="amount" type="number" placeholder="10000"><br>
-<button id="run" data-i18n="run"></button>
-
-<canvas id="chart" width="900" height="300" style="border:1px solid #333;margin-top:20px;"></canvas>
-
-  <div id="out" class="result"></div>
-</main>
-
-<script>
 <script>
 window.onload = function() {
 
 const canvas = document.getElementById("chart");
 const ctx = canvas.getContext("2d");
 
-let chartData = [];
-
 function generateChart() {
   let data = [];
   let value = 10;
 
-  for (let i=0; i<80; i++) {
+  for (let i = 0; i < 80; i++) {
     if (i < 20) value += Math.random()*1.5;
     else if (i === 25) value += 15;
     else if (i > 25 && i < 40) value += (Math.random()*2 - 0.5);
@@ -65,6 +40,7 @@ function generateChart() {
 
     data.push(value);
   }
+
   return data;
 }
 
@@ -81,46 +57,30 @@ function drawChart(data) {
   ctx.stroke();
 }
 
-function drawEventMarkers() {
+function drawLabels() {
   ctx.fillStyle = "red";
-  ctx.fillText("Whale Pump", 250, 50);
+  ctx.fillText("Pump", 250, 50);
   ctx.fillText("Trap", 350, 60);
-  ctx.fillText("Rug Pull", 450, 100);
+  ctx.fillText("Dump", 450, 100);
 }
 
 function runSim() {
-  chartData = generateChart();
-  drawChart(chartData);
-  drawEventMarkers();
+  const chart = generateChart();
+  drawChart(chart);
+  drawLabels();
 
-  let entry = chartData[30];
-  let exit = chartData[79];
+  let entry = chart[30];
+  let exit = chart[79];
   let single = exit - entry;
 
-  let multi = 0;
-  let entries = [10,20,30];
-  let exits = [25,35,40];
-
-  entries.forEach((e,i)=>{
-    multi += chartData[exits[i]] - chartData[e];
-  });
-
-  showResults(single, multi);
-}
-
-function showResults(single, multi) {
-  let message = "";
-
-  if (single < 0 && multi > 0) {
-    message = "Single wallet got trapped. Multi-wallet reduced risk.";
-  } else {
-    message = "Both strategies faced risk. Timing matters.";
-  }
+  let multi =
+    (chart[25] - chart[10]) +
+    (chart[35] - chart[20]) +
+    (chart[40] - chart[30]);
 
   document.getElementById("out").innerText =
     "Single Wallet: " + single.toFixed(2) +
-    " | Multi Wallet: " + multi.toFixed(2) +
-    "\n" + message;
+    " | Multi Wallet: " + multi.toFixed(2);
 
   document.getElementById("out").style.display = "block";
 }
