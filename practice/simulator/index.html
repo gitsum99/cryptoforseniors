@@ -42,207 +42,83 @@ button{margin-top:18px;padding:14px 28px;font-size:1.1rem;font-weight:bold;backg
 </main>
 
 <script>
-const I18N={
-  en:{name:"English"},
-  fr:{name:"Français"},
-  es:{name:"Español"},
-  hr:{name:"Hrvatski"},
-  tl:{name:"Filipino (Tagalog)"},
-  ja:{name:"日本語"},
-  "zh-cn":{name:"中文（简体）"},
-  "zh-tw":{name:"中文（繁體）"}
-};
+const canvas = document.getElementById("chart");
+const ctx = canvas.getContext("2d");
 
-const PAGE_TEXT={
-en:{
-  back:"Back to Practice Mode",
-  title:"Flash Loan Practice Simulator",
-  banner:"PRACTICE ONLY — Fake funds, real prices, no wallets, no transactions",
-  intro:"This simulator demonstrates flash loans using simulated balances and read-only market data.",
-  prompt:"Enter a simulated loan amount (USDC):",
-  run:"Run Simulation",
-  bad:"Please enter a valid amount.",
-  load:"Loading market price…",
-  res:"Simulation Result",
-  price:"Market price",
-  loan:"Simulated loan",
-  cost:"Estimated costs",
-  gain:"Estimated gain",
-  profit:"Result: Profit",
-  loss:"Result: Loss"
-},
-fr:{
-  back:"Retour au mode pratique",
-  title:"Simulateur de prêt flash",
-  banner:"PRATIQUE UNIQUEMENT — Fonds simulés",
-  intro:"Ce simulateur montre les prêts flash avec des données simulées.",
-  prompt:"Entrez un montant simulé (USDC):",
-  run:"Lancer la simulation",
-  bad:"Veuillez entrer un montant valide.",
-  load:"Chargement du prix…",
-  res:"Résultat de la simulation",
-  price:"Prix du marché",
-  loan:"Montant simulé",
-  cost:"Coûts estimés",
-  gain:"Gain estimé",
-  profit:"Résultat : Profit",
-  loss:"Résultat : Perte"
-},
-es:{
-  back:"Volver al modo de práctica",
-  title:"Simulador de préstamo flash",
-  banner:"PRÁCTICA SOLAMENTE — Fondos simulados",
-  intro:"Este simulador explica los préstamos flash con datos simulados.",
-  prompt:"Ingrese un monto simulado (USDC):",
-  run:"Ejecutar simulación",
-  bad:"Ingrese un monto válido.",
-  load:"Cargando precio…",
-  res:"Resultado de la simulación",
-  price:"Precio de mercado",
-  loan:"Monto simulado",
-  cost:"Costos estimados",
-  gain:"Ganancia estimada",
-  profit:"Resultado: Ganancia",
-  loss:"Resultado: Pérdida"
-},
-hr:{
-  back:"Natrag na način vježbanja",
-  title:"Simulator flash zajma",
-  banner:"VJEŽBA — Simulirana sredstva",
-  intro:"Simulator prikazuje flash zajmove uz simulirane podatke.",
-  prompt:"Unesite simulirani iznos (USDC):",
-  run:"Pokreni simulaciju",
-  bad:"Unesite ispravan iznos.",
-  load:"Učitavanje cijene…",
-  res:"Rezultat simulacije",
-  price:"Tržišna cijena",
-  loan:"Simulirani zajam",
-  cost:"Procijenjeni troškovi",
-  gain:"Procijenjena dobit",
-  profit:"Rezultat: Dobit",
-  loss:"Rezultat: Gubitak"
-},
-tl:{
-  back:"Bumalik sa Practice Mode",
-  title:"Flash Loan Practice Simulator",
-  banner:"PRACTICE ONLY — Simulated na pondo",
-  intro:"Ipinapakita ng simulator na ito ang flash loans gamit ang simulated na datos.",
-  prompt:"Ilagay ang simulated na halaga (USDC):",
-  run:"Simulan ang simulation",
-  bad:"Maglagay ng wastong halaga.",
-  load:"Kinukuha ang presyo…",
-  res:"Resulta ng simulation",
-  price:"Presyo sa merkado",
-  loan:"Simulated na loan",
-  cost:"Tinatayang gastos",
-  gain:"Tinatayang kita",
-  profit:"Resulta: Kita",
-  loss:"Resulta: Lugi"
-},
-ja:{
-  back:"練習モードに戻る",
-  title:"フラッシュローン練習シミュレーター",
-  banner:"練習専用 — 模擬資金",
-  intro:"このシミュレーターは模擬データでフラッシュローンを学びます。",
-  prompt:"模擬ローン金額を入力 (USDC):",
-  run:"シミュレーション実行",
-  bad:"有効な金額を入力してください。",
-  load:"価格を取得中…",
-  res:"シミュレーション結果",
-  price:"市場価格",
-  loan:"模擬ローン",
-  cost:"推定コスト",
-  gain:"推定利益",
-  profit:"結果：利益",
-  loss:"結果：損失"
-},
-"zh-cn":{
-  back:"返回练习模式",
-  title:"闪电贷练习模拟器",
-  banner:"仅限练习 — 模拟资金",
-  intro:"此模拟器使用模拟数据讲解闪电贷。",
-  prompt:"输入模拟金额 (USDC):",
-  run:"运行模拟",
-  bad:"请输入有效金额。",
-  load:"加载价格中…",
-  res:"模拟结果",
-  price:"市场价格",
-  loan:"模拟贷款",
-  cost:"预计成本",
-  gain:"预计收益",
-  profit:"结果：盈利",
-  loss:"结果：亏损"
-},
-"zh-tw":{
-  back:"返回練習模式",
-  title:"閃電貸練習模擬器",
-  banner:"僅限練習 — 模擬資金",
-  intro:"此模擬器使用模擬資料說明閃電貸。",
-  prompt:"輸入模擬金額 (USDC):",
-  run:"執行模擬",
-  bad:"請輸入有效金額。",
-  load:"載入價格中…",
-  res:"模擬結果",
-  price:"市場價格",
-  loan:"模擬貸款",
-  cost:"預估成本",
-  gain:"預估收益",
-  profit:"結果：盈利",
-  loss:"結果：虧損"
-}
-};
+let chartData = [];
 
-function initLang(){
-  const sel=document.getElementById("lang");
-  Object.keys(I18N).forEach(k=>{
-    const o=document.createElement("option");
-    o.value=k;o.textContent=I18N[k].name;sel.appendChild(o);
-  });
-  function apply(l){
-    localStorage.setItem("cfs-lang",l);
-    document.documentElement.lang=l;
-    document.querySelectorAll("[data-i18n]").forEach(el=>{
-      const key=el.dataset.i18n;
-      if(PAGE_TEXT[l] && PAGE_TEXT[l][key]){
-        el.textContent=PAGE_TEXT[l][key];
-      }
-    });
+function generateChart() {
+  let data = [];
+  let value = 10;
+
+  for (let i=0; i<80; i++) {
+
+    if (i < 20) value += Math.random()*1.5;
+    else if (i === 25) value += 15;
+    else if (i > 25 && i < 40) value += (Math.random()*2 - 0.5);
+    else if (i === 45) value -= 25;
+    else value += (Math.random() - 0.5);
+
+    data.push(value);
   }
-  const start=localStorage.getItem("cfs-lang")||"en";
-  sel.value=start;apply(start);
-  sel.onchange=e=>apply(e.target.value);
+
+  return data;
 }
 
-async function runSim(){
-  const lang=localStorage.getItem("cfs-lang")||"en";
-  const t=PAGE_TEXT[lang];
-  const amt=parseFloat(document.getElementById("amount").value);
-  const out=document.getElementById("out");
+function drawChart(data) {
+  ctx.clearRect(0,0,900,300);
 
-  if(isNaN(amt)||amt<=0){alert(t.bad);return;}
+  ctx.beginPath();
+  ctx.moveTo(0,250 - data[0]*5);
 
-  out.style.display="block";
-  out.textContent=t.load;
+  data.forEach((v,i)=>{
+    ctx.lineTo(i*10, 250 - v*5);
+  });
 
-  const r=await fetch("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
-  const d=await r.json();
-  const price=d.ethereum.usd;
-
-  const cost=amt*0.003;
-  const gain=amt*0.0025;
-  const net=gain-cost;
-
-  out.innerHTML=
-    `<h3>${t.res}</h3>
-     <p>${t.price}: $${price}</p>
-     <p>${t.loan}: $${amt.toLocaleString()}</p>
-     <p>${t.cost}: $${cost.toFixed(2)}</p>
-     <p>${t.gain}: $${gain.toFixed(2)}</p>
-     <p><strong>${net>0?t.profit:t.loss} $${Math.abs(net).toFixed(2)}</strong></p>`;
+  ctx.stroke();
 }
 
-document.getElementById("run").onclick=runSim;
-initLang();
+function drawEventMarkers() {
+  ctx.fillStyle = "red";
+  ctx.fillText("Whale Pump", 250, 50);
+  ctx.fillText("Trap", 350, 60);
+  ctx.fillText("Rug Pull", 450, 100);
+}
+
+function runSim() {
+  chartData = generateChart();
+  drawChart(chartData);
+  drawEventMarkers();
+
+  let entry = chartData[30];
+  let exit = chartData[79];
+  let single = exit - entry;
+
+  let multi = 0;
+  let entries = [10,20,30];
+  let exits = [25,35,40];
+
+  entries.forEach((e,i)=>{
+    multi += chartData[exits[i]] - chartData[e];
+  });
+
+  showResults(single, multi);
+}
+
+function showResults(single, multi) {
+  let message = "";
+
+  if (single < 0 && multi > 0) {
+    message = "Single wallet got trapped. Multi-wallet reduced risk.";
+  } else {
+    message = "Both strategies faced risk. Timing matters.";
+  }
+
+  document.getElementById("results").innerText =
+    "Single Wallet: " + single.toFixed(2) +
+    " | Multi Wallet: " + multi.toFixed(2) +
+    "\n" + message;
+}
 </script>
 
 </body>
