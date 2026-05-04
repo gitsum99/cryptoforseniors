@@ -15,11 +15,15 @@
   - Require initial pool liquidity >= `30 SOL` (hard floor).
   - Prefer liquidity band `50-300 SOL`; reject if liquidity collapses > `25%` in 10 minutes.
 - **0.3 Volume Spike Detection**
-  - Compute rolling volume ratio: `V_5m / median(V_5m over prior 30m)`.
+  - Compute rolling volume ratio with a history-safe baseline:
+    - If age since pool creation >= 30 minutes: `V_5m / median(V_5m over prior 30m)`.
+    - If age is 8-30 minutes: `V_5m / median(all completed 5m buckets since minute 0, minimum 2 buckets)` and skip candidate until minimum buckets exist.
+    - Apply denominator floor `max(baseline, 1 SOL)` to avoid divide-by-near-zero artifacts for tiny/new pools.
   - Require ratio >= `2.5` and absolute `V_5m >= 10 SOL`.
 - **0.4 Dev Wallet Behavior Tracking**
   - Identify deployer + linked wallets by first-hop transfers.
-  - Reject if deployer-linked wallets sell > `5%` of supply in first 60 minutes.
+  - Reject if deployer-linked wallets cumulative sells exceed `5%` of supply **up to decision time** (no future-window lookahead).
+  - Additional delayed integrity rule: at minute 60, mark token ineligible for any re-entry if cumulative sells over first 60 minutes exceed `5%`.
   - Reject if > `3` linked wallets receive large allocations (> `1%` each) before public trading.
 - **0.5 Holder Distribution Analysis**
   - Top-10 holders excluding LP + burn <= `35%` of supply.
