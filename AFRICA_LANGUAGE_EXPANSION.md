@@ -1,6 +1,6 @@
 # African Language Expansion
 
-Add these languages to Crypto for Seniors after/palongside the current 24-language expansion, preserving all existing languages and avoiding duplicates:
+These requested languages are included in the language expansion, preserving all existing languages and avoiding duplicates. Arabic was already present; the final selector contains 31 unique languages. See [LANGUAGE_REVIEW.md](LANGUAGE_REVIEW.md) for implementation, validation and remaining translation review.
 
 - Arabic (`ar`)
 - Swahili (`sw`)
